@@ -2,7 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 
 
-const Login = () =>{
+const Gate = () =>{
 
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
@@ -43,4 +43,4 @@ const Login = () =>{
     )
 }
 
-export default Login;
+export default Gate;
