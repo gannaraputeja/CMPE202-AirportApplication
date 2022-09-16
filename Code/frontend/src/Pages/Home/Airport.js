@@ -2,7 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 
 
-const Gate = () =>{
+const Airport = () =>{
 
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
@@ -16,6 +16,11 @@ const Gate = () =>{
         // getData();
         // getGateMaintainData();
     },[]);
+    const [data,setData] = useState();
+    const [radio,setRadio] = useState();
+    const [role,setRole] = useState('');
+    const [username,setUsername] = useState('');
+    const [gatewayList,setGatewayList] = useState([]);
 
 
     return(
@@ -41,4 +46,4 @@ const Gate = () =>{
     )
 }
 
-export default Gate;
+export default Airport;
