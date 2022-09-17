@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class User {
     private String firstname;
@@ -6,6 +7,8 @@ public class User {
     private String password;
     private Status status;
     private AccountType type;
+    private Date createdOn;
+    private Date updatedOn;
 
     public User(String firstname, String lastname, String email, String password, Status status, AccountType type) {
         this.firstname = firstname;
