@@ -1,21 +1,19 @@
-import java.util.*;
-
-public class AirlineEmployee extends User {
-
-    private Airline airline;
+public class Airport {
+    private Integer id;
+    private String name;
     private Date createdOn;
     private Date updatedOn;
 
-    public AirlineEmployee(Airline airline) {
-        this.airline = airline;
+    public Airport(String name) {
+        this.name = name;
     }
 
-    public Airline getAirline() {
-        return this.airline;
+    public String getName() {
+        return this.name;
     }
 
-    public void setAirline(Airline airline) {
-        this.airline = airline;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getCreatedOn() {
@@ -33,6 +31,5 @@ public class AirlineEmployee extends User {
     public Date setUpdatedOn() {
         return this.updatedOn;
     }
-
 
 }
