@@ -18,9 +18,6 @@ const Airport = () =>{
     },[]);
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
-    const [role,setRole] = useState('');
-    const [username,setUsername] = useState('');
-    const [gatewayList,setGatewayList] = useState([]);
 
 
     return(
