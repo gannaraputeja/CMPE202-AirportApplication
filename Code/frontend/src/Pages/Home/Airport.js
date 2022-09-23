@@ -30,7 +30,7 @@ const Airport = () =>{
                             <div class="col">
                                 {role==='1'?
                                     <button type="submit" className="btn btn-primary" >Gateway maintenance 🚪</button>:
-                                    <button type="submit" className="btn btn-primary" >Airline Employee ✈️👨‍✈️</button>
+
                                 }
                             </div>
                         </div>
