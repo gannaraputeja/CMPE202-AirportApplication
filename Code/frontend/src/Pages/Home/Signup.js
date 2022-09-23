@@ -28,10 +28,7 @@ const Signup = () =>{
                     <div class="col-4">
                         <div class="row">
                             <div class="col">
-                                {role==='1'?
-                                    <button type="submit" className="btn btn-primary" >Gateway maintenance 🚪</button>:
 
-                                }
                             </div>
                             Auth-form {
                             width: 420px;
