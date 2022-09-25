@@ -2,19 +2,19 @@
 
 ## Week 1
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication
 
 -
 
