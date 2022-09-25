@@ -8,7 +8,7 @@
 
 ### Jaya Prakash Reddy Pachika - Communication
 
--
+- 
 
 ### Dasaradh Gutta - Communication
 
@@ -16,7 +16,8 @@
 
 ### Prudhvi M.V.N.S - Communication
 
--
+- Got to know about each team member's expertise in tech stack for a productive collaborative work.
+- Discussed about the requirements and setting up.
 
 ## Week 2
 
