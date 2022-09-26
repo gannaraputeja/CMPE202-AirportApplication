@@ -7,7 +7,9 @@ const HomePage2 = () =>{
 
     const bfun=()=>{
         console.log("heyyy");
-        setflightname();
+        var count;
+        count=count+1
+        setflightname(count);
     }
     return (
         <div>
