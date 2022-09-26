@@ -1,9 +1,13 @@
-import react from 'React';
+import react,{useState} from 'React';
 
 const HomePage2 = () =>{
 
+    const [flightname,setflightname] = useState('');
+
+
     const bfun=()=>{
         console.log("heyyy");
+        setflightname();
     }
     return (
         <div>
