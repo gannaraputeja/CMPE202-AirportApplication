@@ -2,7 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 
 
-const Airport = () =>{
+const Signup = () =>{
 
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
@@ -33,6 +33,15 @@ const Airport = () =>{
 
                                 }
                             </div>
+                            Auth-form {
+                            width: 420px;
+                            box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+                            padding-top: 30px;
+                            padding-bottom: 20px;
+                            border-radius: 8px;
+                            background-color: white;
+                        }
+
                         </div>
                     </div>
                 </div>
@@ -42,4 +51,4 @@ const Airport = () =>{
     )
 }
 
-export default Airport;
+export default Signup;
