@@ -3,6 +3,7 @@ import react,{useState} from 'React';
 const HomePage2 = () =>{
 
     const [flightname,setflightname] = useState('');
+    const [home,setHome] = useState();
 
 
     const bfun=()=>{
