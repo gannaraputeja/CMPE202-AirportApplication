@@ -2,7 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 
 
-const Airport = () =>{
+const Signup = () =>{
 
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
@@ -29,13 +29,7 @@ const Airport = () =>{
                     <div class="col-4"></div>
                     <div class="col-4">
                         <div class="row">
-                            <div class="col">
-                            </div>
-                            width: 100vw;
-                            height: 100vh;
-                        }
-                        </div>
-                    </div>
+
                 </div>
             </div>
 
@@ -43,4 +37,4 @@ const Airport = () =>{
     )
 }
 
-export default Airport;
+export default Signup;
