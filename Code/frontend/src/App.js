@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home/Home';
+import HomePage2 from './Pages/Home/HomePage2';
 import HomePage from './Pages/Home/HomePage';
 import LoginPage from './Pages/Home/LoginPage';
 import SchedulePage from './Pages/Home/SchedulePage';
@@ -11,6 +12,7 @@ import BaggageCarousel from './Pages/Home/BaggageCarousel';
 import UpdateFlight2 from './Pages/Home/UpdateFlight2';
 import ProfilePage from './Pages/Home/ProfilePage';
 import AddFlight from './Pages/Home/AddFlight';
+
 function App() {
   return (
     <div className="App">
