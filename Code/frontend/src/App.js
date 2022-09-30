@@ -20,6 +20,7 @@ function App() {
         <div className="blur" style= {{top: '37%', left: '-8rem'}}></div>
         <Routes>
           <Route path='/' element={ <HomePage /> } />
+          <Route path="/HomePage2" element={<HomePage2 />}></Route>
           <Route path="/LoginPage" element={<LoginPage />}></Route>
           <Route path="/SchedulePage" element={<SchedulePage />}></Route>
           <Route path="/Gateway" element={<Gateway />}></Route>
