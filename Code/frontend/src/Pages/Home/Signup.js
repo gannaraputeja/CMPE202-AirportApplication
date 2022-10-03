@@ -19,7 +19,26 @@ const Signup = () =>{
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
 
+    const usernameFun = event =>{
+        setIsUsername(event.target.value);
+    }
+    const passFun = event =>{
+        setIsPassword(event.target.value);
+    }
+    const handleRole= event =>{
+        console.log("ROLE VAL:::",event.target.value);
+        window.sessionStorage.setItem("Role",event.target.value);
+        setRole(event.target.value);
 
+    }
+
+    const validate = () => {
+        if(validator.isEmail(isUsername)){
+            setValidateEmail(true);
+        }
+        else {
+            setValidateEmail(false);
+        }
     return(
         <div>BaggageCarousel
 
