@@ -1,6 +1,7 @@
-import express from 'express'
-// App configuration
-const app = express().Router();
+import HomeRoute from './HomeRoute.js'
 
-app.use('/', (req, res) => res.send('Hello World'))
+const Routes = (app) => {
+    app.use('/', HomeRoute)
+}
 
+export default Routes
