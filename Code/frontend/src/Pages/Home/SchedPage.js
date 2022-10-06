@@ -3,7 +3,7 @@ import react from 'React';
 const SchedPage = () =>{
     return (
         <div>
-            home
+            Schedule page for
         </div>
     )
 }
