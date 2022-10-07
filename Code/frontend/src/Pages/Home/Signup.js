@@ -32,8 +32,7 @@ const Signup = () =>{
                                 {/* <div class="col usernameclass">Hi {username} 👋</div> */}
                             </div>
                             Auth-form {
-                            border-radius: 8px;
-                            background-color: white;
+
                         }
 
                         </div>
