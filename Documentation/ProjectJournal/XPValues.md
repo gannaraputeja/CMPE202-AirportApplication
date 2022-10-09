@@ -35,7 +35,9 @@
 
 ### Prudhvi M.V.N.S - Communication, Feedback
 
--
+- Learned how to create wireframes using Figma.
+- created some mock wireframes and took feedback from the team.
+- created sprint sheet to enter sprint logs.
 
 
 ## Weeks 3
