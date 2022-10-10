@@ -31,9 +31,6 @@ const HomePage = () =>{
     const navigateToUserreg = () => {
         navigate('/UserReg');
     }
-    const getData = () =>{        
-    }
-
 
     return (
         // <div>Homepage</div>
