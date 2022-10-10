@@ -31,22 +31,7 @@ const HomePage = () =>{
     const navigateToUserreg = () => {
         navigate('/UserReg');
     }
-
-    // const options = {
-    //     method: 'GET',
-    //     headers: {
-    //         'X-RapidAPI-Key': '5120012ff3msh922f831d9a6cb93p11bd90jsn0e15e62236de',
-    //         'X-RapidAPI-Host': 'airport-info.p.rapidapi.com'
-    //     }
-    // };
-
-
-    const getData = () =>{
-        // fetch("https://jsonplaceholder.typicode.com/posts")
-        // .then(response => {return response.json();})
-        // .then(data => {console.log(data);})
-        // .then(data => setdata(data));
-        
+    const getData = () =>{        
     }
 
 
