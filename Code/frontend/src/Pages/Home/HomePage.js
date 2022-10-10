@@ -42,11 +42,6 @@ const HomePage = () =>{
 
 
     const getData = () =>{
-        // return fetch("https://api.sampleapis.com/simpsons/episodes")
-        // .then((response) => console.log(response))
-        // .then((data) => setdata(data));
-
-
         // fetch("https://jsonplaceholder.typicode.com/posts")
         // .then(response => {return response.json();})
         // .then(data => {console.log(data);})
