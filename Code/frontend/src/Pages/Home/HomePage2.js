@@ -12,6 +12,7 @@ const HomePage2 = () =>{
         var count;
         count=count+1
         setflightname(count);
+        
     }
     return (
         <div>
