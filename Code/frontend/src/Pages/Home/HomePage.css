@@ -1,0 +1,35 @@
+.bodyclass{
+    background-image:url("/Users/prudhvi/react/team_project/src/components/assets/v.jpeg");
+}
+.buttonclass{
+    background-color: yellow;
+    margin:20px;
+    border-radius:10px;
+    color:black;
+}
+.buttonclass:hover{
+    background-color:black;
+    color:yellow !important;
+    
+}
+.button{
+    margin:20% auto;
+}
+.container{
+    height:100vh;
+}
+.title{
+    text-align:center;
+    font-size:10px;
+    font-weight:bold;
+}
+/* .loginclass{
+    width:50vw;
+    height:90vh;
+    margin:0px auto;
+    display:flex;
+    justify-content:center;
+    background-color:green;
+    border-radius:15px;
+    padding:20px;
+} */
