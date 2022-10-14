@@ -2,7 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 
 
-const Signup = () =>{
+const Login = () =>{
 
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
@@ -37,6 +37,14 @@ const Signup = () =>{
         else {
             setValidateEmail(false);
         }
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgb(34, 34, 34);
+        }
+    .selectWidth{
+            margin: auto;
+        }
     return(
         <div>BaggageCarousel
 
@@ -54,4 +62,4 @@ const Signup = () =>{
     )
 }
 
-export default Signup;
+export default Login;
