@@ -2,7 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 
 
-const Signup = () =>{
+const Login = () =>{
 
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
@@ -31,10 +31,13 @@ const Signup = () =>{
                                 {role !=='1' || role !== '2'?<div class="col usernameclass">Hi Guest 👋</div>:<div class="col usernameclass">Hi {username} 👋</div>}
                                 {/* <div class="col usernameclass">Hi {username} 👋</div> */}
                             </div>
-                            Auth-form {
-
+                            Auth-form-container {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100vw;
+                            height: 100vh;
                         }
-
                         </div>
                     </div>
                 </div>
@@ -44,4 +47,4 @@ const Signup = () =>{
     )
 }
 
-export default Signup;
+export default Login;
