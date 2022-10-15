@@ -98,7 +98,8 @@
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity
 
--
+- Discussed about the database tables and their relationship with other tables.
+- Worked on Database Views and discussed with team members.
 
 ## Week 6
 
