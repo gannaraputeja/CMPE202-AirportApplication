@@ -31,8 +31,6 @@ const Login = () =>{
                                 {role !=='1' || role !== '2'?<div class="col usernameclass">Hi Guest 👋</div>:<div class="col usernameclass">Hi {username} 👋</div>}
                                 {/* <div class="col usernameclass">Hi {username} 👋</div> */}
                             </div>
-                            Auth-form-container {
-                            display: flex;
                             justify-content: center;
                             align-items: center;
                             width: 100vw;
