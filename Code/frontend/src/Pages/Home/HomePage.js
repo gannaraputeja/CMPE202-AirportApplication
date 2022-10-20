@@ -14,7 +14,6 @@ const HomePage = () =>{
 
     useEffect(()=>{
         sessionStorage.clear();
-        getData();
     })
 
     const navigate = useNavigate();
