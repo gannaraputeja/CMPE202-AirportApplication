@@ -38,11 +38,11 @@ const HomePage = () =>{
             <Header/>
         </div>
         <div class="title">
-            {/*<h2>SJC Airport</h2>*/}
+            <h2>SJC Airport</h2>
         </div>
                 <div class="container">   
                             <div class="button">
-                                <div class="row">
+                                {/* <div class="row">
                                     <div class="buttonclass col text-center">
                                         <button type="button" class="btn btn-default" onClick={navigateToUserreg}>User</button>
                                     </div>
@@ -50,7 +50,7 @@ const HomePage = () =>{
                                         <button type="button" class="btn btn-default" onClick={navigateToLoginPage} >Employee</button>
                                     </div>
                                
-                                </div>
+                                </div> */}
 
                                 <div class="row">
                                     <div class="buttonclass col text-center" onClick={navigateToSchedule} >
