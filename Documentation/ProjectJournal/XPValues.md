@@ -56,7 +56,8 @@
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity
 
--
+- Created wireframes using  figma for Home page, login page, schedule page, update flight page, Baggage carousel page,profile page.
+- Disccused with the team about the design, colours and the functionality through UI Buttons and routes.
 
 
 ## Week 4
