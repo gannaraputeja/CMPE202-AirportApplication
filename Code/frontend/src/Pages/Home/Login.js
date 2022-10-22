@@ -14,8 +14,7 @@ const Login = () =>{
         // getData();
         // getGateMaintainData();
     },[]);
-    const [data,setData] = useState();
-    const [radio,setRadio] = useState();
+
 
     const usernameFun = event =>{
         setIsUsername(event.target.value);
