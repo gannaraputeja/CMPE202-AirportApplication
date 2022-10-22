@@ -29,7 +29,7 @@ Team 4
 ### Business Level 
 
 
-### Tasks
+### Areas of Contribution
 - **Fronend:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika, Dasaradh Gutta, Prudhvi M.V.N.S
 - **Backend:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika, Dasaradh Gutta, Prudhvi M.V.N.S
 - **Architecture:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika
@@ -55,10 +55,13 @@ Team 4
 ### Scrum Board
 https://github.com/orgs/gopinathsjsu/projects/42/views/1
 
-### Task Sheet and Burn-down Chart
 
 
 ### Project Journal
+
+
+### Sprint Task Sheet and Burn-down Chart
+https://docs.google.com/spreadsheets/d/1mV-_rTtNV9uXpyWfrkMKbHonhV6h5qCk/edit#gid=624292443
 
 
 ### Steps to Run Application
