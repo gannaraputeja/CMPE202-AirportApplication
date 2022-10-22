@@ -1,7 +1,14 @@
 // Imports dependencies
 import express from 'express'
+import bodyParser from 'body-parser'
+import session from 'express-session'
+import dotenv from 'dotenv'
+import cors from 'cors'
+import routes from './Routes/index.js'
+import { db } from './Models/index.js'
 import swaggerDocument from './swagger.json' assert {type: "json"}
-
+import swaggerUi from 'swagger-ui-express'
+// const swaggerDocument = require('swagger.json')
 // App configuration
 const app = express();
 
@@ -10,6 +17,8 @@ app.set('view engine', 'ejs');
 
 // CORS Setup
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+
+
 
 // Session Setup
 app.use(
@@ -26,6 +35,12 @@ app.use(
 app.use(bodyParser.json({limit: '30mb', extended: true}));
 app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
 
+//Swagger UI
+app.use(
+    '/api-docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerDocument)
+);
 // Configuration
 dotenv.config()
 
