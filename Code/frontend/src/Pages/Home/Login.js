@@ -28,8 +28,6 @@ const Login = () =>{
                     <div class="col-4">
                         <div class="row">
                             <div class="col">
-                                {role !=='1' || role !== '2'?<div class="col usernameclass">Hi Guest 👋</div>:<div class="col usernameclass">Hi {username} 👋</div>}
-                                {/* <div class="col usernameclass">Hi {username} 👋</div> */}
                             </div>
                             justify-content: center;
                             align-items: center;
