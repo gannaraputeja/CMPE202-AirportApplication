@@ -2,7 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 
 
-const Login = () =>{
+const Gate = () =>{
 
 
     const [username,setUsername] = useState('');
@@ -14,6 +14,13 @@ const Login = () =>{
         // getData();
         // getGateMaintainData();
     },[]);
+    width:40vw;
+    height:60vh;
+    background-color:sandybrown;
+    border-radius:10px;
+    margin:auto;
+    margin-top:20vh;
+    color:text;
 
 
     const usernameFun = event =>{
@@ -59,4 +66,4 @@ const Login = () =>{
     )
 }
 
-export default Login;
+export default Gate;
