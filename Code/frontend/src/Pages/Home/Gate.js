@@ -14,8 +14,7 @@ const Gate = () =>{
         // getData();
         // getGateMaintainData();
     },[]);
-    width:40vw;
-    height:60vh;
+
     background-color:sandybrown;
     border-radius:10px;
     margin:auto;
@@ -30,8 +29,6 @@ const Gate = () =>{
     const handleRole= event =>{
         console.log("ROLE VAL:::",event.target.value);
         window.sessionStorage.setItem("Role",event.target.value);
-        setRole(event.target.value);
-
     }
 
     const validate = () => {
