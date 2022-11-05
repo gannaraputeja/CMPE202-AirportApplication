@@ -43,9 +43,7 @@ const Gate = () =>{
             font-weight: 600;
             color: rgb(34, 34, 34);
         }
-    .selectWidth{
-            margin: auto;
-        }
+    .
     return(
         <div>BaggageCarousel
 
