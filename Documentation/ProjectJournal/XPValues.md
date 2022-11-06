@@ -76,7 +76,9 @@
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity
 
--
+- Setup for frontend application in device.
+- Used React JS by instaliing Node and other required packages.
+- Got to know different concepts like Axios, Redux, etc;
 
 
 
