@@ -1,8 +1,8 @@
-import Home from './Home.js'
+import HomeRoute from './HomeRoute.js'
 import Airport from './AirportRoute.js'
 
 const Routes = (app) => {
-    app.use('/', Home)
+    app.use('/', HomeRoute)
     app.use('/airport', Airport)
 }
 
