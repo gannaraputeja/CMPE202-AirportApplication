@@ -5,7 +5,7 @@ import session from 'express-session'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import routes from './Routes/index.js'
-import db from './Models/index.js'
+import { db } from './Models/index.js'
 
 // App configuration
 const app = express();
@@ -55,19 +55,15 @@ routes(app);
 
 // Application Startup
 const startUp = () => {
-
     db.sequelize.authenticate().then(() => {
-      console.log("Database authenticated.")
-
-      const port = process.env.PORT || 3001
-      app.listen(port, () => console.log(`Server listening at ${port}..`))
-
-      db.sequelize.sync(/*{force: true}*/).then(() => {
-        console.log("Database synced.")
-      }).catch((err) => {
-        console.log("Failed to sync database: " + err.message)
-      })
-
+        console.log("Database authenticated.")
+        db.sequelize.sync(/*{force: true}*/).then(() => {
+            console.log("Database synced.")
+            const port = process.env.PORT || 3001
+            app.listen(port, () => console.log(`Server listening at ${port}..`))
+        }).catch((err) => {
+            console.log("Failed to sync database: " + err.message)
+        })
     }).catch((err) => {
       console.log("Failed to authenticate database: " + err.message)
     })
