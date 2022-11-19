@@ -19,7 +19,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.closeConnection = () => {
-    sequelize.close()
+  sequelize.close()
 }
 
 const { STRING, INTEGER, DATE, DATEONLY, ENUM } = Sequelize
@@ -31,23 +31,23 @@ const User = sequelize.define('user', {
     primaryKey: true
   },
   firstname: {
-      type: STRING
+    type: STRING
   },
   lastname: {
-      type: STRING
+    type: STRING
   },
   email: {
-      type: STRING,
-      unique: true
+    type: STRING,
+    unique: true
   },
   phone: {
-      type: STRING
+    type: STRING
   },
   gender: {
-      type: STRING
+    type: STRING
   },
   dob: {
-      type: DATEONLY
+    type: DATEONLY
   },
   accountStatus: {
     type: ENUM,
@@ -62,27 +62,27 @@ const User = sequelize.define('user', {
   }
 })
 
-const Address  = sequelize.define('address', {
+const Address = sequelize.define('address', {
   id: {
-      type: INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+    type: INTEGER,
+    autoIncrement: true,
+    primaryKey: true
   },
   street: {
-      type: STRING
+    type: STRING
   },
   state: {
-      type: STRING
+    type: STRING
   },
   country: {
-      type: STRING
+    type: STRING
   },
   zipcode: {
-      type: STRING
+    type: STRING
   }
 })
 
-User.hasOne(Address, { foreignKey: 'userId'} )
+User.hasOne(Address, { foreignKey: 'userId' })
 //Address.belongsTo(User)
 
 const Airport = sequelize.define('airport', {
@@ -167,7 +167,7 @@ const Flight = sequelize.define('flight', {
   },
   capacity: {
     type: INTEGER
-  }  
+  }
 })
 
 Airline.hasMany(Flight, { foreignKey: 'airlineId' })
