@@ -3,6 +3,6 @@ import { maintenance } from "../Controllers/AirportController.js"
 
 const router = express.Router()
 
-router.get('/maintenance/', maintenance)
+router.post('/maintenance/', maintenance)
 
 export default router

@@ -181,7 +181,7 @@ export const FlightInstance = sequelize.define('flightInstance', {
   },
   status: {
     type: ENUM,
-    values: ['active', 'inactive', 'arrived', 'departed', 'deplayed', 'cancelled']
+    values: ['active', 'inactive', 'arriving', 'arrived', 'departed', 'delayed', 'cancelled']
   },
   departureTime: {
     type: DATE
