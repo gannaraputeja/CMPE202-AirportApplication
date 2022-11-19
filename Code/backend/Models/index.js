@@ -14,7 +14,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   }
 });
 
-const db = {};
+export const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
@@ -24,7 +24,7 @@ db.closeConnection = () => {
 
 const { STRING, INTEGER, DATE, DATEONLY, ENUM } = Sequelize
 
-const User = sequelize.define('user', {
+export const User = sequelize.define('user', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -62,7 +62,7 @@ const User = sequelize.define('user', {
   }
 })
 
-const Address = sequelize.define('address', {
+export const Address  = sequelize.define('address', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -85,7 +85,7 @@ const Address = sequelize.define('address', {
 User.hasOne(Address, { foreignKey: 'userId' })
 //Address.belongsTo(User)
 
-const Airport = sequelize.define('airport', {
+export const Airport = sequelize.define('airport', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -96,7 +96,7 @@ const Airport = sequelize.define('airport', {
   }
 })
 
-const Terminal = sequelize.define('terminal', {
+export const Terminal = sequelize.define('terminal', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -110,7 +110,7 @@ const Terminal = sequelize.define('terminal', {
 Airport.hasMany(Terminal, { foreignKey: 'airportId' })
 //Terminal.belongsTo(Airport)
 
-const Gate = sequelize.define('gate', {
+export const Gate = sequelize.define('gate', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -128,7 +128,7 @@ const Gate = sequelize.define('gate', {
 Terminal.hasMany(Gate, { foreignKey: 'terminalId' })
 //Gate.belongsTo(Terminal)
 
-const BaggageCarousel = sequelize.define('baggageCarousel', {
+export const BaggageCarousel = sequelize.define('baggageCarousel', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -142,7 +142,7 @@ const BaggageCarousel = sequelize.define('baggageCarousel', {
 Gate.hasOne(BaggageCarousel, { foreignKey: 'gateId' })
 //BaggageCarousel.belongsTo(Gate)
 
-const Airline = sequelize.define('airline', {
+export const Airline = sequelize.define('airline', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -153,7 +153,7 @@ const Airline = sequelize.define('airline', {
   }
 })
 
-const Flight = sequelize.define('flight', {
+export const Flight = sequelize.define('flight', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -173,7 +173,7 @@ const Flight = sequelize.define('flight', {
 Airline.hasMany(Flight, { foreignKey: 'airlineId' })
 //Flight.belongsTo(Airline)
 
-const FlightInstance = sequelize.define('flightInstance', {
+export const FlightInstance = sequelize.define('flightInstance', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -200,7 +200,7 @@ const FlightInstance = sequelize.define('flightInstance', {
 Flight.hasMany(FlightInstance, { foreignKey: 'flightId' })
 //FlightInstance.belongsTo(Flight)
 
-const AirportSchedule = sequelize.define('airportSchedule', {
+export const AirportSchedule = sequelize.define('airportSchedule', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -226,7 +226,7 @@ Gate.hasOne(AirportSchedule, { foreignKey: 'gateId' })
 BaggageCarousel.hasOne(AirportSchedule, { foreignKey: 'baggageCarouselId' })
 //AirportSchedule.belongsTo(BaggageCarousel)
 
-const AirlineEmployee = sequelize.define('airlineEmployee', {})
+export const AirlineEmployee = sequelize.define('airlineEmployee', {})
 
 User.hasOne(AirlineEmployee, { foreignKey: 'userId' })
 //AirlineEmployee.belongsTo(User)
@@ -234,7 +234,7 @@ User.hasOne(AirlineEmployee, { foreignKey: 'userId' })
 Airline.hasMany(AirlineEmployee, { foreignKey: 'airlineId' })
 //AirlineEmployee.belongsTo(Airline)
 
-const AirportEmployee = sequelize.define('airportEmployee', {})
+export const AirportEmployee = sequelize.define('airportEmployee', {})
 
 User.hasOne(AirportEmployee, { foreignKey: 'userId' })
 //AirportEmployee.belongsTo(User)
@@ -242,16 +242,4 @@ User.hasOne(AirportEmployee, { foreignKey: 'userId' })
 Airport.hasMany(AirportEmployee, { foreignKey: 'airportId' })
 //AirportEmployee.belongsTo(Airport)
 
-db.user = User
-db.address = Address
-db.airport = Airport
-db.terminal = Terminal
-db.gate = Gate
-db.baggageCarousel = BaggageCarousel
-db.airline = Airline
-db.flight = Flight
-db.flightInstance = FlightInstance
-db.airportSchedule = AirportSchedule
-db.airlineEmployee = AirlineEmployee
 
-export default db;
