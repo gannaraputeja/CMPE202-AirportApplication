@@ -56,13 +56,20 @@ routes(app);
 // Application Startup
 const startUp = () => {
 
-    db.sequelize.sync().then(() => {
-      console.log("Synced database.")
+    db.sequelize.authenticate().then(() => {
+      console.log("Database authenticated.")
 
       const port = process.env.PORT || 3001
       app.listen(port, () => console.log(`Server listening at ${port}..`))
+
+      db.sequelize.sync(/* {force: true} */).then(() => {
+        console.log("Database synced.")
+      }).catch((err) => {
+        console.log("Failed to sync database: " + err.message)
+      })
+
     }).catch((err) => {
-      console.log("Failed to sync database: " + err.message)
+      console.log("Failed to authenticate database: " + err.message)
     })
 }
 
