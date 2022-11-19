@@ -62,7 +62,7 @@ const startUp = () => {
       const port = process.env.PORT || 3001
       app.listen(port, () => console.log(`Server listening at ${port}..`))
 
-      db.sequelize.sync({force: true}).then(() => {
+      db.sequelize.sync(/*{force: true}*/).then(() => {
         console.log("Database synced.")
       }).catch((err) => {
         console.log("Failed to sync database: " + err.message)
