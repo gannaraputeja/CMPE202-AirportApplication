@@ -1,7 +1,6 @@
 import express from 'express'
 import { AirportSchedule } from '../Models/index.js';
 import { Op } from 'sequelize'
-
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -16,11 +15,15 @@ router.get("/airportschedule/:id", async (req, res) => {
             console.log(endDate);
             const response = await AirportSchedule.findAll({
                 where: {
-                    arrivalTime:{
-                        [Op.between] : [ startDate, endDate]
-                    }
-                }
-            })
+                    [Op.or]:
+                        [{
+                            arrivalTime:{[Op.between] : [ startDate, endDate]}
+                         }, 
+                         {
+                            departureTime:{[Op.between] : [ startDate, endDate]}
+                         }] 
+                },
+            });
             return res.status(200).json(response);    
         }
         catch(err){ 
