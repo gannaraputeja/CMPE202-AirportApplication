@@ -205,12 +205,6 @@ export const AirportSchedule = sequelize.define('airportSchedule', {
     type: INTEGER,
     autoIncrement: true,
     primaryKey: true
-  },
-  arrivalTime: {
-    type: DATE
-  },
-  departureTime: {
-    type: DATE
   }
 })
 
