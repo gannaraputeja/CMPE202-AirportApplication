@@ -22,7 +22,7 @@ export const updateGatesStatus = async (req, res) => {
         //console.log(err)
         res.status(400).json({message: 'Failed to update gates maintenance status.'})
     }
-}
+};
 
 export const gateAssignment = async(req, res) =>{
     const t = await db.sequelize.transaction();
