@@ -23,14 +23,7 @@ const Schedule = () =>{
     color:text;
 
 
-    const usernameFun = event =>{
-        setIsUsername(event.target.value);
-    }
 
-    const handleRole= event =>{
-        console.log("ROLE VAL:::",event.target.value);
-        window.sessionStorage.setItem("Role",event.target.value);
-    }
     const getAirportSchedule = () =>{
         Axios.get(`${backendurl}/airport-schedules/${hours}`,)
             .then((response) => {
