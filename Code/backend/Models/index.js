@@ -19,7 +19,7 @@ export const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.closeConnection = () => {
-    sequelize.close()
+  sequelize.close()
 }
 
 const { STRING, INTEGER, DATE, DATEONLY, ENUM } = Sequelize
@@ -31,23 +31,23 @@ export const User = sequelize.define('user', {
     primaryKey: true
   },
   firstname: {
-      type: STRING
+    type: STRING
   },
   lastname: {
-      type: STRING
+    type: STRING
   },
   email: {
-      type: STRING,
-      unique: true
+    type: STRING,
+    unique: true
   },
   phone: {
-      type: STRING
+    type: STRING
   },
   gender: {
-      type: STRING
+    type: STRING
   },
   dob: {
-      type: DATEONLY
+    type: DATEONLY
   },
   accountStatus: {
     type: ENUM,
@@ -64,26 +64,26 @@ export const User = sequelize.define('user', {
 
 export const Address  = sequelize.define('address', {
   id: {
-      type: INTEGER,
-      autoIncrement: true,
-      primaryKey: true
+    type: INTEGER,
+    autoIncrement: true,
+    primaryKey: true
   },
   street: {
-      type: STRING
+    type: STRING
   },
   state: {
-      type: STRING
+    type: STRING
   },
   country: {
-      type: STRING
+    type: STRING
   },
   zipcode: {
-      type: STRING
+    type: STRING
   }
 })
 
-User.hasOne(Address, { foreignKey: 'userId'} )
-//Address.belongsTo(User)
+User.hasOne(Address, { foreignKey: 'userId' })
+Address.belongsTo(User)
 
 export const Airport = sequelize.define('airport', {
   id: {
@@ -108,7 +108,7 @@ export const Terminal = sequelize.define('terminal', {
 })
 
 Airport.hasMany(Terminal, { foreignKey: 'airportId' })
-//Terminal.belongsTo(Airport)
+Terminal.belongsTo(Airport)
 
 export const Gate = sequelize.define('gate', {
   id: {
@@ -121,12 +121,12 @@ export const Gate = sequelize.define('gate', {
   },
   status: {
     type: ENUM,
-    values: ['active', 'inactive', 'maintenance']
+    values: ['active', 'inactive', 'assigned']
   }
 })
 
 Terminal.hasMany(Gate, { foreignKey: 'terminalId' })
-//Gate.belongsTo(Terminal)
+Gate.belongsTo(Terminal)
 
 export const BaggageCarousel = sequelize.define('baggageCarousel', {
   id: {
@@ -140,7 +140,7 @@ export const BaggageCarousel = sequelize.define('baggageCarousel', {
 })
 
 Gate.hasOne(BaggageCarousel, { foreignKey: 'gateId' })
-//BaggageCarousel.belongsTo(Gate)
+BaggageCarousel.belongsTo(Gate)
 
 export const Airline = sequelize.define('airline', {
   id: {
@@ -167,11 +167,11 @@ export const Flight = sequelize.define('flight', {
   },
   capacity: {
     type: INTEGER
-  }  
+  }
 })
 
 Airline.hasMany(Flight, { foreignKey: 'airlineId' })
-//Flight.belongsTo(Airline)
+Flight.belongsTo(Airline)
 
 export const FlightInstance = sequelize.define('flightInstance', {
   id: {
@@ -198,7 +198,7 @@ export const FlightInstance = sequelize.define('flightInstance', {
 })
 
 Flight.hasMany(FlightInstance, { foreignKey: 'flightId' })
-//FlightInstance.belongsTo(Flight)
+FlightInstance.belongsTo(Flight)
 
 export const AirportSchedule = sequelize.define('airportSchedule', {
   id: {
@@ -215,31 +215,31 @@ export const AirportSchedule = sequelize.define('airportSchedule', {
 })
 
 FlightInstance.hasOne(AirportSchedule, { foreignKey: 'flightInstanceId' })
-//AirportSchedule.belongsTo(Flight)
+AirportSchedule.belongsTo(Flight)
 
 Terminal.hasOne(AirportSchedule, { foreignKey: 'terminalId' })
-//AirportSchedule.belongsTo(Terminal)
+AirportSchedule.belongsTo(Terminal)
 
 Gate.hasOne(AirportSchedule, { foreignKey: 'gateId' })
-//AirportSchedule.belongsTo(Gate)
+AirportSchedule.belongsTo(Gate)
 
 BaggageCarousel.hasOne(AirportSchedule, { foreignKey: 'baggageCarouselId' })
-//AirportSchedule.belongsTo(BaggageCarousel)
+AirportSchedule.belongsTo(BaggageCarousel)
 
 export const AirlineEmployee = sequelize.define('airlineEmployee', {})
 
 User.hasOne(AirlineEmployee, { foreignKey: 'userId' })
-//AirlineEmployee.belongsTo(User)
+AirlineEmployee.belongsTo(User)
 
 Airline.hasMany(AirlineEmployee, { foreignKey: 'airlineId' })
-//AirlineEmployee.belongsTo(Airline)
+AirlineEmployee.belongsTo(Airline)
 
 export const AirportEmployee = sequelize.define('airportEmployee', {})
 
 User.hasOne(AirportEmployee, { foreignKey: 'userId' })
-//AirportEmployee.belongsTo(User)
+AirportEmployee.belongsTo(User)
 
 Airport.hasMany(AirportEmployee, { foreignKey: 'airportId' })
-//AirportEmployee.belongsTo(Airport)
+AirportEmployee.belongsTo(Airport)
 
 
