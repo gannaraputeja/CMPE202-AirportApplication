@@ -82,7 +82,7 @@ export const Address  = sequelize.define('address', {
   }
 })
 
-User.hasOne(Address, { foreignKey: 'userId'} )
+User.hasOne(Address, { foreignKey: 'userId' })
 Address.belongsTo(User)
 
 export const Airport = sequelize.define('airport', {
@@ -167,7 +167,7 @@ export const Flight = sequelize.define('flight', {
   },
   capacity: {
     type: INTEGER
-  }  
+  }
 })
 
 Airline.hasMany(Flight, { foreignKey: 'airlineId' })
