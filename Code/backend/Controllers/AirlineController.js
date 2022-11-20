@@ -1,4 +1,4 @@
-import { FlightInstance } from "../Models/index.js";
+import { FlightInstance, Flight } from "../Models/index.js";
 
 export const addFlightSchedule = async(req, res) =>{
     try{
@@ -57,5 +57,22 @@ export const updateFlightSchedule = async(req, res)=>{
     catch(err){
         console.log(err);
         res.status(400).json({message: "user schedule could not be updated with gievn fields"})
+    }
+};
+
+export const getAllFlightsForAnAirline = async(req, res) =>{
+    try{
+        const allFlightsForAnAirline = await Flight.findAll({
+            where: {
+                airlineId: req.params.airlineId
+            }
+        })
+
+        res.status(200).send(allFlightsForAnAirline);
+    }
+    catch(err)
+    {
+        console.log(err);
+        res.status(400).json({message: "Couldn't retrieve any flights for an airline"});
     }
 };
