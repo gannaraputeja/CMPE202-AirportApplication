@@ -136,11 +136,15 @@ export const BaggageCarousel = sequelize.define('baggageCarousel', {
   },
   name: {
     type: STRING
+  },
+  status: {
+    type: ENUM,
+    values: ['active', 'assigned']
   }
 })
 
-Gate.hasOne(BaggageCarousel, { foreignKey: 'gateId' })
-BaggageCarousel.belongsTo(Gate)
+Terminal.hasMany(BaggageCarousel, { foreignKey: 'terminalId' })
+BaggageCarousel.belongsTo(Terminal)
 
 export const Airline = sequelize.define('airline', {
   id: {
