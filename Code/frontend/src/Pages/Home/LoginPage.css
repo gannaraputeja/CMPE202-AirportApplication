@@ -1,23 +1,9 @@
-/* .loginclass{
-    width:50vw;
-    height:90vh;
-    margin:100px auto;
-    display:flex;
-    justify-content:center;
-    background-color:green;
-    border-radius:15px;
-    padding:20px;
-    
-} */
 .bg{
     /* background-color:white; */
     background-image:url("/Users/prudhvi/react/team_project/src/components/assets/b.jpg");
     /* height:100%;
     image-resolution: 100%; */
 }
-
-
-
 .Auth-form-container {
     display: flex;
     justify-content: center;
@@ -52,4 +38,8 @@
     font-size: 14px;
     font-weight: 600;
     color: rgb(34, 34, 34);
+  }
+  .selectWidth{
+    width: 25vw;
+    margin: auto;
   }

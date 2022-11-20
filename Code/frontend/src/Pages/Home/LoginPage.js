@@ -15,7 +15,7 @@ function LoginPage (){
     const [isUsername,setIsUsername]=useState('');
     const [isPassword,setIsPassword]=useState('');
     const [successfulLogin,setSuccess] = useState('');
-
+    const [role,setRole] = useState('');
 
     useEffect(() => {
         console.log("PAGE LOADED");
@@ -28,23 +28,35 @@ function LoginPage (){
 
     const usernameFun = event =>{
         setIsUsername(event.target.value);
-        // checkLogin();
     }
     const passFun = event =>{
         setIsPassword(event.target.value);
+    }
+    const handleRole= event =>{
+        console.log("ROLE VAL:::",event.target.value);
+        window.sessionStorage.setItem("Role",event.target.value);
+        setRole(event.target.value);
 
-        // checkLogin();
     }
 
     const checkLogin = () =>{
         console.log(isUsername,isPassword);
-        if(isUsername ==='abc' && isPassword === '123'){
+        window.sessionStorage.setItem("Role",role);
+        if(isUsername ==='abc' && isPassword === '123' && role==='1'){
             setSuccess(true);
             console.log("successfulLogin");
             window.sessionStorage.setItem("LoggedIn", true);
             window.sessionStorage.setItem("UserName", isUsername);
-            navigateToAirportEmp();
-
+            // navigateToAirportEmp();
+            navigate('/SchedulePage');
+        }
+        else if(isUsername ==='abc' && isPassword === '123' && role==='2'){
+            setSuccess(true);
+            console.log("successfulLogin");
+            window.sessionStorage.setItem("LoggedIn", true);
+            window.sessionStorage.setItem("UserName", isUsername);
+            // navigateToAirportEmp();
+            navigate('/SchedulePage');
         }
         else{
             // setSuccess(false);
@@ -85,7 +97,13 @@ function LoginPage (){
                                     </p>
                                     </div>
                                     { successfulLogin ? <div><h1>Hey Hi,👋 {isUsername}</h1></div>: null }
-                                    <button type="submit" className="btn btn-primary" onClick={navigateToAirportEmp}>Airport Employee👨‍🏭</button>
+                                    <button type="submit" className="btn btn-primary" onClick={navigateToAirportEmp}>Airport Employee 👨‍🏭</button>
+                                    <select class="form-select selectWidth" aria-label="Default select example" onChange={handleRole}>
+                                        <option selected>Select Role 👨‍🏭</option>
+                                        <option value="1">Airport Employee</option>
+                                        <option value="2">Airline Employee</option>
+                                        <option value="3">Three</option>
+                                    </select>
 
                                 </form>
                                 </div>
