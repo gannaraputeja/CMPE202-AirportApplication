@@ -1,8 +1,10 @@
 import express from 'express'
-import { maintenance } from "../Controllers/AirportController.js"
+import { gateAssignment, maintenance } from "../Controllers/AirportController.js"
 
 const router = express.Router()
 
-router.get('/maintenance/', maintenance)
+router.get('/maintenance/', maintenance);
+
+router.post("/assignGate/:flightInstanceId", gateAssignment);
 
 export default router
