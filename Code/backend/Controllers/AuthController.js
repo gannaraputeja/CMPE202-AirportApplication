@@ -20,7 +20,7 @@ export const signUpUser = async (req, res) => {
         const user = await User.create(data, {transaction: t})
 
         const token = jwt.sign({
-            email: user.email, id: user.id
+            email: user.email, id: user.id, type: user.type
         }, process.env.JWT_KEY, {expiresIn: '1hr'})
 
         await t.commit()
@@ -38,7 +38,7 @@ export const loginUser = async (req, res) => {
     const {email, password} = req.body
 
     try {
-        const user = await User.findOne({email})
+        const user = await User.findOne({where: {email}})
 
         if(user) {
             const validity = await bcrypt.compare(password, user.password)
@@ -47,7 +47,7 @@ export const loginUser = async (req, res) => {
                 res.status(400).json({message: 'Wrong password!'})
             } else {
                 const token = jwt.sign({
-                    email: user.email, id: user.id
+                    email: user.email, id: user.id, type: user.type
                 }, process.env.JWT_KEY, {expiresIn: '1hr'})
                 const {password, ...response} = user.dataValues
                 res.status(200).json({user: response, token})

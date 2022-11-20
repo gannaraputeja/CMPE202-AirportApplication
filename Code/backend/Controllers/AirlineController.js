@@ -67,7 +67,7 @@ export const getAllFlightsForAnAirline = async(req, res) =>{
 
         const allFlightsForAnAirline = await Flight.findAll({
             where: {
-                airlineId: req.params.airlineId
+                airlineId: req.params.id
             }
         })
 
