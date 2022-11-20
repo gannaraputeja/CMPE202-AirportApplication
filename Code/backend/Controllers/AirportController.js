@@ -73,18 +73,27 @@ export const assignBaggageCarousel = async (req, res) => {
     }
 }
 
-export const gateAssignment = async(req, res) =>{
+export const gateAssignment = async (req, res) =>{
     const t = await db.sequelize.transaction();
     try{
         if(req.params.flightInstanceId.trim() ==='' || isNaN(req.params.flightInstanceId))
-            res.status(400).json("Invalid flight instance Id, Flight instance should be a number...");
+            return res.status(400).json("Invalid flight instance Id, Flight instance should be a number...");
+
+        const scheduleData = await AirportSchedule.findOne({
+            where: {
+                flightInstanceId: req.params.flightInstanceId
+            }
+        });
 
         const allGates = await Gate.findAll({
-            where:{ status: 'active'}
+            where:{ 
+                status: 'active',
+                terminalId: scheduleData.terminalId
+            }
         });
 
         if(allGates.length==0)
-            res.status(400).json({message: "Airport is busy. No gates available for landing...."})
+            return res.status(400).json({message: "Airport is busy. No gates available for landing...."})
 
         const randomNumber = Math.floor(Math.random()* (allGates.length));
 
