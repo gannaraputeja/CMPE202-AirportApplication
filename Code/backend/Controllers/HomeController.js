@@ -1,4 +1,4 @@
-import { AirportSchedule } from '../Models/index.js'
+import { FlightInstance } from '../Models/index.js'
 import { Op } from 'sequelize'
 
 export const getSchedules = async (req, res) => {
@@ -12,7 +12,7 @@ export const getSchedules = async (req, res) => {
         var startDate = new Date();
         var endDate = new Date(new Date().getTime() + req.params.id*60*60*1000);
     
-        const response = await AirportSchedule.findAll({
+        const response = await FlightInstance.findAll({
             where: {
                 [Op.or]:
                     [{
@@ -27,5 +27,26 @@ export const getSchedules = async (req, res) => {
     }
     catch(err){ 
         res.status(400).json({message:`Error while retrieving flight schedule`});
+    }
+};
+
+export const getBaggageCarouselInfo = async(req, res) => {
+    try{
+        const getBaggageCarouselInfo = await AirportSchedule.findAll({
+            include:[
+                {
+                    model: FlightInstance,
+                    where: {status: 'arrived'}
+                }
+            ]
+        });
+
+        console.log("Baggage carousel info is: " + getBaggageCarouselInfo);
+
+        res.status(200).json(getBaggageCarouselInfo);
+    }
+    catch(err){
+        console.log(err);
+        res.status(400).json({message: `Baggage carousel information cant be displayed`});
     }
 };

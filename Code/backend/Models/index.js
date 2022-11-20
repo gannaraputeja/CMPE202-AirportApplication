@@ -212,7 +212,7 @@ export const AirportSchedule = sequelize.define('airportSchedule', {
   }
 })
 
-FlightInstance.hasOne(AirportSchedule, { foreignKey: { name: 'flightInstanceId' } })
+FlightInstance.hasOne(AirportSchedule, { foreignKey: 'flightInstanceId' })
 AirportSchedule.belongsTo(FlightInstance)
 
 Terminal.hasOne(AirportSchedule, { foreignKey: 'terminalId' })
