@@ -55,7 +55,7 @@ function LoginPage (){
         const payload = {
             email: isUsername,
             password: isPassword,
-            role: role == 1 ? "airport" : role == 2 ? "airline" : "user"
+            role: role === 1 ? "airport" : role === 2 ? "airline" : "user"
         }
 
         Axios.post(`${backendUrl}/auth/login`, payload).then((res) => {
@@ -63,7 +63,6 @@ function LoginPage (){
             window.sessionStorage.setItem("profile", JSON.stringify(res.data))
             dispatch({type: 'AUTH_SUCCESS', data: res.data})
             if(role===1){
-                // Airport
                 setSuccess(true);
                 console.log("successfulLogin");
                 window.sessionStorage.setItem("LoggedIn", true);
@@ -77,11 +76,6 @@ function LoginPage (){
                 window.sessionStorage.setItem("UserName", isUsername);
                 navigate('/UpdateFlight');
             }
-            /*else{
-                // setSuccess(false);
-                console.log("Not successful Login");
-                alert("Please enter correct email or password!!")
-            }*/
         }).catch(error => {
             alert(error.response.data.message)
         })
