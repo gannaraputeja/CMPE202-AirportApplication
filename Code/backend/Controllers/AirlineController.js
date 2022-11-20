@@ -26,7 +26,7 @@ export const addFlightSchedule = async(req, res) =>{
 
 export const updateFlightSchedule = async(req, res)=>{
     try{
-        if(req.params.id.trim() ==='' || isNaN(req.params.id))
+        if(req.params?.id && ( req.params.id.trim() ==='' || isNaN(req.params.id)) )
             res.status(400).json("Invalid flight instance Id, Flight instance id should be a number...");
 
         const flightData = await FlightInstance.findByPk(req.params.id);
@@ -50,12 +50,12 @@ export const updateFlightSchedule = async(req, res)=>{
                 }
             });
 
-            console.log(updatedSchedule);
+            //console.log(updatedSchedule);
             res.status(201).send(updatedSchedule);
         }
     }
     catch(err){
-        console.log(err);
+        //console.log(err);
         res.status(400).json({message: "user schedule could not be updated with gievn fields"})
     }
 };
