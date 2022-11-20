@@ -127,16 +127,6 @@ const UpdateFlight = () =>{
     const navigateToAddFlight=()=>{
         navigate('/AddFlight');
     }
-
-
-    // status: req.body.status,
-    // departureTime: req.body.departureTime,
-    // arrivalTime: req.body.arrivalTime,
-    // origin: req.body.origin,
-    // destination: req.body.destination,
-    // flightId: req.body.flightId
-
-
     const postData = () =>{
         const payload = {
             status: status,

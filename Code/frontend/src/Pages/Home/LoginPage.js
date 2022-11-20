@@ -139,12 +139,8 @@ function LoginPage (){
                                         Submit
                                         </button>
                                     </div>
-                                    {/* <p className="forgot-password text-right mt-2">
-                                        Forgot <a href="#">password?</a>
-                                    </p> */}
+
                                     </div>
-                                    { successfulLogin ? <div><h1>Hey Hi,👋 {isUsername}</h1></div>: null }
-                                    <button type="submit" className="btn btn-primary" onClick={navigateToAirportEmp}>Airport Employee 👨‍🏭</button>
                                     {/* <select class="form-select selectWidth" aria-label="Default select example" onChange={handleRole}>
                                         <option selected>Select Role 👨‍🏭</option>
                                         <option value="1">Airport Employee</option>

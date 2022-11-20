@@ -24,8 +24,6 @@ const SchedulePage = () => {
     const history = useNavigate();
 
     useEffect(() => {
-        // setRole(parseInt(sessionStorage.getItem("Role"), 10));
-        // console.log(role);
         var userObj = JSON.parse(sessionStorage.getItem("profile"));
         // console.log(userObj.user.type);
         if(userObj!==null){
