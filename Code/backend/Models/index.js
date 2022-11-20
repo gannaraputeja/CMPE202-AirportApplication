@@ -136,11 +136,15 @@ export const BaggageCarousel = sequelize.define('baggageCarousel', {
   },
   name: {
     type: STRING
+  },
+  status: {
+    type: ENUM,
+    values: ['active', 'assigned']
   }
 })
 
-Gate.hasOne(BaggageCarousel, { foreignKey: 'gateId' })
-BaggageCarousel.belongsTo(Gate)
+Terminal.hasMany(BaggageCarousel, { foreignKey: 'terminalId' })
+BaggageCarousel.belongsTo(Terminal)
 
 export const Airline = sequelize.define('airline', {
   id: {
@@ -205,17 +209,11 @@ export const AirportSchedule = sequelize.define('airportSchedule', {
     type: INTEGER,
     autoIncrement: true,
     primaryKey: true
-  },
-  arrivalTime: {
-    type: DATE
-  },
-  departureTime: {
-    type: DATE
   }
 })
 
-FlightInstance.hasOne(AirportSchedule, { foreignKey: 'flightInstanceId' })
-AirportSchedule.belongsTo(Flight)
+FlightInstance.hasOne(AirportSchedule, { foreignKey: { name: 'flightInstanceId' } })
+AirportSchedule.belongsTo(FlightInstance)
 
 Terminal.hasOne(AirportSchedule, { foreignKey: 'terminalId' })
 AirportSchedule.belongsTo(Terminal)

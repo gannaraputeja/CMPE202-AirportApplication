@@ -1,5 +1,5 @@
 import { Op } from 'sequelize'
-import { Gate, AirportSchedule, db} from '../Models/index.js'
+import {AirportSchedule, BaggageCarousel, db, FlightInstance, Gate} from '../Models/index.js'
 
 export const updateGatesStatus = async (req, res) => {
     try {
@@ -21,6 +21,55 @@ export const updateGatesStatus = async (req, res) => {
     } catch(err) {
         //console.log(err)
         res.status(400).json({message: 'Failed to update gates maintenance status.'})
+    }
+}
+
+export const assignBaggageCarousel = async (req, res) => {
+    const t = await db.sequelize.transaction()
+    try {
+        // get BaggageCarousel unassigned AirportSchedules of arrived FlightInstances
+        const airportSchedules = await AirportSchedule.findAll({
+            where: {baggageCarouselId: { [Op.eq]: null }},
+            include: [{model: FlightInstance, where: {status: 'arrived'}}]
+        })
+
+        let baggageCarousels = await BaggageCarousel.findAll({ where: {status: 'active'} })
+
+        for (const airportSchedule of airportSchedules) {
+            // filter baggageCarousels for terminal same as terminal in AirportSchedule
+            const terminalBaggageCarousels = baggageCarousels.filter(bc => bc.terminalId == airportSchedule.terminalId)
+            // check has bcs left to assign
+            if(terminalBaggageCarousels.length <= 0) {
+                return res.status(400).json({message: 'Enough baggage carousels are not available at the moment.'})
+            }
+            // get random bc
+            const random = Math.floor(Math.random() * (terminalBaggageCarousels.length));
+
+            // update AirportSchedule with assigned BaggageCarousel
+            await AirportSchedule.update({
+                baggageCarouselId: terminalBaggageCarousels[random].id
+            }, { where: { id: airportSchedule.id },
+                transaction: t
+            })
+
+            // update BaggageCarousel status as assigned
+            await BaggageCarousel.update({
+                status: 'assigned'
+            }, { where: { id: terminalBaggageCarousels[random].id },
+                transaction: t
+            })
+
+            // remove assigned BaggageCarousel from baggageCarousels
+            baggageCarousels = baggageCarousels.filter( item => item.id != terminalBaggageCarousels[random].id)
+            // remove assigned BaggageCarousel from terminalBaggageCarousels
+            terminalBaggageCarousels.splice(random, 1)
+        }
+        await t.commit()
+        res.status(200).json({message: 'Successfully assigned baggage carousels.'})
+    } catch (err) {
+        console.log(err)
+        await t.rollback()
+        res.status(400).json({message: 'Failed to assign baggage carousels.'})
     }
 }
 
