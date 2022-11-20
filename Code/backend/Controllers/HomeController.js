@@ -1,4 +1,4 @@
-import { FlightInstance, AirportSchedule } from '../Models/index.js'
+import { FlightInstance } from '../Models/index.js'
 import { Op } from 'sequelize'
 
 export const getSchedules = async (req, res) => {
@@ -12,7 +12,7 @@ export const getSchedules = async (req, res) => {
         var startDate = new Date();
         var endDate = new Date(new Date().getTime() + req.params.id*60*60*1000);
     
-        const response = await AirportSchedule.findAll({
+        const response = await FlightInstance.findAll({
             where: {
                 [Op.or]:
                     [{
