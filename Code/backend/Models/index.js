@@ -38,7 +38,10 @@ export const User = sequelize.define('user', {
   },
   email: {
       type: STRING,
-      unique: true
+      unique: true,
+      validate: {
+        isEmail: true
+      }
   },
   phone: {
       type: STRING

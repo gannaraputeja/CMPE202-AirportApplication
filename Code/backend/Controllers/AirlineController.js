@@ -11,12 +11,12 @@ export const addFlightSchedule = async(req, res) =>{
             flightId: req.body.flightId
         });
 
-        console.log(flightData);
+        //console.log(flightData);
 
         res.status(201).send(flightData);
     }
     catch(err){
-        console.log(err);
+        //console.log(err);
         res.status(400).json({message: "Airline flights schedule could not be added"});
     }
 };

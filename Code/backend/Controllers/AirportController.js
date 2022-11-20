@@ -33,6 +33,9 @@ export const assignBaggageCarousel = async (req, res) => {
             include: [{model: FlightInstance, where: {status: 'arrived'}}]
         })
 
+        if(airportSchedules.length == 0)
+            return res.status(200).json({message: 'There are no baggage carousel unassigned arriving flights at the moment.'})
+
         let baggageCarousels = await BaggageCarousel.findAll({ where: {status: 'active'} })
 
         for (const airportSchedule of airportSchedules) {
@@ -40,7 +43,7 @@ export const assignBaggageCarousel = async (req, res) => {
             const terminalBaggageCarousels = baggageCarousels.filter(bc => bc.terminalId == airportSchedule.terminalId)
             // check has bcs left to assign
             if(terminalBaggageCarousels.length <= 0) {
-                return res.status(400).json({message: 'Enough baggage carousels are not available at the moment.'})
+                return res.status(400).json({message: 'There are not enough baggage carousels available at the moment.'})
             }
             // get random bc
             const random = Math.floor(Math.random() * (terminalBaggageCarousels.length));
