@@ -1,8 +1,8 @@
 import express from 'express'
-import { maintenance } from "../Controllers/AirportController.js"
+import { updateGatesStatus } from "../Controllers/AirportController.js"
 
 const router = express.Router()
 
-router.post('/maintenance/', maintenance)
+router.post('/update/gates', updateGatesStatus)
 
 export default router
