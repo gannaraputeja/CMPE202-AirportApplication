@@ -8,11 +8,6 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import Axios from 'axios';
 import backendUrl from './backendUrl.js';
 import {useDispatch} from "react-redux";
-
-
-// import airplane3 from '../Images/airplane3.jpg';
-// import a from '/Users/prudhvi/react/team_project/src/components/assets/b.jpg';
-
 function LoginPage (){
 
     const dispatch = useDispatch()
@@ -73,16 +68,13 @@ function LoginPage (){
                 console.log("successfulLogin");
                 window.sessionStorage.setItem("LoggedIn", true);
                 window.sessionStorage.setItem("UserName", isUsername);
-                // navigateToAirportEmp();
                 navigate('/SchedulePage');
             }
             else if(role===2){
-                // Airline
                 setSuccess(true);
                 console.log("successfulLogin");
                 window.sessionStorage.setItem("LoggedIn", true);
                 window.sessionStorage.setItem("UserName", isUsername);
-                // navigateToAirportEmp();
                 navigate('/UpdateFlight');
             }
             /*else{
@@ -141,13 +133,6 @@ function LoginPage (){
                                     </div>
 
                                     </div>
-                                    {/* <select class="form-select selectWidth" aria-label="Default select example" onChange={handleRole}>
-                                        <option selected>Select Role 👨‍🏭</option>
-                                        <option value="1">Airport Employee</option>
-                                        <option value="2">Airline Employee</option>
-                                        <option value="3">Three</option>
-                                    </select> */}
-
                                 </form>
                                 </div>
                     </div>
