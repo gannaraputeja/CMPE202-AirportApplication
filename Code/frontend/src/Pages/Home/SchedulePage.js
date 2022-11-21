@@ -25,7 +25,6 @@ const SchedulePage = () => {
 
     useEffect(() => {
         var userObj = JSON.parse(sessionStorage.getItem("profile"));
-        // console.log(userObj.user.type);
         if(userObj!==null){
             if(userObj.user.type === 'airport'){
                 setRole(1);
@@ -40,7 +39,6 @@ const SchedulePage = () => {
         callScheduleFuns();
         setUsername(JSON.parse(sessionStorage.getItem("profile"))?.user.firstname);
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
-        // getAirportScheduleByHour();
     }, [role,setRole]);
 
     Axios.interceptors.request.use((req) => {
@@ -51,7 +49,7 @@ const SchedulePage = () => {
     })
 
     const callScheduleFuns =() =>{
-        if(role===1 || role === 2){
+        if(role === 1 || role === 2){
             getAirportSchedule();
         }
         else{
