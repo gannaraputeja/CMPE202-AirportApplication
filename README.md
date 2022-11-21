@@ -30,14 +30,12 @@ Team 4
 
 
 ### Areas of Contribution
-- **Fronend:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika, Dasaradh Gutta, Prudhvi M.V.N.S
+- **Frontend:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika, Dasaradh Gutta, Prudhvi M.V.N.S
 - **Backend:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika, Dasaradh Gutta, Prudhvi M.V.N.S
-- **Architecture:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika
-- **Database Design:** Dasaradh Gutta, Prudhvi M.V.N.S
-- **UI Wireframes:** 
-- **Rest APIs:** Jaya Prakash Reddy Pachika
+- **Architecture & Database Design:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika
+- **UI Wireframes:** Dasaradh Gutta, Prudhvi M.V.N.S
 - **Deployment:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika, Dasaradh Gutta, Prudhvi M.V.N.S
-- **Documentation:** 
+- **Documentation:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika, Dasaradh Gutta, Prudhvi M.V.N.S
 
 
 ### Architecture Diagram
