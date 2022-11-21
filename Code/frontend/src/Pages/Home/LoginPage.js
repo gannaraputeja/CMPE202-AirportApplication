@@ -14,7 +14,6 @@ function LoginPage (){
     const navigate = useNavigate();
     const [isUsername,setIsUsername]=useState('');
     const [isPassword,setIsPassword]=useState('');
-    const [successfulLogin,setSuccess] = useState('');
     const [validateEmail,setValidateEmail] = useState(false);
     const [role,setRole] = useState(null);
     const [empRole,setEmpRole] = useState('');
@@ -63,14 +62,12 @@ function LoginPage (){
             window.sessionStorage.setItem("profile", JSON.stringify(res.data))
             dispatch({type: 'AUTH_SUCCESS', data: res.data})
             if(role===1){
-                setSuccess(true);
                 console.log("successfulLogin");
                 window.sessionStorage.setItem("LoggedIn", true);
                 window.sessionStorage.setItem("UserName", isUsername);
                 navigate('/SchedulePage');
             }
             else if(role===2){
-                setSuccess(true);
                 console.log("successfulLogin");
                 window.sessionStorage.setItem("LoggedIn", true);
                 window.sessionStorage.setItem("UserName", isUsername);
