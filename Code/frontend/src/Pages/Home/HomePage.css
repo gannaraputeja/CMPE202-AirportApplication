@@ -23,6 +23,12 @@
     font-size:10px;
     font-weight:bold;
 }
+.loginbtn{
+    text-align:right;
+}
+.navbar{
+    padding:20px;
+}
 /* .loginclass{
     width:50vw;
     height:90vh;

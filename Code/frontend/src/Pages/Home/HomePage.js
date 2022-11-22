@@ -7,8 +7,15 @@ import { Button } from 'react-bootstrap';
 
 const HomePage = () =>{
 
+    const [data, setdata] = useState('');
+
     useEffect(()=>{
         sessionStorage.clear();
+        getData();
+        // const baseURL = 'https://api.sampleapis.com/avatar/episode';
+        // fetch(baseURL)
+        //   .then(resp => resp.json())
+        //   .then(data => displayData(data));
     })
 
     const navigate = useNavigate();
@@ -26,6 +33,28 @@ const HomePage = () =>{
         navigate('/UserReg');
     }
 
+    // const options = {
+    //     method: 'GET',
+    //     headers: {
+    //         'X-RapidAPI-Key': '5120012ff3msh922f831d9a6cb93p11bd90jsn0e15e62236de',
+    //         'X-RapidAPI-Host': 'airport-info.p.rapidapi.com'
+    //     }
+    // };
+
+
+    const getData = () =>{
+        // return fetch("https://api.sampleapis.com/simpsons/episodes")
+        // .then((response) => console.log(response))
+        // .then((data) => setdata(data));
+
+
+        fetch("https://jsonplaceholder.typicode.com/posts")
+        .then(response => {return response.json();})
+        .then(data => {console.log(data);})
+        // .then(data => setdata(data));
+        
+    }
+
 
     return (
         // <div>Homepage</div>
@@ -34,12 +63,12 @@ const HomePage = () =>{
         <div>
             <div class="Container">
                 <div class="row navbar">
-                    <div class="col-4">Airport</div>
-                    <div class="col-4">2</div>
+                    <div class="col-4">Team Project</div>
+                    <div class="col-4"></div>
                     <div class="col-4">
                         <div class="row">
-                            <div class="col ml-auto">
-                                <button type="submit" className="btn btn-primary" onClick={navigateToLoginPage}>Login 🚪</button>
+                            <div class="col ml-auto loginbtn">
+                                <button type="submit" style={{backgroundColor:'yellow', color:'black'}} className="btn" onClick={navigateToLoginPage}>LOGIN 🔐</button>
                             </div>
                         </div>
                     </div>
@@ -67,6 +96,14 @@ const HomePage = () =>{
                                     <button type="button" class="btn btn-default" onClick={navigateToSchedule} >Flight Schedule</button>
                                     </div>
                                
+                                </div>
+                                <div>
+                                    {data && data.length > 0 && data.map((data)=>(
+                                        // <li>{data.name}</li>
+                                        <button type="button" class="btn btn-default" onClick={navigateToSchedule} >{data.title}</button>
+
+
+                                    ))}
                                 </div>
 
                             </div>

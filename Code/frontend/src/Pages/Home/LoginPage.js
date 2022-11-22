@@ -87,6 +87,16 @@ function LoginPage (){
                                         value={isPassword} onChange={passFun}
                                         />
                                     </div>
+                                    <div style={{marginTop:'25px'}}>
+                                    <label>Select Role</label>
+                                    <select class="form-select selectWidth" aria-label="Default select example" onChange={handleRole}>
+                                        <option selected>Select Role 👨‍🏭</option>
+                                        <option value="1">Airport Employee</option>
+                                        <option value="2">Airline Employee</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                    </div>
+
                                     <div className="d-grid gap-2 mt-3">
                                         <button type="submit" className="btn btn-primary" onClick={checkLogin} >
                                         Submit
@@ -98,12 +108,12 @@ function LoginPage (){
                                     </div>
                                     { successfulLogin ? <div><h1>Hey Hi,👋 {isUsername}</h1></div>: null }
                                     <button type="submit" className="btn btn-primary" onClick={navigateToAirportEmp}>Airport Employee 👨‍🏭</button>
-                                    <select class="form-select selectWidth" aria-label="Default select example" onChange={handleRole}>
+                                    {/* <select class="form-select selectWidth" aria-label="Default select example" onChange={handleRole}>
                                         <option selected>Select Role 👨‍🏭</option>
                                         <option value="1">Airport Employee</option>
                                         <option value="2">Airline Employee</option>
                                         <option value="3">Three</option>
-                                    </select>
+                                    </select> */}
 
                                 </form>
                                 </div>
