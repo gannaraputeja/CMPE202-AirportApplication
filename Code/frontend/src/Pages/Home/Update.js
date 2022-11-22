@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react';
 import backendurl from "./backendUrl";
 
 
-const Schedule = () =>{
+const Update = () =>{
 
 
     const [username,setUsername] = useState('');
@@ -15,6 +15,25 @@ const Schedule = () =>{
         // getData();
         // getGateMaintainData();
     },[]);
+    const [deptDate, setDeptDate] = useState('');
+    const [arrDate, setArrDate] = useState('');
+    const [origin, setOrigin] = useState('');
+    const [destination, setDestination] = useState('');
+    const [status, setStatus] = useState('');
+    const [flightId, setFlightId] = useState('');
+    const [a,b] =useState('');
+    const [c,d] =useState('');
+    const [updatedata, setUpdatedata] = useState([]);
+
+
+
+    const [role,setRole] = useState('');
+    const [username,setUsername] = useState('');
+    const navigate = useNavigate();
+    const [data,setData] = useState();
+    const [hours,setHours] = useState(1);
+    const [airportSchedule,setAirportSchedule] = useState([]);
+
 
     background-color:sandybrown;
     border-radius:10px;
@@ -108,4 +127,4 @@ const Schedule = () =>{
     )
 }
 
-export default Schedule;
+export default Update;
