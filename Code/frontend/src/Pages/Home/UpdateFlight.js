@@ -1,7 +1,5 @@
 import React, {useState,useEffect} from 'react';
 import defaultProfile from './assets/defaultProfile.jpg'
-// import DatePicker from 'react-datepicker';
-// import 'react-datepicker/dist/react-datepicker.css';
 import DateTimePicker from 'react-datetime-picker';
 import axios from 'axios';
 import backendurl from './backendUrl';
