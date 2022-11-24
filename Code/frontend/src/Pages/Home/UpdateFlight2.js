@@ -19,7 +19,6 @@ const UpdateFlight2 = () =>{
 
     useEffect(() => {
         var obj = JSON.parse(sessionStorage.getItem("FlightDBId"));
-        console.log("✌️",obj);
         setFlightDBId(sessionStorage.getItem("FlightDBId"));
         setOrigin(obj.flightInstance.origin);
         setDestination(obj.flightInstance.destination);
