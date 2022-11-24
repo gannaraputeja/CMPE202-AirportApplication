@@ -2,11 +2,6 @@ import React, {useState,useEffect} from 'react';
 import defaultProfile from './assets/defaultProfile.jpg'
 // import DatePicker from 'react-datepicker';
 // import 'react-datepicker/dist/react-datepicker.css';
-import TimePicker from "react-time-picker";
-import TimePicker from 'react-timepicker';
-import 'react-time-picker/dist/TimePicker.css';
-import 'react-clock/dist/Clock.css';
-import TimePicker from 'react-time-picker/dist/entry.nostyle';
 import DateTimePicker from 'react-datetime-picker';
 import axios from 'axios';
 import backendurl from './backendUrl';
