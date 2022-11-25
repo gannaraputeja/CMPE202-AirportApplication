@@ -48,10 +48,7 @@ const UpdateFlight2 = () =>{
     const [FlightDBId,setFlightDBId] = useState('');
     const [updatedata, setUpdatedata] = useState([]);
     const history = useNavigate();
-
-
-
-
+    
     const converDeptDate = () =>{
         console.log("FUN 1:",a);
         var ss=JSON.stringify(a);

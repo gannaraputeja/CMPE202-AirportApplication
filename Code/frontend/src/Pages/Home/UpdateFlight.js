@@ -8,13 +8,6 @@ import Header from "../../Components/Header";
 import {useSelector} from "react-redux";
 import Moment from 'moment'
 // import TimePicker from 'react-timepicker';
-// import 'react-timepicker/dist/react-timepicker.css';
-
-
-// import TimePicker from "react-time-picker/dist/entry.nostyle";
-
-
-
 
 const UpdateFlight = () =>{
 
