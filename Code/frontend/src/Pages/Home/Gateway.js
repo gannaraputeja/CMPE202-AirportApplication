@@ -8,8 +8,12 @@ const Gateway = () => {
 
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
+    const [role,setRole] = useState('');
+    const [username,setUsername] = useState('');
 
     useEffect(()=>{
+        setRole(sessionStorage.getItem("Role"));
+        setUsername(sessionStorage.getItem("UserName"));
         getData();
     }) 
 
@@ -30,6 +34,24 @@ const Gateway = () => {
     return(
         // <Navbar></Navbar>
         <div>
+            <div class="Container">
+                <div class="row navbar">
+                    <div class="col-4">Airport</div>
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col">
+                                {role==='1'? 
+                                    <button type="submit" className="btn btn-primary" >Gateway maintenance 🚪</button>:
+                                    <button type="submit" className="btn btn-primary" >Airline Employee ✈️👨‍✈️</button>
+                                }
+                            </div>
+                            <div class="col usernameclass">Hi {username} 👋</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div style={{width:'75vw',margin:'auto',marginTop:'20vh'}}>
                 <label style={{fontSize:'20px'}}>Gate Maintenance</label>
                 <table class="table table-hover table-dark">

@@ -9,6 +9,7 @@ const SchedulePage = () => {
     const [username,setUsername] = useState('');
     const navigate = useNavigate();
     const [data,setData] = useState();
+    const [hours,setHours] = useState('');
 
     useEffect(() => {
         setRole(sessionStorage.getItem("Role"));
@@ -27,6 +28,15 @@ const SchedulePage = () => {
 
     const navigateToGateway=()=>{
         navigate('/Gateway');
+    }
+    const selectHour= event =>{
+        console.log("Hour VAL:::",event.target.value);
+        // window.sessionStorage.setItem("Role",event.target.value);
+        setHours(event.target.value);
+        getFlights();
+    }
+    const getFlights = () =>{
+        console.log("getttt flightssss");
     }
     
 
@@ -51,7 +61,32 @@ const SchedulePage = () => {
             </div>
             <div style={{width:'70vw', margin:'auto',marginTop:'10vh'}}>
             <label style={{textAlign: 'center', fontSize:'20px',margin:'10px'}}>Flight Schedule</label>
+
+            <div class="row" style={{backgroundColor:'black', color:'white',textAlign:'right',margin:'0px'}}>
+                    <div class="col-4"></div>
+                    <div class="col-1"></div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-7">Display Flight in</div>
+                            <div class="col-3">
+                                <select class="form-select" aria-label="Default select example" onChange={selectHour}>
+                                            <option selected> </option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                            </div>
+                            <div class="col-2">
+                                Hour
+                                </div>
+                        </div>
+                    </div>
+            </div>
+
+
+
             <table class="table table-hover table-dark">
+                
                     <thead class="thead-dark">
                         <tr>
                             <th>S.No</th>
