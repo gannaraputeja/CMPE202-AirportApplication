@@ -65,6 +65,16 @@ const Update = () =>{
                 console.log(err.response);
             })
     }
+    const getAirportSchedule = () =>{
+        Axios.get(`${backendurl}/airport-schedules/${hours}`,)
+            .then((response) => {
+                console.log("AAAA:",response.data);
+                setAirportSchedule(response.data);
+            })
+            .catch(err => {
+                console.log(err.response);
+            });
+    }
     <div>
         <div class="Container">
             <div class="row navbar">
