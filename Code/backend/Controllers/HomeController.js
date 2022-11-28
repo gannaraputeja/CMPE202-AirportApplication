@@ -28,7 +28,7 @@ export const getSchedules = async (req, res) => {
                     attributes: ['status', 'departureTime', 'arrivalTime', 'origin', 'destination'],
                     include: [
                         {model: Flight,
-                            attributes:['number']
+                            attributes:['number'],
                         }
                     ]
                     },

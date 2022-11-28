@@ -1,5 +1,5 @@
 import { Op } from 'sequelize'
-import {AirportSchedule, BaggageCarousel, db, FlightInstance, Gate} from '../Models/index.js'
+import {AirportSchedule, BaggageCarousel, db, FlightInstance, Gate, Terminal} from '../Models/index.js'
 
 export const updateGatesStatus = async (req, res) => {
     try {
@@ -126,3 +126,32 @@ export const gateAssignment = async (req, res) =>{
         res.status(400).json({message: "gate cannot be assigned"});
     }
 };
+
+export const getGates = async (req, res) => {
+    const t = await db.sequelize.transaction();
+    try{
+
+        const allGates = await Gate.findAll(
+            {attributes:['id', 'name', 'status'],
+                include: [
+                {
+                    model: Terminal,
+                    attributes: ['name']
+                }
+            ]
+            }
+        );
+
+        if(allGates.length==0)
+            return res.status(400).json({message: "No gates are present"})
+        await t.commit();
+
+        res.status(200).send(allGates);
+    }
+    catch(err){
+        console.log(err);
+        await t.rollback();
+        res.status(400).json({message: "Cannot fetch gates"});
+    }
+
+}
