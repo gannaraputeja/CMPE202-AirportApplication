@@ -1,4 +1,4 @@
-import {AirportSchedule, FlightInstance} from '../Models/index.js'
+import {AirportSchedule, BaggageCarousel, FlightInstance, Gate, Terminal} from '../Models/index.js'
 import { Op } from 'sequelize'
 
 export const getSchedules = async (req, res) => {
@@ -11,17 +11,32 @@ export const getSchedules = async (req, res) => {
 
         var startDate = new Date();
         var endDate = new Date(new Date().getTime() + req.params.id*60*60*1000);
-    
-        const response = await FlightInstance.findAll({
-            where: {
-                [Op.or]:
-                    [{
-                        arrivalTime:{[Op.between] : [ startDate, endDate]}
-                     }, 
-                     {
-                        departureTime:{[Op.between] : [ startDate, endDate]}
-                     }] 
-            },
+
+        const response = await AirportSchedule.findAll({
+            attributes:[],
+            include: [
+                {model: FlightInstance,
+                    where: {
+                        [Op.or]:
+                            [{
+                                "arrivalTime":{[Op.between] : [ startDate, endDate]}
+                            },
+                                {
+                                    "departureTime":{[Op.between] : [ startDate, endDate]}
+                                }]
+                    },
+                    attributes: ['status', 'departureTime', 'arrivalTime', 'origin', 'destination']
+                    },
+                {model: Gate,
+                    attributes:['id','name']
+                },
+                {model: Terminal,
+                    attributes:['id','name']
+                },
+                {model: BaggageCarousel,
+                    attributes:['id','name']
+                }
+            ]
         });
         res.status(200).json(response);    
     }
