@@ -1,4 +1,4 @@
-import { FlightInstance } from '../Models/index.js'
+import {AirportSchedule, FlightInstance} from '../Models/index.js'
 import { Op } from 'sequelize'
 
 export const getSchedules = async (req, res) => {

@@ -1,7 +1,7 @@
 const config = {
-    HOST: "localhost",
-    USER: "admin",
-    PASSWORD: "admin",
+    HOST: "database-2.cqjzxf3v25fd.us-east-1.rds.amazonaws.com",
+    USER: "root",
+    PASSWORD: "password123",
     DB: "airportappdb",
     dialect: "mysql",
     pool: {
