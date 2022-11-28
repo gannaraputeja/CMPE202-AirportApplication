@@ -1,21 +1,38 @@
 import React from "react";
 import {useState,useEffect} from 'react';
 import './HomePage.css';
+import Axios from "axios";
 import { Outlet, Link} from "react-router-dom";
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import backendurl from './backendUrl';
 
 const HomePage = () =>{
 
     const [data, setdata] = useState('');
+    const [flightList, setFlightList] = useState([]);
 
     useEffect(()=>{
         sessionStorage.clear();
         getData();
-        // const baseURL = 'https://api.sampleapis.com/avatar/episode';
-        // fetch(baseURL)
-        //   .then(resp => resp.json())
-        //   .then(data => displayData(data));
+        console.log(backendurl);
+
+        // Axios.get('/flights/1')
+        // .then(function(response){
+        //     console.log("RES::",response);
+        // });
+
+        console.log("Starttt");
+        Axios.get(`${backendurl}/airportschedule/1`,)
+            .then((response) => {
+                // console.log("zzzzzzz");
+                console.log("RES::",response.data.length);
+                            })
+            .catch(err => {
+                console.log(err.response);
+            });
+
+            // http://localhost:4001/airline/flights/1
     })
 
     const navigate = useNavigate();
@@ -48,9 +65,9 @@ const HomePage = () =>{
         // .then((data) => setdata(data));
 
 
-        fetch("https://jsonplaceholder.typicode.com/posts")
-        .then(response => {return response.json();})
-        .then(data => {console.log(data);})
+        // fetch("https://jsonplaceholder.typicode.com/posts")
+        // .then(response => {return response.json();})
+        // .then(data => {console.log(data);})
         // .then(data => setdata(data));
         
     }

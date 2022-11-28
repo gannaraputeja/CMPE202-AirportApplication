@@ -6,6 +6,7 @@ import HomePage from './Pages/Home/HomePage';
 import LoginPage from './Pages/Home/LoginPage';
 import SchedulePage from './Pages/Home/SchedulePage';
 import Gateway from './Pages/Home/Gateway';
+import UpdateFlight from './Pages/Home/UpdateFlight';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/LoginPage" element={<LoginPage />}></Route>
           <Route path="/SchedulePage" element={<SchedulePage />}></Route>
           <Route path="/Gateway" element={<Gateway />}></Route>
+          <Route path="/UpdateFlight" element={<UpdateFlight />}></Route>
         </Routes>
     </div>
   );
