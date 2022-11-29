@@ -42,16 +42,6 @@ const HomePage = () =>{
         </div>
                 <div class="container">   
                             <div class="button">
-                                {/* <div class="row">
-                                    <div class="buttonclass col text-center">
-                                        <button type="button" class="btn btn-default" onClick={navigateToUserreg}>User</button>
-                                    </div>
-                                    <div class="buttonclass col text-center">
-                                        <button type="button" class="btn btn-default" onClick={navigateToLoginPage} >Employee</button>
-                                    </div>
-                               
-                                </div> */}
-
                                 <div class="row">
                                     <div class="buttonclass col text-center" onClick={navigateToSchedule} >
                                     <button type="button" class="btn btn-default">Flight Schedule</button>
@@ -61,6 +51,7 @@ const HomePage = () =>{
                                 <div>
                                     {data && data.length > 0 && data.map((data)=>(
                                         // <li>{data.name}</li>
+                                        
                                         <button type="button" class="btn btn-default" onClick={navigateToSchedule} >{data.title}</button>
 
 
