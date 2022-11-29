@@ -107,7 +107,6 @@ const SchedulePage = () => {
             })
             .catch(err => {
                 console.log(err.response);
-                //alert(err.response.data.message)
             })
     }
 
@@ -167,16 +166,6 @@ const SchedulePage = () => {
                     }
 
             </div>
-
-                {/*<div>
-                    {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
-                        <div>
-                            {data.terminal.name}
-                        </div>
-                    ))}
-                </div>*/}
-
-
 
             <label style={{textAlign: 'center', fontSize:'20px',marginBottom:'10px'}}>Flight Schedule</label>
 

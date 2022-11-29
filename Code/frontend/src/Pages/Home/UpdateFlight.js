@@ -24,10 +24,6 @@ const UpdateFlight = () =>{
     const [c,d] =useState('');
     const [updatedata, setUpdatedata] = useState([]);
     const history = useNavigate();
-
-
-
-
     const [role,setRole] = useState('');
     const [profile,setProfile] = useState({})
     const navigate = useNavigate();
@@ -122,8 +118,6 @@ const UpdateFlight = () =>{
             flightId: flightId
           }
 
-          console.log("payload❌", payload);
-
         Axios.put(`/airline/updateFlightSchedule/${flightId}`, payload)
         .then((response) => {
             console.log("YYYYYYYYY");
@@ -134,11 +128,6 @@ const UpdateFlight = () =>{
             console.log(err);
         });
 
-    }
-
-    const logoutFun = () =>{
-        sessionStorage.clear();
-        navigate('/');
     }
 
     const getFlightId = (data) =>{
