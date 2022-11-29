@@ -17,12 +17,6 @@ const HomePage = () =>{
     })
 
     const navigate = useNavigate();
-
-    const navigateToLoginPage = () => {
-        // 👇️ navigate to /AirportEmp
-        navigate('/LoginPage');
-      };
-
       const navigateToSchedule = () =>{
         navigate('/SchedulePage');
     }
@@ -51,7 +45,7 @@ const HomePage = () =>{
                                 <div>
                                     {data && data.length > 0 && data.map((data)=>(
                                         // <li>{data.name}</li>
-                                        
+
                                         <button type="button" class="btn btn-default" onClick={navigateToSchedule} >{data.title}</button>
 
 
