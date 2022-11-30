@@ -1,8 +1,5 @@
 .bg{
-    /* background-color:white; */
     background-image:url("assets/v.jpeg");
-    /* height:100%;
-    image-resolution: 100%; */
 }
 .Auth-form-container {
     display: flex;
