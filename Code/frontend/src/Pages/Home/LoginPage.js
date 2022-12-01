@@ -42,7 +42,6 @@ function LoginPage (){
             password: isPassword,
             role: role === 1 ? "airport" : role === 2 ? "airline" : "user"
         }
-
         Axios.post(`${backendUrl}/auth/login`, payload).then((res) => {
             console.log(res.data)
             window.sessionStorage.setItem("profile", JSON.stringify(res.data))
@@ -102,18 +101,15 @@ function LoginPage (){
                                         <option value="2">Airline Employee</option>
                                     </select>
                                     </div>
-
                                     <div className="d-grid gap-2 mt-3">
                                         <button type="button" className="btn btn-primary" onClick={checkLogin} >
                                         Submit
                                         </button>
                                     </div>
-
                                     </div>
                                 </form>
                                 </div>
                     </div>
-
             </div>
         </div>
     )
