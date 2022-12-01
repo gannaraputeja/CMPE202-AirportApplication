@@ -75,6 +75,16 @@ const Update = () =>{
                 console.log(err.response);
             });
     }
+    const submitfun = () =>{
+
+        console.log("clickedd submitfun");
+        console.log(origin,status,destination,deptDate,arrDate,flightId);
+        converDeptDate();
+        converArrDate();
+        console.log("deptDate::",deptDate);
+        console.log("arrDate::",arrDate);
+        postData();
+    }
     <div>
         <div class="Container">
             <div class="row navbar">
