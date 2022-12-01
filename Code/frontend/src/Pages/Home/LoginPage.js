@@ -3,8 +3,8 @@ import './LoginPage.css';
 import {useState,useEffect} from 'react';
 import validator from 'validator'
 import {Image} from 'react-bootstrap';
-import {Navbar, Container, Nav, Button} from 'react-bootstrap';
-import {Routes, Route, useNavigate} from 'react-router-dom';
+// import {Navbar, Container, Nav, Button} from 'react-bootstrap';
+import {useNavigate} from 'react-router-dom';
 import Axios from 'axios';
 import backendUrl from './backendUrl.js';
 import {useDispatch} from "react-redux";
