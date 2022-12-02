@@ -7,6 +7,7 @@ const SchedPage = () =>{
     const nav = useNavigate();
     const fun=()=>{
         nav('/HomePage2');
+        
     }
     return (
         <div>

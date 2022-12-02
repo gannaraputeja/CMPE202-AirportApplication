@@ -151,12 +151,8 @@ const SchedulePage = () => {
                     <button type="submit" style ={{marginRight:'10px'}}className="btn btn-primary" onClick={navigateToGateway}>Gateway maintenance 🚪</button>
                     <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Assign Baggage Carousel</button>
                     <button className="btn btn-primary" style={{marginRight: '10px'}} onClick={postGates}>Assign Gates</button>
-
-                    </div>:
-                    <div>
-                    </div>
+                    </div>:<div></div>
                     }
-
                     {role === 2?
                     <div>
                     <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={navigateToAddFlight}>Add Flights</button>
@@ -164,9 +160,7 @@ const SchedulePage = () => {
                     </div>:
                     <div></div>
                     }
-
             </div>
-
             <label style={{textAlign: 'center', fontSize:'20px',marginBottom:'10px'}}>Flight Schedule</label>
 
                 {role !==1 && role !==2? 

@@ -28,23 +28,13 @@ const ProfilePage = () =>{
         setaccstatus(userObj.user.accountStatus);
         setemail(userObj.user.email);
         setpno(userObj.user.phone);
-        console.log("fname",fname);
-
-
     },[fname,lname,accstatus]);
-
-
-
     const goBack = () =>{
         history(-1);
     }
-
-
-
     return (
     <div>
-                            <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
-
+            <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
             <div class="Container">
                     <div class="loginclass">
                         <div className="Auth-form-container">
@@ -62,9 +52,7 @@ const ProfilePage = () =>{
                                     disabled={true}
                                     // onChange={(e)=>setIsUsername(e.target.value)}
                                     />
-                                    
                                     </div>
-
                                     <div className="form-group mt-3">
                                         <label>Last Name</label>
                                         <input
