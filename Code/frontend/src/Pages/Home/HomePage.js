@@ -15,24 +15,6 @@ const HomePage = () =>{
     useEffect(()=>{
         sessionStorage.clear();
         getData();
-        console.log(backendurl);
-
-        // Axios.get('/flights/1')
-        // .then(function(response){
-        //     console.log("RES::",response);
-        // });
-
-        console.log("Starttt");
-        Axios.get(`${backendurl}/airportschedule/1`,)
-            .then((response) => {
-                // console.log("zzzzzzz");
-                console.log("RES::",response.data.length);
-                            })
-            .catch(err => {
-                console.log(err.response);
-            });
-
-            // http://localhost:4001/airline/flights/1
     })
 
     const navigate = useNavigate();

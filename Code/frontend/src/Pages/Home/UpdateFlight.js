@@ -1,12 +1,15 @@
 import React, {useState,useEffect} from 'react';
 
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+// import DatePicker from 'react-datepicker';
+// import 'react-datepicker/dist/react-datepicker.css';
 // import TimePicker from "react-time-picker";
 // import TimePicker from 'react-timepicker';
 // import 'react-time-picker/dist/TimePicker.css';
 // import 'react-clock/dist/Clock.css';
-import TimePicker from 'react-time-picker/dist/entry.nostyle';
+// import TimePicker from 'react-time-picker/dist/entry.nostyle';
+import DateTimePicker from 'react-datetime-picker';
+import Axios from 'axios';
+import backendurl from './backendUrl';
 // import TimePicker from 'react-timepicker';
 // import 'react-timepicker/dist/react-timepicker.css';
 
@@ -14,100 +17,153 @@ import TimePicker from 'react-time-picker/dist/entry.nostyle';
 // import TimePicker from "react-time-picker/dist/entry.nostyle";
 
 
-// Status
-// departureTime
-// Arrival time
-// Origin
-// Des
-// Created
-// Update
-// Flight id
-
 
 
 const UpdateFlight = () =>{
 
+    const [deptDate, setDeptDate] = useState('');
+    const [arrDate, setArrDate] = useState('');
+    const [origin, setOrigin] = useState('');
+    const [destination, setDestination] = useState('');
+    const [status, setStatus] = useState('');
+    const [flightId, setFlightId] = useState('');
+    const [a,b] =useState('');
+    const [c,d] =useState('');
+    const [updatedata, setUpdatedata] = useState([]);
 
-    const [deptDate, setDeptDate] = useState(null);
-    const [deptTime, setdeptTime] = useState(null);
-    const [arrDate, setArrDate] = useState(null);
-    const [arrTime, setArrTime] = useState(null);
+    const submitfun = () =>{
+
+        console.log("clickedd submitfun");
+        console.log(origin,status,destination,deptDate,arrDate,flightId);
+        converDeptDate();
+        converArrDate();
+        console.log("deptDate::",deptDate);
+        console.log("arrDate::",arrDate);
+        postData();
+    }
+
+
+    // status: req.body.status,
+    // departureTime: req.body.departureTime,
+    // arrivalTime: req.body.arrivalTime,
+    // origin: req.body.origin,
+    // destination: req.body.destination,
+    // flightId: req.body.flightId
+
+
+    const postData = () =>{
+        const payload = {
+            status: status,
+            departureTime: deptDate,
+            arrivalTime: arrDate,
+            origin: origin,
+            destination: destination,
+            flightId: flightId
+          }
+
+          console.log("payload❌", payload);
+
+        Axios.put(`${backendurl}/airline/updateFlightSchedule/${flightId}`, payload)
+        .then((response) => {
+            console.log("YYYYYYYYY");
+            console.log(response);
+        })
+        .catch(err => {
+            console.log("XXXXXXX");
+            console.log(err);
+        });
+
+    }
+
+    const converDeptDate = () =>{
+        console.log("FUN 1:",a);
+        var ss=JSON.stringify(a);
+        ss=ss.toString();
+        var date1 = ss.substring(1,11)+" "+a.toTimeString().split(" ")[0];
+        setDeptDate(date1);
+    }
+
+    const converArrDate = () =>{
+        var sss=JSON.stringify(c);
+        sss=sss.toString();
+        var date2 = sss.substring(1,11)+" "+c.toTimeString().split(" ")[0];
+        setArrDate(date2);
+    }
+
+
+//     const daysFromRefDate = (date) =>{
+//   date &&
+//   Math.floor((date.getTime() - date.getTimezoneOffset() * 60000) / 86400000)
+//     }
+
+// const DateTimePicler = ({ minDate, maxDate, initDate }) => {
+//   const [selDate, setSelDate] = React.useState(initDate)
+//   const changeDate = React.useCallback((date) => setSelDate(date), [])
+
+//   const minDays = React.useMemo(() => daysFromRefDate(minDate), [minDate])
+//   const maxDays = React.useMemo(() => daysFromRefDate(maxDate), [maxDate])
+//   const selDays = React.useMemo(() => daysFromRefDate(selDate), [selDate])
+//   const isMinDay = selDays === minDays
+//   const isMaxDay = selDays === maxDays
+
+//   const minTime = isMinDay ? minDate : isMaxDay ? minTimeMaxDay : null
+//   const maxTime = isMaxDay ? maxDate : isMinDay ? maxTimeMinDay : null
+
+
 
 
     return(
         <div>
-        <div class="Container">
-                <div class="loginclass">
+        <div className="Container">
+                <div className="loginclass">
                     <div className="Auth-form-container">
-                            <form className="Auth-form" >
+                            <form className="Auth-form" onSubmit={submitfun}>
                                 <div className="Auth-form-content">
                                 <h3 className="Auth-form-title">Update Flight Schedule</h3>
-
                                 <div style={{marginTop:'25px'}}>
                                 <label>Status</label>
-                                <select class="form-select selectWidth" aria-label="Default select example" >
+                                <select className="form-select selectWidth" aria-label="Default select example" onChange={(e)=>setStatus(e.target.value)}>
                                     <option selected>Select Status</option>
-                                    <option value="1">Active</option>
-                                    <option value="2">inactive</option>
-                                    <option value="3">arriving</option>
-                                    <option value="4">arrived</option>
-                                    <option value="5">departed</option>
-                                    <option value="6">delayed</option>
-                                    <option value="7">cancelled</option>
+                                    <option value="active">active</option>
+                                    <option value="inactive">inactive</option>
+                                    <option value="arriving">arriving</option>
+                                    <option value="arrived">arrived</option>
+                                    <option value="departed">departed</option>
+                                    <option value="delayed">delayed</option>
+                                    <option value="cancelled">cancelled</option>
                                 </select>
                                 </div>
-
-
-
                                 <div className="form-group mt-3">
                                     <label>Origin</label>
-                                    <input type="text" className="form-control mt-1" placeholder="Enter Origin place" 
-                                    // value={isUsername} onChange={usernameFun}
+                                    <input type="text" className="form-control mt-1" placeholder="Enter Origin place" onChange={(e)=>setOrigin(e.target.value)}
                                     />
                                 </div>
 
                                 <div className="form-group mt-3">
                                     <label>Destination</label>
-                                    <input type="text" className="form-control mt-1" placeholder="Enter Destination place" 
-                                    // value={isUsername} onChange={usernameFun}
+                                    <input type="text" className="form-control mt-1" placeholder="Enter Destination place" onChange={(e)=>setDestination(e.target.value)}
                                     />
                                 </div>
 
                                 <div className="form-group mt-3">
                                 <label>Select Dept Date</label>
-                                <DatePicker
-                                        selected={deptDate}
-                                        onChange={ date => setDeptDate(date) }
-                                        name="startDate"
-                                        dateFormat="yyyy/MM/dd"
-                                        minDate={new Date()}
+                                    <DateTimePicker 
+                                    dateFormat="yyyy/MM/dd HH:mm:ss"
+                                    onChange={date => b(date)}
+                                    value={a} 
+                                    minDate={new Date()}                                
                                     />
                                 </div>
-
-
-                                <div className="form-group mt-3">
-                                <label>Select Dept Time</label>
-                                <TimePicker
-                                        selected={deptTime}
-                                        onChange={ time => setdeptTime(time) }
-                                        name="startTime"
-                                        // dateFormat="yyyy/MM/dd"
-                                        // minDate={new ()}
-                                    />
-                                </div>
-
 
                                 <div className="form-group mt-3">
                                 <label>Select Arrival Date</label>
-                                <DatePicker
-                                        selected={arrDate}
-                                        onChange={ date => setArrDate(date) }
-                                        name="startDate"
-                                        dateFormat="yyyy/MM/dd"
-                                        minDate={new Date()}
+                                    <DateTimePicker 
+                                    dateFormat="yyyy/MM/dd HH:mm:ss"
+                                    onChange={date => d(date)}
+                                    value={c} 
+                                    minDate={new Date()}                                
                                     />
                                 </div>
-
 
                                 <div className="form-group mt-3">
                                     <label>Flight Id</label>
@@ -115,39 +171,15 @@ const UpdateFlight = () =>{
                                     type="text"
                                     className="form-control mt-1"
                                     placeholder="Enter Flight Id"
-                                    // value={isPassword} onChange={passFun}
+                                    onChange={(e)=>setFlightId(e.target.value)}
                                     />
                                 </div>
-
-                                {/* <div style={{marginTop:'25px'}}>
-                                <label>Status</label>
-                                <select class="form-select selectWidth" aria-label="Default select example" >
-                                    <option selected>Select Status</option>
-                                    <option value="1">Active</option>
-                                    <option value="2">inactive</option>
-                                    <option value="3">arriving</option>
-                                    <option value="4">arrived</option>
-                                    <option value="5">departed</option>
-                                    <option value="6">delayed</option>
-                                    <option value="7">cancelled</option>
-                                </select>
-                                </div> */}
-
                                 <div className="d-grid gap-2 mt-3">
-                                    <button type="submit" className="btn btn-primary"  >
+                                    <button type="submit" className="btn btn-primary" onClick={()=>{submitfun()}}>
                                     Submit
                                     </button>
                                 </div>
                                 </div>
-                                {/* { successfulLogin ? <div><h1>Hey Hi,👋 {isUsername}</h1></div>: null } */}
-                                {/* <button type="submit" className="btn btn-primary" onClick={navigateToAirportEmp}>Airport Employee 👨‍🏭</button> */}
-                                {/* <select class="form-select selectWidth" aria-label="Default select example" onChange={handleRole}>
-                                    <option selected>Select Role 👨‍🏭</option>
-                                    <option value="1">Airport Employee</option>
-                                    <option value="2">Airline Employee</option>
-                                    <option value="3">Three</option>
-                                </select> */}
-
                             </form>
                             </div>
                 </div>

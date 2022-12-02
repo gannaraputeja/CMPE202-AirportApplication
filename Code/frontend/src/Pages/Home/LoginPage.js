@@ -93,7 +93,6 @@ function LoginPage (){
                                         <option selected>Select Role 👨‍🏭</option>
                                         <option value="1">Airport Employee</option>
                                         <option value="2">Airline Employee</option>
-                                        <option value="3">Three</option>
                                     </select>
                                     </div>
 

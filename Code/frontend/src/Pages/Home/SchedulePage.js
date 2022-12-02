@@ -16,35 +16,29 @@ const SchedulePage = () => {
     useEffect(() => {
         setRole(sessionStorage.getItem("Role"));
         setUsername(sessionStorage.getItem("UserName"));
-        getData();
-        // console.log(window.location.pathname);
         getAirportSchedule();
-        // console.log("role:",role);
     }, []);
 
     const getAirportSchedule = () =>{
-        // console.log("getAirportSchedule");
         Axios.get(`${backendurl}/airportschedule/1`,)
         .then((response) => {
-            console.log("RES::",response.data);
-            console.log("RESXXXXXXXX::",response.data[0].flightInstance.flight.number);
-
-            // console.log("RES::",response.data[0]);
-            // console.log("flightInstance::",response.data[0].flightInstance);
-            // console.log("flightInstance statusss::",response.data[0].flightInstance.status);
+            console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
-
-                        })
+        })
         .catch(err => {
             console.log(err.response);
         });
     }
 
-    const getData=()=>{
-        fetch("https://jsonplaceholder.typicode.com/posts")
-        .then(response => {return response.json();})
-        .then(data => {setData(data);})
-
+    const postBaggage = () =>{
+        Axios.post(`${backendurl}/airport/assign/baggageCarousel`)
+        .then((response) =>{
+            console.log("Success:",response);
+            alert("Successfully Assigned Baggage 👍");
+        })
+        .catch(err => {
+            console.log(err.response);
+        })
     }
 
     const navigateToGateway=()=>{
@@ -53,9 +47,11 @@ const SchedulePage = () => {
     const navigateupdateFlight = () =>{
         navigate('/UpdateFlight');
     }
+    const navigateBaggageCarousel = () =>{
+        navigate('/BaggageCarousel');
+    }
     const selectHour= event =>{
         console.log("Hour VAL:::",event.target.value);
-        // window.sessionStorage.setItem("Role",event.target.value);
         setHours(event.target.value);
         getFlights();
     }
@@ -86,13 +82,22 @@ const SchedulePage = () => {
             </div>
             <div style={{width:'90vw', margin:'auto',marginTop:'10vh'}}>
                 <div style={{float: 'right'}}>
-                {role === '1' || role === '2'? 
-            <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>:
-            <div></div>
-            }
-                </div>
 
+                    {role ==='1' || role === '2'?
+                    <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage   }>Baggage Carousel</button>:
+                    <div></div>
+                    }
 
+                    {role === '1'? 
+                    <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>:
+                    <div></div>
+                    }
+
+                    {role === '2'? 
+                    <button class="btn btn-primary" onClick={navigateBaggageCarousel}>Baggage Carousel</button>:
+                    <div></div>
+                    }
+            </div>
 
                 <div>
                     {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
