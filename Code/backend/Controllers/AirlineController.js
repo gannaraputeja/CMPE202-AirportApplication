@@ -51,7 +51,7 @@ export const updateFlightSchedule = async(req, res)=>{
             });
 
             //console.log(updatedSchedule);
-            res.status(201).send(updatedSchedule);
+            res.status(200).json({message: "Schedule with requested Id updated successfully"});
         }
     }
     catch(err){
