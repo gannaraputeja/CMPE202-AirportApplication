@@ -4,9 +4,9 @@ import {addFlightSchedule, updateFlightSchedule, getAllFlightsForAnAirline} from
 
 const router = express.Router()
 
-router.post('/addFlightSchedule/', AuthMiddleware, IsAirlineUser, addFlightSchedule);
+router.post('/add/flight-schedule/', AuthMiddleware, IsAirlineUser, addFlightSchedule);
 
-router.put('/updateFlightSchedule/:id', AuthMiddleware, IsAirlineUser, updateFlightSchedule);
+router.put('/update/flight-schedule/:id', AuthMiddleware, IsAirlineUser, updateFlightSchedule);
 
 router.get('/flights/:id', AuthMiddleware, IsAirlineUser, getAllFlightsForAnAirline);
 
