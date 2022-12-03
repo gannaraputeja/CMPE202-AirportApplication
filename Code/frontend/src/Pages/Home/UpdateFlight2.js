@@ -77,13 +77,8 @@ const UpdateFlight2 = () =>{
     }
 
     const submitfun = () =>{
-
-        console.log("clickedd submitfun");
-        // console.log(origin,status,destination,deptDate,arrDate,flightId);
         converDeptDate();
         converArrDate();
-        console.log("deptDate::",deptDate);
-        console.log("arrDate::",arrDate);
         postData();
     }
 
@@ -97,10 +92,6 @@ const UpdateFlight2 = () =>{
             destination: destination,
             flightId: flightId
           }
-
-          console.log("ID:",FlightDBId);
-          console.log("payload❌", payload);
-
       try {
           console.log(sessionStorage.getItem("FlightDBId"))
           const response = await Axios.post(`/airline/update/flight-schedule/${flightInstanceId}`, payload)

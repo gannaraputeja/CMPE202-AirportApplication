@@ -89,13 +89,11 @@ const UpdateFlight = () =>{
         getFlights();
     }
     const getFlights = () =>{
-        console.log("getttt flightssss");
     }
     
 
 
     const submitfun = () =>{
-
         console.log("clickedd submitfun");
         console.log(origin,status,destination,deptDate,arrDate,flightId);
         converDeptDate();
@@ -104,7 +102,6 @@ const UpdateFlight = () =>{
         console.log("arrDate::",arrDate);
         postData();
     }
-
     const navigateToAddFlight=()=>{
         navigate('/AddFlight');
     }
@@ -117,14 +114,11 @@ const UpdateFlight = () =>{
             destination: destination,
             flightId: flightId
           }
-
         Axios.put(`/airline/updateFlightSchedule/${flightId}`, payload)
         .then((response) => {
-            console.log("YYYYYYYYY");
             console.log(response);
         })
         .catch(err => {
-            console.log("XXXXXXX");
             console.log(err);
         });
 
