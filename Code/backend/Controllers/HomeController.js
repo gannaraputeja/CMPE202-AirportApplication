@@ -25,7 +25,7 @@ export const getSchedules = async (req, res) => {
                                     "departureTime":{[Op.between] : [ startDate, endDate]}
                                 }]
                     },
-                    attributes: ['status', 'departureTime', 'arrivalTime', 'origin', 'destination'],
+                    attributes: ['id', 'status', 'departureTime', 'arrivalTime', 'origin', 'destination'],
                     include: [
                         {model: Flight,
                             attributes:['number'],
