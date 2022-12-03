@@ -8,6 +8,7 @@ import SchedulePage from './Pages/Home/SchedulePage';
 import Gateway from './Pages/Home/Gateway';
 import UpdateFlight from './Pages/Home/UpdateFlight';
 import BaggageCarousel from './Pages/Home/BaggageCarousel';
+import UpdateFlight2 from './Pages/Home/UpdateFlight2';
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
           <Route path="/Gateway" element={<Gateway />}></Route>
           <Route path="/UpdateFlight" element={<UpdateFlight />}></Route>
           <Route path="/BaggageCarousel" element={<BaggageCarousel />}></Route>
+          <Route path="/UpdateFlight2" element={<UpdateFlight2 />}></Route>
         </Routes>
     </div>
   );
