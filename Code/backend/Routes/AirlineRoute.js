@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.post('/add/flight-schedule/', AuthMiddleware, IsAirlineUser, addFlightSchedule);
 
-router.put('/update/flight-schedule/:id', AuthMiddleware, IsAirlineUser, updateFlightSchedule);
+router.post('/update/flight-schedule/:id', AuthMiddleware, IsAirlineUser, updateFlightSchedule);
 
 router.get('/flights/:id', AuthMiddleware, IsAirlineUser, getAllFlightsForAnAirline);
 

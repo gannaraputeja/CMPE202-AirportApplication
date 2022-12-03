@@ -96,10 +96,11 @@ const UpdateFlight2 = () =>{
             destination: destination,
             flightId: flightId
           }
+
           console.log("ID:",FlightDBId);
           console.log("payload❌", payload);
 
-        Axios.put(`${backendurl}/airline/updateFlightSchedule/${sessionStorage.getItem("FlightDBId")}`, payload)
+        Axios.post(`${backendurl}/airline/update/flight-schedule/${sessionStorage.getItem("FlightDBId")}`, payload)
         .then((response) => {
             console.log("YYYYYYYYY");
             console.log(response);
