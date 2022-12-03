@@ -273,50 +273,5 @@ const Gateway = () => {
                     <thead class="thead-dark">
                     <tr>
                         <th>Gate Name</th>
-                        <th>Status</th>
-                        <th>Terminal Name</th>
-                        <th>Action</th>
-                    </tr>
 
-                    </thead>
-                    {gatewayList && gatewayList.length > 0 && gatewayList.map((data)=>(
-                        <tbody>
-                        <tr>
-                            <th>{data.name}</th>
-                            <th>{data.status}</th>
-                            <th>{data.terminal.name}</th>
-                            <th>{data.body}</th>
-                            <th>
-                                {/* {var status = FunStatus()} */}
-                                {data.status === 'active'?
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" defaultChecked={true} role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault"/>
-                                        <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                                    </div>:
-
-                                    data.status === 'inactive'?
-
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault"/>
-                                            <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                                        </div>:
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault" disabled="disabled" checked/>
-                                            <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                                        </div>
-
-
-
-
-                                }
-
-
-                            </th>
-                        </tr>
-                        </tbody>
-                    ))}
-                </table>
-            </div>
-        </div>
-    )
 }
