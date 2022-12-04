@@ -24,6 +24,7 @@ const UpdateFlight2 = () =>{
         setStatus(obj.flightInstance.status);
         setFlightInstanceId(obj.flightInstance.id);
         setFlightId(obj.flightInstance.flight.id);
+        setFlightNumber((obj.flightInstance.flight.number))
         setDeptDate(obj.flightInstance.departureTime);
         setArrDate(obj.flightInstance.arrDate);
         console.log("👎",obj.flightInstance.departureTime);
@@ -40,6 +41,7 @@ const UpdateFlight2 = () =>{
     const [status, setStatus] = useState('');
     const [flightInstanceId, setFlightInstanceId] = useState('');
     const [flightId, setFlightId] = useState('')
+    const [flightNumber, setFlightNumber] = useState('')
 
     const [a,b] =useState('');
     const [c,d] =useState('');
@@ -121,6 +123,17 @@ const UpdateFlight2 = () =>{
                                 <div className="Auth-form-content">
                                 <h3 className="Auth-form-title">Update Flight Schedule</h3>
                                 <div style={{marginTop:'25px'}}>
+                                <div className="form-group mt-3">
+                                    <label>Flight Number</label>
+                                    <input
+                                        type="text"
+                                        className="form-control mt-1"
+                                        placeholder="Enter Flight Number"
+                                        defaultValue={flightNumber}
+                                        disabled={true}
+                                        onChange={(e)=>setFlightNumber(e.target.value)}
+                                    />
+                                </div>
                                 <label>Status</label>
                                 <select className="form-select selectWidth" defaultValue={status} aria-label="Default select example" onChange={(e)=>setStatus(e.target.value)}>
                                     <option selected>{status}</option>
@@ -167,16 +180,6 @@ const UpdateFlight2 = () =>{
                                     />
                                 </div>
 
-                                <div className="form-group mt-3">
-                                    <label>Flight Id</label>
-                                    <input
-                                    type="text"
-                                    className="form-control mt-1"
-                                    placeholder="Enter Flight Id"
-                                    defaultValue={flightId}
-                                    onChange={(e)=>setFlightId(e.target.value)}
-                                    />
-                                </div>
                                 <div className="d-grid gap-2 mt-3">
                                     <button type="button" className="btn btn-primary" onClick={()=>submitfun()}>
                                     Submit
