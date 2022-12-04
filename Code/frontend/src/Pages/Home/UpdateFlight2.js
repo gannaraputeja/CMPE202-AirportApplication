@@ -46,7 +46,6 @@ const UpdateFlight2 = () =>{
     const history = useNavigate();
     
     const converDeptDate = () =>{
-        console.log("FUN 1:",a);
         var ss=JSON.stringify(a);
         ss=ss.toString();
         var date1 = ss.substring(1,11)+" "+a.toTimeString().split(" ")[0];
@@ -89,9 +88,7 @@ const UpdateFlight2 = () =>{
             flightId: flightId
           }
       try {
-          console.log(sessionStorage.getItem("FlightDBId"))
           const response = await Axios.post(`/airline/update/flight-schedule/${flightInstanceId}`, payload)
-          console.log(response);
           navigate('/UpdateFlight');
       } catch(err) {
             console.log(err);
