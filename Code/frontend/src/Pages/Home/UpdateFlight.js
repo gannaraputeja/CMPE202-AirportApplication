@@ -12,6 +12,7 @@ import Axios from 'axios';
 import backendurl from './backendUrl';
 import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header";
+import {useSelector} from "react-redux";
 
 // import TimePicker from 'react-timepicker';
 // import 'react-timepicker/dist/react-timepicker.css';
@@ -37,26 +38,32 @@ const UpdateFlight = () =>{
 
 
     const [role,setRole] = useState('');
-    const [username,setUsername] = useState('');
     const [profile,setProfile] = useState({})
     const navigate = useNavigate();
     const [data,setData] = useState();
     const [hours,setHours] = useState(1);
     const [airportSchedule,setAirportSchedule] = useState([]);
 
+    const {user} = useSelector((state) => state.authReducer.authData)
 
-
+    Axios.interceptors.request.use((req) => {
+        if(sessionStorage.getItem('profile')) {
+            req.headers.Authorization = `Bearer ${JSON.parse(sessionStorage.getItem('profile')).token}`
+        }
+        return req
+    })
 
     useEffect(() => {
         setRole(sessionStorage.getItem("Role"));
-        setUsername(JSON.parse(sessionStorage.getItem("profile"))?.user.firstname);
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
+        console.log(profile)
         getAirportSchedule();
     }, []);
 
 
     const getAirportSchedule = () =>{
-        Axios.get(`${backendurl}/airport-schedules/${hours}`,)
+        //Axios.get(`${backendurl}/airport-schedules/${hours}`,)
+        Axios.get(`${backendurl}/airline/schedules/user/${user.id}`,)
         .then((response) => {
             console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
@@ -184,13 +191,13 @@ const UpdateFlight = () =>{
             }
     </div>
 
-        <div>
+        {/*<div>
             {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
                 <div>
                     { data.terminal.name}
                 </div>
             ))}
-        </div>
+        </div>*/}
 
 
 
