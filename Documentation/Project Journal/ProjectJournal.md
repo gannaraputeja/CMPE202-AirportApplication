@@ -43,7 +43,7 @@
 
 #### Dasaradh Gutta
 
-<li>What tasks did I work on / complete? - Set up the frontend working environment using ReactJS and pushed the changes to the github main branch. Also setup the NodeJS backend working environment and pushed the hanges to github.</li>
+<li>What tasks did I work on / complete? - Set up the frontend working environment using ReactJS and pushed the changes to the github main branch. Also setup the NodeJS backend working environment and pushed the changes to github.</li>
 <li>What am I planning to work on next? - Design the architecture diagram of our application</li>
 <li>What tasks are blocked waiting on another team member? - No Blockers</li>
 
