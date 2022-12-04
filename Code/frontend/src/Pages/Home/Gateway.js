@@ -20,6 +20,18 @@ const Gateway = () => {
         getGateMaintainData();
     },[]); 
 
+    const FunStatus = (e) =>{
+        if(e==='active'){
+            return 1;
+        }
+        else if(e==='inactive'){
+            return 2;
+        }
+        else{
+            return 0;
+        }
+    }
+
     const getGateMaintainData = () =>{
         Axios.get(`${backendurl}/airport/get/gates`,)
         .then((response)=>{
@@ -106,15 +118,25 @@ const Gateway = () => {
                             <th>{data.terminal.name}</th>
                             <th>{data.body}</th>
                             <th>
+                                {/* {var status = FunStatus()} */}
                                 {data.status === 'active'?
                                 <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault"/>
+                                <input class="form-check-input" type="checkbox" defaultChecked={true} role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault"/>
                                 <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                                 </div>:
+
+                                data.status === 'inactive'?
+                                
                                                                 <div class="form-check form-switch">
                                                                 <input class="form-check-input" type="checkbox" role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault"/>
                                                                 <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                                                                </div>
+                                                                </div>:
+                                                                 <div class="form-check form-switch">
+                                                                 <input class="form-check-input" type="checkbox" role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault" disabled="disabled"/>
+                                                                 <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                                                                 </div>
+
+                                                                
                                 
                             
                             }
