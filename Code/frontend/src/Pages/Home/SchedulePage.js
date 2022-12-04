@@ -6,23 +6,67 @@ import Axios from 'axios';
 import backendurl from './backendUrl';
 
 const SchedulePage = () => {
-    const [role,setRole] = useState('');
+    const [role,setRole] = useState(0);
     const [username,setUsername] = useState('');
     const navigate = useNavigate();
     const [data,setData] = useState();
     const [hours,setHours] = useState(1);
+    const [job,setJob] = useState('');
     const [airportSchedule,setAirportSchedule] = useState([]);
 
-    useEffect(() => {
-        setRole(sessionStorage.getItem("Role"));
-        setUsername(sessionStorage.getItem("UserName"));
-        getAirportSchedule();
-    }, []);
+    // setUsername(sessionStorage.getItem("UserName"));
+    // console.log((sessionStorage.getItem("Role")));
+    // setRole(sessionStorage.getItem("Role"));
+    // console.log("ROLE:::",role);
 
-    const getAirportSchedule = () =>{
+    useEffect(() => {
+        var userObj = JSON.parse(sessionStorage.getItem("userdetails"));
+        if(userObj!==null){
+            console.log(userObj);
+            console.log(Object.keys(userObj).length);
+            console.log(userObj.email);
+
+            if(userObj.type === 'airline'){
+                setRole(1);
+                // empRole=1;
+            }
+            else if(userObj.type === 'airport'){
+                setRole(2);
+                // empRole=1;
+            }
+            setUsername(userObj.firstname);
+            setJob(userObj.type);
+        }
+        else{
+            setRole(0);
+        }   
+        console.log("ROLE:",role);
+        if(role === 1 || role === 2){
+            getAirportSchedule();
+        }
+        else{
+            getAirportScheduleByHour();
+        }
+    }, [role,setRole]);
+
+    const getAirportScheduleByHour = () =>{
+        console.log("CUSTOMEEEEE");
         Axios.get(`${backendurl}/airport-schedules/${hours}`,)
         .then((response) => {
             console.log("AAAA:",response.data);
+            setAirportSchedule(response.data);
+        })
+        .catch(err => {
+            console.log(err.response);
+        });
+    }
+
+    const getAirportSchedule = () =>{
+        console.log("EMPPPPPPPP");
+
+        Axios.get(`${backendurl}/airport-schedules`,)
+        .then((response) => {
+            console.log("AAAAQQQQQQ:",response.data);
             setAirportSchedule(response.data);
         })
         .catch(err => {
@@ -40,6 +84,11 @@ const SchedulePage = () => {
         .catch(err => {
             console.log(err.response);
         })
+    }
+
+    const logoutFun = () =>{
+        sessionStorage.clear();
+        navigate('/');
     }
 
     const navigateToGateway=()=>{
@@ -76,8 +125,8 @@ const SchedulePage = () => {
                                     // <button type="submit" className="btn btn-primary" onClick={navigateToGateway}>Airline Employee ✈️👨‍✈️</button>
                                 } */}
                             </div>
-                            {role !=='1' || role !== '2'?<div class="col usernameclass">Hi Guest 👋</div>:<div class="col usernameclass">Hi {username} 👋</div>}
-                            {/* <div class="col usernameclass">Hi {username} 👋</div> */}
+                            {role === 1 || role === 2?<div class="col usernameclass">Hi {username} 👋 <i style={{fontSize:'24px'}} class='fas'>&#xf508;</i><br></br>{job} Employee</div>:<div></div>}
+                            <div class="col usernameclass"><button class="btn btn-primary" onClick={()=>{logoutFun()}}>Logout</button></div>
                         </div>
                     </div>
                 </div>
@@ -85,33 +134,34 @@ const SchedulePage = () => {
             <div style={{width:'90vw', margin:'auto',marginTop:'10vh'}}>
                 <div style={{float: 'right'}}>
 
-                    {role ==='1'?
-                    <div>
-                    <button type="submit" style ={{marginRight:'10px'}}className="btn btn-primary" onClick={navigateToGateway}>Gateway maintenance 🚪</button>
-                    <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Baggage Carousel</button>
-
-                    </div>:
+                    {role === 2?
+                        <div>
+                            <button type="submit" style ={{marginRight:'10px'}}className="btn btn-primary" onClick={navigateToGateway}>Gateway Maintenance 🚪</button>
+                            <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Baggage Carousel 🧳</button>
+                        </div>
+                     :
                     <div></div>
-                    }
+                    } 
 
-                    {role === '2'?
-                    <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>:
+                    {role === 1?
+                    <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule </button>:
                     <div></div>
                     }
             </div>
 
-                <div>
+                {/* <div>
                     {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
                         <div>
                             {data.terminal.name}
                         </div>
                     ))}
-                </div>
+                </div> */}
 
 
 
             <label style={{textAlign: 'center', fontSize:'20px',margin:'10px'}}>Flight Schedule</label>
 
+            {role !== 1 && role !== 2?
             <div class="row" style={{backgroundColor:'black', color:'white',textAlign:'right',margin:'0px',padding:'20px'}}>
                     <div class="col-4"></div>
                     <div class="col-1"></div>
@@ -119,7 +169,7 @@ const SchedulePage = () => {
                         <div class="row">
                             <div class="col-7">Display Flight in</div>
                             <div class="col-3">
-                                <select class="form-select" aria-label="Default select example" onChange={(e)=>{setHours(e)}}>
+                                <select class="form-select" aria-label="Default select example" onChange={(e)=>{setHours(e.target.value)}}>
                                             <option selected value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -127,13 +177,12 @@ const SchedulePage = () => {
                             </div>
                             <div class="col-2">
                                 Hour
-                                <button type="button" class="btn btn-primary bi-search" onClick={getAirportSchedule} ><i class="bi bi-search"></i>search</button>
+                                <button type="button" class="btn btn-primary bi-search" onClick={getAirportScheduleByHour} ><i class="bi bi-search"></i>search</button>
                                 </div>
                         </div>
                     </div>
-            </div>
-
-
+            </div>:
+            <div></div>}
 
             <table class="table table-hover table-dark">
                 
@@ -157,10 +206,10 @@ const SchedulePage = () => {
                             <th>{data.flightInstance.arrivalTime}</th>
                             <th>{data.flightInstance.origin}</th>
                             <th>{data.flightInstance.destination}</th>
-                            {data.gate ===null?<th>notass</th>:<th>{data.gate.name}</th>}
+                            {data.gate ===null?<th>NA</th>:<th>{data.gate.name}</th>}
                             {/* <th>{data.gate ==}</th> */}
                             <th>{data.terminal.name}</th>
-                            {data.baggageCarousel ===null?<th>notass</th>:<th>{data.baggageCarousel.name}</th>}
+                            {data.baggageCarousel ===null?<th>NA</th>:<th>{data.baggageCarousel.name}</th>}
                             {/* <th>{data.baggageCarousel.name}</th> */}
                         </tr>
                     </tbody>
