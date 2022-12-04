@@ -1,4 +1,13 @@
-import {FlightInstance, Flight, AirportSchedule} from "../Models/index.js";
+import {
+    FlightInstance,
+    Flight,
+    AirportSchedule,
+    Airline,
+    AirlineEmployee,
+    User,
+    BaggageCarousel, Terminal, Gate
+} from "../Models/index.js";
+import {Op} from "sequelize";
 
 export const addFlightSchedule = async(req, res) =>{
     try{
@@ -12,9 +21,16 @@ export const addFlightSchedule = async(req, res) =>{
             origin: req.body.origin,
             destination: req.body.destination,
             flightId: req.body.flightId
-        });
+        })
 
         //console.log(flightData);
+
+        const airportSchedule = await AirportSchedule.create({
+            terminalId: req.body.terminalId,
+            flightInstanceId: flightData.id
+        })
+
+        //console.log(airportSchedule);
 
         res.status(201).send(flightData);
     }
@@ -26,8 +42,8 @@ export const addFlightSchedule = async(req, res) =>{
 
 export const updateFlightSchedule = async(req, res)=>{
     try{
-        if(req.params?.id && ( req.params.id.trim() === '' || isNaN(req.params.id)) )
-            return res.status(400).json("Invalid flight schedule id.");
+        if(req.params.flightInstanceId.trim() === '' || isNaN(req.params.flightInstanceId))
+            return res.status(400).json("Invalid flight instance id.");
 
         const flightInstance = await FlightInstance.update({
             status: req.body.status,
@@ -39,7 +55,7 @@ export const updateFlightSchedule = async(req, res)=>{
         },
         {
             where:{
-                id: req.params.id,
+                id: req.params.flightInstanceId,
             }
         });
 
@@ -57,12 +73,12 @@ export const updateFlightSchedule = async(req, res)=>{
 
 export const getAllFlightsForAnAirline = async(req, res) =>{
     try{
-        if(req.params.id.trim() ==='' || isNaN(req.params.id))
+        if(req.params.airlineId.trim() ==='' || isNaN(req.params.airlineId))
             res.status(400).json("Invalid airline Id, Airline id should be a number...");
 
         const allFlightsForAnAirline = await Flight.findAll({
             where: {
-                airlineId: req.params.id
+                airlineId: req.params.airlineId
             }
         })
 
@@ -77,3 +93,31 @@ export const getAllFlightsForAnAirline = async(req, res) =>{
         res.status(400).json({message: "Couldn't retrieve any flights for an airline"});
     }
 };
+
+export const getSchedulesForAnAirline = async (req, res) => {
+    try {
+        if(req.params.userId.trim() === '' || isNaN(req.params.userId) )
+            return res.status(400).json({message: "Invalid user id."})
+
+        const airlineEmployee = await AirlineEmployee.findOne({
+            where: { userId: req.params.userId }
+        })
+
+        const flight = await Flight.findOne({
+            where: { airlineId: airlineEmployee.airlineId }
+        })
+
+        const airportSchedules = await AirportSchedule.findAll({
+            include: [{
+                model: FlightInstance, where: { flightId:  flight.id }
+            }, { model : Terminal }, { model: Gate }, { model: BaggageCarousel }]
+        })
+
+        //console.log(airportSchedules)
+
+        return res.status(200).json(airportSchedules)
+    } catch(err) {
+        console.log(err)
+        res.status(400).json({message: "Couldn't retrieve any flight schedules for an airline."});
+    }
+}
