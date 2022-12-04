@@ -1,6 +1,7 @@
 import React from 'react';
 import './LoginPage.css';
 import {useState,useEffect} from 'react';
+import validator from 'validator'
 import {Image} from 'react-bootstrap';
 import {Navbar, Container, Nav, Button} from 'react-bootstrap';
 import {Routes, Route, useNavigate} from 'react-router-dom';
@@ -15,6 +16,7 @@ function LoginPage (){
     const [isUsername,setIsUsername]=useState('');
     const [isPassword,setIsPassword]=useState('');
     const [successfulLogin,setSuccess] = useState('');
+    const [validateEmail,setValidateEmail] = useState(false);
     const [role,setRole] = useState('');
 
     useEffect(() => {
@@ -24,7 +26,7 @@ function LoginPage (){
     const navigateToAirportEmp = () => {
         // 👇️ navigate to /AirportEmp
         navigate('/AirportEmp');
-      };
+    };
 
     const usernameFun = event =>{
         setIsUsername(event.target.value);
@@ -39,10 +41,28 @@ function LoginPage (){
 
     }
 
+    const validate = () => {
+        if(validator.isEmail(isUsername)){
+            setValidateEmail(true);
+        }
+        else{
+            setValidateEmail(false);
+        }
+        // const expression = /(?!.*\.{2})^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([\t]*\r\n)?[\t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([\t]*\r\n)?[\t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+        // return expression.test(String(email).toLowerCase())
+    }
     const checkLogin = () =>{
         console.log(isUsername,isPassword);
+        validate();
         window.sessionStorage.setItem("Role",role);
-        if(isUsername ==='abc' && isPassword === '123' && role==='1'){
+        const payload = {
+            email:isUsername,
+            password:isPassword
+        }
+
+        // Axios.podt(`${backendurl}`)
+
+        if(validateEmail ===true && isPassword === '123' && role==='1'){
             setSuccess(true);
             console.log("successfulLogin");
             window.sessionStorage.setItem("LoggedIn", true);
@@ -50,7 +70,7 @@ function LoginPage (){
             // navigateToAirportEmp();
             navigate('/SchedulePage');
         }
-        else if(isUsername ==='abc' && isPassword === '123' && role==='2'){
+        else if(validateEmail ===true && isPassword === '123' && role==='2'){
             setSuccess(true);
             console.log("successfulLogin");
             window.sessionStorage.setItem("LoggedIn", true);
@@ -61,6 +81,7 @@ function LoginPage (){
         else{
             // setSuccess(false);
             console.log("Not successfulLogin");
+            alert("Please enter correct email or password!!")
         }
     }
 
@@ -76,7 +97,14 @@ function LoginPage (){
                                     <h3 className="Auth-form-title">Sign In</h3>
                                     <div className="form-group mt-3">
                                         <label>Email address</label>
-                                        <input type="email" className="form-control mt-1" placeholder="Enter email" value={isUsername} onChange={usernameFun}/>
+                                        <input
+                                    type="email"
+                                    className="form-control mt-1"
+                                    placeholder="Enter email"
+                                    value={isUsername}
+                                    onChange={(e)=>setIsUsername(e.target.value)}
+                                    />
+                                        {/* <input type="email" className="form-control mt-1" placeholder="Enter email" value={isUsername} onChange={usernameFun}/> */}
                                     </div>
                                     <div className="form-group mt-3">
                                         <label>Password</label>
@@ -84,7 +112,8 @@ function LoginPage (){
                                         type="password"
                                         className="form-control mt-1"
                                         placeholder="Enter password"
-                                        value={isPassword} onChange={passFun}
+                                        value={isPassword}
+                                        onChange={(e)=>setIsPassword(e.target.value)}
                                         />
                                     </div>
                                     <div style={{marginTop:'25px'}}>
@@ -101,12 +130,12 @@ function LoginPage (){
                                         Submit
                                         </button>
                                     </div>
-                                    <p className="forgot-password text-right mt-2">
+                                    {/* <p className="forgot-password text-right mt-2">
                                         Forgot <a href="#">password?</a>
-                                    </p>
+                                    </p> */}
                                     </div>
-                                    { successfulLogin ? <div><h1>Hey Hi,👋 {isUsername}</h1></div>: null }
-                                    <button type="submit" className="btn btn-primary" onClick={navigateToAirportEmp}>Airport Employee 👨‍🏭</button>
+                                    {/* { successfulLogin ? <div><h1>Hey Hi,👋 {isUsername}</h1></div>: null } */}
+                                    {/* <button type="submit" className="btn btn-primary" onClick={navigateToAirportEmp}>Airport Employee 👨‍🏭</button> */}
                                     {/* <select class="form-select selectWidth" aria-label="Default select example" onChange={handleRole}>
                                         <option selected>Select Role 👨‍🏭</option>
                                         <option value="1">Airport Employee</option>

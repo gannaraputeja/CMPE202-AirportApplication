@@ -6,8 +6,8 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import routes from './Routes/index.js'
 import { db } from './Models/index.js'
-import swaggerDocument from './swagger.json' assert {type: "json"}
-import swaggerUi from 'swagger-ui-express'
+// import swaggerDocument from './swagger.json' assert {type: "json"}
+// import swaggerUi from 'swagger-ui-express'
 // const swaggerDocument = require('swagger.json')
 // App configuration
 const app = express();
@@ -36,11 +36,11 @@ app.use(bodyParser.json({limit: '30mb', extended: true}));
 app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
 
 //Swagger UI
-app.use(
-    '/api-docs',
-    swaggerUi.serve,
-    swaggerUi.setup(swaggerDocument)
-);
+// app.use(
+//     '/api-docs',
+//     swaggerUi.serve,
+//     swaggerUi.setup(swaggerDocument)
+// );
 // Configuration
 dotenv.config()
 

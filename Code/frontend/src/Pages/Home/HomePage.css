@@ -1,5 +1,5 @@
 .bodyclass{
-    background-image:url("/Users/prudhvi/react/team_project/src/components/assets/v.jpeg");
+    background-image:url("assets/v.jpeg");
 }
 .buttonclass{
     background-color: yellow;
