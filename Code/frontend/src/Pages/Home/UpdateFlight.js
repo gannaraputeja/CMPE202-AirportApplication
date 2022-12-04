@@ -8,7 +8,7 @@ import defaultProfile from './assets/defaultProfile.jpg'
 // import 'react-clock/dist/Clock.css';
 // import TimePicker from 'react-time-picker/dist/entry.nostyle';
 import DateTimePicker from 'react-datetime-picker';
-import Axios from 'axios';
+import axios from 'axios';
 import backendurl from './backendUrl';
 import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header";
@@ -24,6 +24,8 @@ import Moment from 'moment'
 
 
 const UpdateFlight = () =>{
+
+    const Axios = axios.create({baseURL: `${backendurl}`})
 
     Moment.locale('en');
 
@@ -64,8 +66,7 @@ const UpdateFlight = () =>{
 
 
     const getAirportSchedule = () =>{
-        //Axios.get(`${backendurl}/airport-schedules/${hours}`,)
-        Axios.get(`${backendurl}/airline/schedules/user/${user.id}`,)
+        Axios.get(`/airline/schedules/user/${user.id}`,)
         .then((response) => {
             console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
@@ -76,7 +77,7 @@ const UpdateFlight = () =>{
     }
 
     const postBaggage = () =>{
-        Axios.post(`${backendurl}/airport/assign/baggageCarousel`)
+        Axios.post(`/airport/assign/baggageCarousel`)
         .then((response) =>{
             console.log("Success:",response);
             alert("Successfully Assigned Baggage 👍");
@@ -138,7 +139,7 @@ const UpdateFlight = () =>{
 
           console.log("payload❌", payload);
 
-        Axios.put(`${backendurl}/airline/updateFlightSchedule/${flightId}`, payload)
+        Axios.put(`/airline/updateFlightSchedule/${flightId}`, payload)
         .then((response) => {
             console.log("YYYYYYYYY");
             console.log(response);

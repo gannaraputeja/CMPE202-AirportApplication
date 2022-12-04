@@ -5,7 +5,7 @@ import Axios from "axios";
 import { Outlet, Link} from "react-router-dom";
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import backendurl from './backendUrl';
+import Header from "../../Components/Header";
 
 const HomePage = () =>{
 
@@ -60,20 +60,7 @@ const HomePage = () =>{
         <>
         <div class="bodyclass">
         <div>
-            <div class="Container">
-                <div class="row navbar">
-                    <div class="col-4"><h3>SJC Airport Application</h3></div>
-                    <div class="col-4"></div>
-                    <div class="col-4">
-                        <div class="row">
-                            <div class="col ml-auto loginbtn">
-                                <button type="submit"  className="btn" onClick={navigateToLoginPage}>LOGIN 🔐</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <Header/>
         </div>
         <div class="title">
             {/*<h2>SJC Airport</h2>*/}
@@ -91,8 +78,8 @@ const HomePage = () =>{
                                 </div> */}
 
                                 <div class="row">
-                                    <div class="buttonclass col text-center">
-                                    <button type="button" class="btn btn-default" onClick={navigateToSchedule} >Flight Schedule</button>
+                                    <div class="buttonclass col text-center" onClick={navigateToSchedule} >
+                                    <button type="button" class="btn btn-default">Flight Schedule</button>
                                     </div>
                                
                                 </div>

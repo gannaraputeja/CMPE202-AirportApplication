@@ -2,10 +2,12 @@ import React from 'react';
 import './Gateway.css';
 import { useState,useEffect } from 'react';
 import Navbar from './Navbar';
-import Axios from 'axios';
+import axios from 'axios';
 import backendurl from './backendUrl';
 
 const Gateway = () => {
+
+    const Axios = axios.create({baseURL: `${backendurl}`})
 
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
@@ -33,7 +35,7 @@ const Gateway = () => {
     }
 
     const getGateMaintainData = () =>{
-        Axios.get(`${backendurl}/airport/get/gates`,)
+        Axios.get(`/airport/get/gates`,)
         .then((response)=>{
             console.log("RES:::",response.data);
             setGatewayList(response.data);

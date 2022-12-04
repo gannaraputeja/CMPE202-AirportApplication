@@ -18,8 +18,9 @@ const Header = () => {
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
     }, []);
 
-    const navigateToGateway=()=>{
-        navigate('/Gateway');
+    const navigateToLoginPage = () => {
+        console.log("login")
+        navigate('/LoginPage')
     }
 
     const logout = () => {
@@ -35,7 +36,11 @@ const Header = () => {
                 <div className="col-4"></div>
                 <div className="col-4">
                     <div className="row">
-                        {role !== '1' && role !== '2' ? <div className="col usernameclass"> </div> :
+                        {role !== '1' && role !== '2' ?
+                            <div className="col usernameclass loginbtn">
+                                <button type="submit"  className="btn" onClick={navigateToLoginPage}>LOGIN</button>
+                            </div>
+                            :
                             <div className="col usernameclass">
                                 <div>
                                     <Dropdown style={{padding:'5px'}}>

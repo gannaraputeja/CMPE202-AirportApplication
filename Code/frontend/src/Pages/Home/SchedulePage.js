@@ -2,12 +2,14 @@ import React from "react";
 import { useEffect, useState} from "react";
 import './SchedulePage.css';
 import { useNavigate } from "react-router-dom";
-import Axios from 'axios';
+import axios from 'axios';
 import backendurl from './backendUrl';
 import Header from "../../Components/Header";
 import Moment from "moment/moment";
 
 const SchedulePage = () => {
+
+    const Axios = axios.create({baseURL: `${backendurl}`})
 
     Moment.locale('en');
 
@@ -35,7 +37,7 @@ const SchedulePage = () => {
 
     const getAirportScheduleByHour = () =>{
         //console.log(hours)
-        Axios.get(`${backendurl}/airport-schedules/${hours}`,)
+        Axios.get(`/airport-schedules/${hours}`,)
         .then((response) => {
             console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
@@ -46,7 +48,7 @@ const SchedulePage = () => {
     }
 
     const postBaggage = () =>{
-        Axios.post(`${backendurl}/airport/assign/baggage-carousel`)
+        Axios.post(`/airport/assign/baggage-carousel`)
         .then((response) =>{
             console.log("Success:",response);
             alert("Successfully Assigned Baggage 👍");
@@ -71,6 +73,7 @@ const SchedulePage = () => {
     const navigateBaggageCarousel = () =>{
         navigate('/BaggageCarousel');
     }
+
     const selectHour= event =>{
         console.log("Hour VAL:::",event.target.value);
         setHours(event.target.value);
@@ -100,6 +103,7 @@ const SchedulePage = () => {
                     <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>:
                     <div></div>
                     }
+
             </div>
 
                 {/*<div>
@@ -112,7 +116,7 @@ const SchedulePage = () => {
 
 
 
-            <label style={{textAlign: 'center', fontSize:'20px',margin:'10px'}}>Flight Schedule</label>
+            <label style={{textAlign: 'center', fontSize:'20px',marginBottom:'10px'}}>Flight Schedule</label>
 
             <div class="row" style={{backgroundColor:'black', color:'white',textAlign:'right',margin:'0px',padding:'20px'}}>
                     <div class="col-4"></div>

@@ -8,7 +8,7 @@ import Header from "../../Components/Header";
 
 const UpdateFlight2 = () =>{
 
-    const API = axios.create({baseURL: `${backendurl}`})
+    const Axios = axios.create({baseURL: `${backendurl}`})
 
     useEffect(() => {
         var obj = JSON.parse(sessionStorage.getItem("FlightDBId"));
@@ -102,7 +102,7 @@ const UpdateFlight2 = () =>{
 
       try {
           console.log(sessionStorage.getItem("FlightDBId"))
-          const response = await API.post(`/airline/update/flight-schedule/${flightInstanceId}`, payload)
+          const response = await Axios.post(`/airline/update/flight-schedule/${flightInstanceId}`, payload)
           console.log("YYYYYYYYY");
           console.log(response);
           navigate('/UpdateFlight');
