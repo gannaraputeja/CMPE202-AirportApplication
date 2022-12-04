@@ -20,7 +20,7 @@ const SchedulePage = () => {
     }, []);
 
     const getAirportSchedule = () =>{
-        Axios.get(`${backendurl}/airportschedule/${hours}`,)
+        Axios.get(`${backendurl}/airport-schedules/${hours}`,)
         .then((response) => {
             console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
@@ -87,7 +87,7 @@ const SchedulePage = () => {
 
                     {role ==='1'?
                     <div>
-                    <button type="submit" style ={{margin:'10px'}}className="btn btn-primary" onClick={navigateToGateway}>Gateway maintenance 🚪</button>
+                    <button type="submit" style ={{marginRight:'10px'}}className="btn btn-primary" onClick={navigateToGateway}>Gateway maintenance 🚪</button>
                     <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Baggage Carousel</button>
 
                     </div>:

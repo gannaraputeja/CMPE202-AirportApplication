@@ -36,7 +36,6 @@ const Gateway = () => {
         Axios.get(`${backendurl}/airport/get/gates`,)
         .then((response)=>{
             console.log("RES:::",response.data);
-            // console.log("RES:::",response.data.name);
             setGatewayList(response.data);
         })
         .catch(err =>{
@@ -44,10 +43,17 @@ const Gateway = () => {
         })
     }
 
-    const getData=()=>{
-        fetch("https://jsonplaceholder.typicode.com/posts")
-        .then(response => {return response.json();})
-        .then(data => {setData(data)});
+    const updateGateStatus = (e) =>{
+        Axios.put(`${backendurl}/airport/update/gate/${e}`,)
+        .then((response)=>{
+            console.log("RES:::",response.data);
+            setGatewayList(response.data);
+            getGateMaintainData();
+        })
+        .catch(err =>{
+            console.log(err.response);
+        })
+
     }
 
     const fun = (event,a) =>{
@@ -55,6 +61,7 @@ const Gateway = () => {
         console.log(event.target.checked);
         console.log(event.target.value);
         console.log(a.id);
+        updateGateStatus(a.id);
         // console.log(var);
     }
 
@@ -87,14 +94,14 @@ const Gateway = () => {
             </div>
 
             <div>
-                    {gatewayList && gatewayList.length > 0 && gatewayList.map((data)=>(
+                    {/* {gatewayList && gatewayList.length > 0 && gatewayList.map((data)=>(
                         <div>
                             {data.terminal.name}
                             {data.id}
                             {data.name}
                             {data.status}
                         </div>
-                    ))}
+                    ))} */}
                 </div>
 
             <div style={{width:'90vw',margin:'auto',marginTop:'10vh'}}>
@@ -109,7 +116,6 @@ const Gateway = () => {
                         </tr>
 
                     </thead>
-                    {/* <tbody> */}
                     {gatewayList && gatewayList.length > 0 && gatewayList.map((data)=>(
                     <tbody>
                         <tr>
@@ -132,7 +138,7 @@ const Gateway = () => {
                                                                 <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                                                                 </div>:
                                                                  <div class="form-check form-switch">
-                                                                 <input class="form-check-input" type="checkbox" role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault" disabled="disabled"/>
+                                                                 <input class="form-check-input" type="checkbox" role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault" disabled="disabled" checked/>
                                                                  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                                                                  </div>
 
