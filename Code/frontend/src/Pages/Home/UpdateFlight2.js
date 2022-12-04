@@ -3,6 +3,7 @@ import DateTimePicker from 'react-datetime-picker';
 import axios from 'axios';
 import backendurl from './backendUrl';
 import { useNavigate } from "react-router-dom";
+import Header from "../../Components/Header";
 
 
 const UpdateFlight2 = () =>{
@@ -115,6 +116,7 @@ const UpdateFlight2 = () =>{
 
     return (
         <div>
+            <Header/>
                  <div>
         <div className="Container">
                 <div className="loginclass">

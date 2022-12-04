@@ -86,7 +86,7 @@ const SchedulePage = () => {
                     {role ==='1'?
                     <div>
                     <button type="submit" style ={{marginRight:'10px'}}className="btn btn-primary" onClick={navigateToGateway}>Gateway maintenance 🚪</button>
-                    <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Baggage Carousel</button>
+                    <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Assign Baggage Carousel</button>
 
                     </div>:
                     <div></div>
@@ -98,13 +98,13 @@ const SchedulePage = () => {
                     }
             </div>
 
-                <div>
+                {/*<div>
                     {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
                         <div>
                             {data.terminal.name}
                         </div>
                     ))}
-                </div>
+                </div>*/}
 
 
 
@@ -129,8 +129,7 @@ const SchedulePage = () => {
                                 </div>
                         </div>
                     </div>
-            </div>:
-            <div></div>}
+            </div>
 
             <table class="table table-hover table-dark">
                 

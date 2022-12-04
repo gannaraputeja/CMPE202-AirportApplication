@@ -31,16 +31,10 @@ const Header = () => {
     return <div>
         <div className="Container">
             <div className="row navbar">
-                <div className="col-4"><h3>SJC Airport Application</h3></div>
+                <div className="col-4"><h3>Airport Application</h3></div>
                 <div className="col-4"></div>
                 <div className="col-4">
                     <div className="row">
-                        <div className="col">
-                            {role === '1' &&
-                                <button type="submit" className="btn btn-primary" onClick={navigateToGateway}>Gateway
-                                    maintenance 🚪</button>
-                            }
-                        </div>
                         {role !== '1' && role !== '2' ? <div className="col usernameclass">Hi Guest 👋</div> :
                             <div className="col usernameclass">
                                 <div>
