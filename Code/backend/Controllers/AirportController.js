@@ -24,48 +24,6 @@ export const updateGatesStatus = async (req, res) => {
     }
 };
 
-export const updateGateStatus = async (req, res) => {
-    try {
-        console.log(req.params.id);
-        if (req.params.id == null)
-            res.status(400).json("Invalid Gate Id, Gate id should be a number...");
-        const response = await Gate.findOne({
-            raw: true,
-            attributes: ['status'],
-            where: {
-                id: req.params.id,
-            }
-        })
-        if(response.status === 'active'){
-            const updatedStatus = await Gate.update({
-                    status: 'inactive'
-                },
-                {
-                    where:{
-                        id: req.params.id,
-                    }
-                });
-            res.status(200).json({message: 'Successfully updated gates maintenance status.'})
-        }
-        else if(response.status === 'inactive'){
-            const updatedStatus = await Gate.update({
-                    status: 'active'
-                },
-                {
-                    where:{
-                        id: req.params.id,
-                    }
-                });
-            res.status(200).json({message: 'Successfully updated gates maintenance status.'})
-        }
-        else{
-            res.status(200).json({message: 'Failed to update gates maintenance status as it already assigned to a flight'})
-        }
-    } catch(err) {
-        res.status(400).json({message: 'Failed to update gates maintenance status.'})
-    }
-};
-
 export const assignBaggageCarousel = async (req, res) => {
 
     const t = await db.sequelize.transaction();
