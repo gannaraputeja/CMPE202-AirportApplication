@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-
+import defaultProfile from './assets/defaultProfile.jpg'
 // import DatePicker from 'react-datepicker';
 // import 'react-datepicker/dist/react-datepicker.css';
 // import TimePicker from "react-time-picker";
@@ -11,6 +11,7 @@ import DateTimePicker from 'react-datetime-picker';
 import Axios from 'axios';
 import backendurl from './backendUrl';
 import { useNavigate } from "react-router-dom";
+import Header from "../../Components/Header";
 
 // import TimePicker from 'react-timepicker';
 // import 'react-timepicker/dist/react-timepicker.css';
@@ -37,6 +38,7 @@ const UpdateFlight = () =>{
 
     const [role,setRole] = useState('');
     const [username,setUsername] = useState('');
+    const [profile,setProfile] = useState({})
     const navigate = useNavigate();
     const [data,setData] = useState();
     const [hours,setHours] = useState(1);
@@ -46,8 +48,9 @@ const UpdateFlight = () =>{
 
 
     useEffect(() => {
-        // setRole(sessionStorage.getItem("Role"));
-        // setUsername(sessionStorage.getItem("UserName"));
+        setRole(sessionStorage.getItem("Role"));
+        setUsername(JSON.parse(sessionStorage.getItem("profile"))?.user.firstname);
+        setProfile(JSON.parse(sessionStorage.getItem("profile")))
         getAirportSchedule();
     }, []);
 
@@ -236,43 +239,23 @@ const UpdateFlight = () =>{
     // </div>
 
     <div>
-    <div class="Container">
-        <div class="row navbar">
-            <div class="col-4">Airport</div>
-            <div class="col-4"></div>
-            <div class="col-4">
-                <div class="row">
-                    <div class="col">
-                        {role==='1'? 
-                            <button type="submit" className="btn btn-primary" onClick={navigateToGateway}>Gateway maintenance 🚪</button>:
-                            <div></div>
-                            // <button type="submit" className="btn btn-primary" onClick={navigateToGateway}>Airline Employee ✈️👨‍✈️</button>
-                        }
-                    </div>
-                    {role !=='1' || role !== '2'?<div class="col usernameclass">Hi Guest 👋</div>:<div class="col usernameclass">Hi {username} 👋</div>}
-                    {/* <div class="col usernameclass">Hi {username} 👋</div> */}
-                </div>
-            </div>
-        </div>
-    </div>
+    <Header/>
     <div style={{width:'90vw', margin:'auto',marginTop:'10vh'}}>
         <div style={{float: 'right'}}>
 
-            {role ==='1' || role === '2'?
-            <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage   }>Baggage Carousel</button>:
-            <div></div>
+            {role ==='1' &&
+                <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Baggage Carousel</button>
             }
 
-            {role === '1'? 
-            <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>:
-            <div></div>
+            {role === '' &&
+                <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>
             }
     </div>
 
         <div>
             {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
                 <div>
-                    {data.terminal.name}
+                    { "Terminal Name: " . data.terminal.name}
                 </div>
             ))}
         </div>

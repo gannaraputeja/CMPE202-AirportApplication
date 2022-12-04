@@ -2,16 +2,23 @@
     background-image:url("assets/v.jpeg");
 }
 .buttonclass{
-    background-color: yellow;
+    background-color: orange;
     margin:20px;
     border-radius:10px;
     color:black;
 }
-/* .buttonclass:hover{
-    background-color:black;
-    color:yellow !important;
-    
-} */
+
+.buttonclass > .btn {
+    font-weight: bold;
+}
+
+.buttonclass:hover {
+    background-color:antiquewhite;
+    color:black !important;
+    border:2px solid orange;
+    cursor: pointer;
+}
+
 .button{
     margin:20% auto;
 }
@@ -26,6 +33,20 @@
 .loginbtn{
     text-align:right;
 }
+
+.loginbtn > button {
+    background-color: orange;
+    color: black;
+}
+
+.loginbtn > button:hover {
+    background-color:antiquewhite;
+    color:black !important;
+    border:2px solid orange;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .navbar{
     padding:20px;
 }

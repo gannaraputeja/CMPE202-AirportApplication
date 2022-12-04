@@ -62,12 +62,12 @@ const HomePage = () =>{
         <div>
             <div class="Container">
                 <div class="row navbar">
-                    <div class="col-4">Team Project</div>
+                    <div class="col-4"><h3>SJC Airport Application</h3></div>
                     <div class="col-4"></div>
                     <div class="col-4">
                         <div class="row">
                             <div class="col ml-auto loginbtn">
-                                <button type="submit" style={{backgroundColor:'yellow', color:'black'}} className="btn" onClick={navigateToLoginPage}>LOGIN 🔐</button>
+                                <button type="submit"  className="btn" onClick={navigateToLoginPage}>LOGIN 🔐</button>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ const HomePage = () =>{
             </div>
         </div>
         <div class="title">
-            <h2>Team Project</h2>
+            {/*<h2>SJC Airport</h2>*/}
         </div>
                 <div class="container">   
                             <div class="button">
@@ -106,11 +106,7 @@ const HomePage = () =>{
                                 </div>
 
                             </div>
-                                <div class="loginclass">
-                                    <h2>login</h2>
-                                </div>
                 </div>
-                {/* <button type="button" class="adminbtn btn btn-primary"></button> */}
     </div>
 
 <Outlet />
