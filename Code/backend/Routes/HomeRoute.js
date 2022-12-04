@@ -1,15 +1,17 @@
 import express from 'express'
-import { getSchedules } from '../Controllers/HomeController.js'
+import {getSchedules, getSchedulesByHour} from '../Controllers/HomeController.js'
 import { getBaggageCarouselInfo } from '../Controllers/HomeController.js'
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    res.send('Welcome Home Page')
+    res.send('Welcome Airport Application')
 })
 
-router.get("/airportschedule/:id", getSchedules);
+router.get("/airport-schedules/:id", getSchedulesByHour);
 
-router.get("/baggageCarouseldisplay", getBaggageCarouselInfo);
+router.get("/airport-schedules", getSchedules);
+
+router.get("/display/baggage-carousel", getBaggageCarouselInfo);
 
 export default router
