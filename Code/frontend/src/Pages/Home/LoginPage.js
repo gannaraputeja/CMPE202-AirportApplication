@@ -14,16 +14,12 @@ function LoginPage (){
     const navigate = useNavigate();
     const [isUsername,setIsUsername]=useState('');
     const [isPassword,setIsPassword]=useState('');
-    const [validateEmail,setValidateEmail] = useState(false);
     const [role,setRole] = useState(null);
-    const [empRole,setEmpRole] = useState('');
 
     useEffect(() => {
-        console.log("PAGE LOADED");
         sessionStorage.clear();
       });
     const handleRole= event =>{
-        console.log("ROLE VAL:::",event.target.value);
         window.sessionStorage.setItem("Role",event.target.value);
         setRole(parseInt(event.target.value));
     }
@@ -34,7 +30,6 @@ function LoginPage (){
         }
     }
     const checkLogin = () =>{
-        console.log(isUsername,isPassword);
         validate();
         window.sessionStorage.setItem("Role",role);
         const payload = {
@@ -43,17 +38,14 @@ function LoginPage (){
             role: role === 1 ? "airport" : role === 2 ? "airline" : "user"
         }
         Axios.post(`${backendUrl}/auth/login`, payload).then((res) => {
-            console.log(res.data)
             window.sessionStorage.setItem("profile", JSON.stringify(res.data))
             dispatch({type: 'AUTH_SUCCESS', data: res.data})
             if(role===1){
-                console.log("successfulLogin");
                 window.sessionStorage.setItem("LoggedIn", true);
                 window.sessionStorage.setItem("UserName", isUsername);
                 navigate('/SchedulePage');
             }
             else if(role===2){
-                console.log("successfulLogin");
                 window.sessionStorage.setItem("LoggedIn", true);
                 window.sessionStorage.setItem("UserName", isUsername);
                 navigate('/UpdateFlight');
