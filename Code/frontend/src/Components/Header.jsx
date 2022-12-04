@@ -35,7 +35,7 @@ const Header = () => {
                 <div className="col-4"></div>
                 <div className="col-4">
                     <div className="row">
-                        {role !== '1' && role !== '2' ? <div className="col usernameclass">Hi Guest 👋</div> :
+                        {role !== '1' && role !== '2' ? <div className="col usernameclass"> </div> :
                             <div className="col usernameclass">
                                 <div>
                                     <Dropdown style={{padding:'5px'}}>

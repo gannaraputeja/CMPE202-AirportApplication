@@ -5,8 +5,12 @@ import { useNavigate } from "react-router-dom";
 import Axios from 'axios';
 import backendurl from './backendUrl';
 import Header from "../../Components/Header";
+import Moment from "moment/moment";
 
 const SchedulePage = () => {
+
+    Moment.locale('en');
+
     const [role,setRole] = useState('');
     const [username,setUsername] = useState('');
     const navigate = useNavigate();
@@ -30,7 +34,7 @@ const SchedulePage = () => {
     })
 
     const getAirportScheduleByHour = () =>{
-        console.log(hours)
+        //console.log(hours)
         Axios.get(`${backendurl}/airport-schedules/${hours}`,)
         .then((response) => {
             console.log("AAAA:",response.data);
@@ -117,10 +121,10 @@ const SchedulePage = () => {
                         <div class="row">
                             <div class="col-7">Display Flight in</div>
                             <div class="col-3">
-                                <select class="form-select" aria-label="Default select example" onChange={(e)=>{setHours(e)}}>
+                                <select class="form-select" aria-label="Default select example" onChange={(e)=>{setHours(e.target.value)}}>
                                             <option selected value="1">1</option>
                                             <option value="2">2</option>
-                                            <option value="3">3</option>
+                                            <option value="4">4</option>
                                         </select>
                             </div>
                             <div class="col-2">
@@ -149,8 +153,8 @@ const SchedulePage = () => {
                     <tbody>
                         <tr>
                             <th>{data.flightInstance.status}</th>
-                            <th>{data.flightInstance.departureTime}</th>
-                            <th>{data.flightInstance.arrivalTime}</th>
+                            <th>{Moment(data.flightInstance.departureTime).format('MM-DD HH:MM')}</th>
+                            <th>{Moment(data.flightInstance.arrivalTime).format('MM-DD HH:MM')}</th>
                             <th>{data.flightInstance.origin}</th>
                             <th>{data.flightInstance.destination}</th>
                             {data.gate ===null?<th>NA</th>:<th>{data.gate.name}</th>}

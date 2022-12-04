@@ -13,7 +13,7 @@ import backendurl from './backendUrl';
 import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header";
 import {useSelector} from "react-redux";
-
+import Moment from 'moment'
 // import TimePicker from 'react-timepicker';
 // import 'react-timepicker/dist/react-timepicker.css';
 
@@ -24,6 +24,8 @@ import {useSelector} from "react-redux";
 
 
 const UpdateFlight = () =>{
+
+    Moment.locale('en');
 
     const [deptDate, setDeptDate] = useState('');
     const [arrDate, setArrDate] = useState('');
@@ -201,7 +203,7 @@ const UpdateFlight = () =>{
 
 
 
-    <label style={{textAlign: 'center', fontSize:'20px',margin:'10px'}}>Flight Schedule</label>
+    <label style={{textAlign: 'center', fontSize:'20px',marginBottom:'10px'}}>Flight Schedules</label>
 
     {/* <div class="row" style={{backgroundColor:'black', color:'white',textAlign:'right',margin:'0px',padding:'20px'}}>
             <div class="col-4"></div>
@@ -244,8 +246,8 @@ const UpdateFlight = () =>{
             <tbody>
                 <tr>
                     <th>{data.flightInstance.status}</th>
-                    <th>{data.flightInstance.departureTime}</th>
-                    <th>{data.flightInstance.arrivalTime}</th>
+                    <th>{Moment(data.flightInstance.departureTime).format('MM-DD HH:MM')}</th>
+                    <th>{Moment(data.flightInstance.arrivalTime).format('MM-DD HH:MM')}</th>
                     <th>{data.flightInstance.origin}</th>
                     <th>{data.flightInstance.destination}</th>
                     {data.gate ===null?<th>NA</th>:<th>{data.gate.name}</th>}
