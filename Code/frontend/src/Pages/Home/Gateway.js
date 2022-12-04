@@ -122,7 +122,7 @@ const Gateway = () => {
                             <th>{data.name}</th>
                             <th>{data.status}</th>
                             <th>{data.terminal.name}</th>
-                            <th>{data.body}</th>
+                            {/* <th>{data.body}</th> */}
                             <th>
                                 {/* {var status = FunStatus()} */}
                                 {data.status === 'active'?

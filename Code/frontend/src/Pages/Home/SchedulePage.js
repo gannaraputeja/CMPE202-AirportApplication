@@ -11,7 +11,7 @@ const SchedulePage = () => {
 
     Moment.locale('en');
 
-    const [role,setRole] = useState('');
+    const [role,setRole] = useState(0);
     const [username,setUsername] = useState('');
     const navigate = useNavigate();
     const [data,setData] = useState();
@@ -20,11 +20,26 @@ const SchedulePage = () => {
     const [profile, setProfile] = useState({})
 
     useEffect(() => {
-        setRole(sessionStorage.getItem("Role"));
+        // setRole(sessionStorage.getItem("Role"));
+        // console.log(role);
+        var userObj = JSON.parse(sessionStorage.getItem("profile"));
+        // console.log(userObj.user.type);
+        if(userObj!==null){
+            if(userObj.user.type === 'airport'){
+                setRole(1);
+            }
+            else if(userObj.user.type === 'airline'){
+                setRole(2);
+            }
+        }
+        else{
+            setRole(0);
+        }
+        callScheduleFuns();
         setUsername(JSON.parse(sessionStorage.getItem("profile"))?.user.firstname);
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
-        getAirportScheduleByHour();
-    }, []);
+        // getAirportScheduleByHour();
+    }, [role,setRole]);
 
     Axios.interceptors.request.use((req) => {
         if(sessionStorage.getItem('profile')) {
@@ -33,9 +48,31 @@ const SchedulePage = () => {
         return req
     })
 
+    const callScheduleFuns =() =>{
+        if(role===1 || role === 2){
+            getAirportSchedule();
+        }
+        else{
+            getAirportScheduleByHour();
+        }
+    }
+
     const getAirportScheduleByHour = () =>{
         //console.log(hours)
         Axios.get(`${backendurl}/airport-schedules/${hours}`,)
+        .then((response) => {
+            console.log("AAAA:",response.data);
+            setAirportSchedule(response.data);
+        })
+        .catch(err => {
+            console.log(err.response);
+        });
+    }
+
+
+    const getAirportSchedule = () =>{
+        //console.log(hours)
+        Axios.get(`${backendurl}/airport-schedules`,)
         .then((response) => {
             console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
@@ -114,6 +151,7 @@ const SchedulePage = () => {
 
             <label style={{textAlign: 'center', fontSize:'20px',margin:'10px'}}>Flight Schedule</label>
 
+                {role !==1 && role !==2? 
             <div class="row" style={{backgroundColor:'black', color:'white',textAlign:'right',margin:'0px',padding:'20px'}}>
                     <div class="col-4"></div>
                     <div class="col-1"></div>
@@ -133,7 +171,7 @@ const SchedulePage = () => {
                                 </div>
                         </div>
                     </div>
-            </div>
+            </div>:<div></div>}
 
             <table class="table table-hover table-dark">
                 
