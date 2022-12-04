@@ -53,7 +53,7 @@ const UpdateFlight = () =>{
 
 
     const getAirportSchedule = () =>{
-        Axios.get(`${backendurl}/airportschedule/${hours}`,)
+        Axios.get(`${backendurl}/airport-schedules/${hours}`,)
         .then((response) => {
             console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
