@@ -29,12 +29,7 @@ export const updateFlightSchedule = async(req, res)=>{
         if(req.params?.id && ( req.params.id.trim() === '' || isNaN(req.params.id)) )
             return res.status(400).json("Invalid flight schedule id.");
 
-        const schedule = await AirportSchedule.findByPk(req.params.id);
-
-        if(!schedule)
-            return res.status(400).json({message: "Flight schedule does not exist."});
-
-        const updatedSchedule = await FlightInstance.update({
+        const flightInstance = await FlightInstance.update({
             status: req.body.status,
             departureTime: req.body.departureTime,
             arrivalTime: req.body.arrivalTime,
@@ -44,9 +39,12 @@ export const updateFlightSchedule = async(req, res)=>{
         },
         {
             where:{
-                id: schedule.flightInstanceId,
+                id: req.params.id,
             }
         });
+
+        if(flightInstance == 0)
+            return res.status(400).json({message: "Failed to update flight schedule."});
 
         //console.log(updatedSchedule);
         return res.status(200).send({message: "Updated flight schedule successfully."});

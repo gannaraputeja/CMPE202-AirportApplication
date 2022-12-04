@@ -1,11 +1,13 @@
 import React, {useState,useEffect} from 'react';
 import DateTimePicker from 'react-datetime-picker';
-import Axios from 'axios';
+import axios from 'axios';
 import backendurl from './backendUrl';
 import { useNavigate } from "react-router-dom";
 
 
 const UpdateFlight2 = () =>{
+
+    const API = axios.create({baseURL: `${backendurl}`})
 
     useEffect(() => {
         var obj = JSON.parse(sessionStorage.getItem("FlightDBId"));
@@ -17,12 +19,13 @@ const UpdateFlight2 = () =>{
         setFlightDBId(sessionStorage.getItem("FlightDBId"));
         console.log(obj.flightInstance.origin);
         // for (var i = 0; i < sessionStorage.getItem("FlightDBId"))
-        setOrigin1(obj.flightInstance.origin);
-        setDestination1(obj.flightInstance.destination);
-        setStatus1(obj.flightInstance.status);
-        setFlightId1(obj.flightInstance.id);
-        setDeptDate1(obj.flightInstance.departureTime);
-        setArrDate1(obj.flightInstance.arrDate);
+        setOrigin(obj.flightInstance.origin);
+        setDestination(obj.flightInstance.destination);
+        setStatus(obj.flightInstance.status);
+        setFlightInstanceId(obj.flightInstance.id);
+        setFlightId(obj.flightInstance.flight.id);
+        setDeptDate(obj.flightInstance.departureTime);
+        setArrDate(obj.flightInstance.arrDate);
         console.log("👎",obj.flightInstance.departureTime);
         // converDeptDate1(obj.flightInstance.departureTime);
 
@@ -35,14 +38,8 @@ const UpdateFlight2 = () =>{
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
     const [status, setStatus] = useState('');
-    const [flightId, setFlightId] = useState('');
-
-    const [origin1, setOrigin1] = useState('');
-    const [destination1, setDestination1] = useState('');
-    const [status1, setStatus1] = useState('');
-    const [flightId1, setFlightId1] = useState('');
-    const [deptDate1, setDeptDate1] = useState('');
-    const [arrDate1, setArrDate1] = useState('');
+    const [flightInstanceId, setFlightInstanceId] = useState('');
+    const [flightId, setFlightId] = useState('')
 
     const [a,b] =useState('');
     const [c,d] =useState('');
@@ -86,7 +83,7 @@ const UpdateFlight2 = () =>{
         postData();
     }
 
-    const postData = () =>{
+    const postData = async () =>{
 
         const payload = {
             status: status,
@@ -100,16 +97,16 @@ const UpdateFlight2 = () =>{
           console.log("ID:",FlightDBId);
           console.log("payload❌", payload);
 
-        Axios.post(`${backendurl}/airline/update/flight-schedule/${sessionStorage.getItem("FlightDBId")}`, payload)
-        .then((response) => {
-            console.log("YYYYYYYYY");
-            console.log(response);
-            navigate('/UpdateFlight');
-        })
-        .catch(err => {
+      try {
+          console.log(sessionStorage.getItem("FlightDBId"))
+          const response = await API.post(`/airline/update/flight-schedule/${flightInstanceId}`, payload)
+          console.log("YYYYYYYYY");
+          console.log(response);
+          //navigate('/UpdateFlight');
+      } catch(err) {
             console.log("XXXXXXX");
             console.log(err);
-        });
+     }
 
     }
 
@@ -120,13 +117,13 @@ const UpdateFlight2 = () =>{
         <div className="Container">
                 <div className="loginclass">
                     <div className="Auth-form-container">
-                            <form className="Auth-form" onSubmit={submitfun}>
+                            <form className="Auth-form">
                                 <div className="Auth-form-content">
                                 <h3 className="Auth-form-title">Update Flight Schedule</h3>
                                 <div style={{marginTop:'25px'}}>
                                 <label>Status</label>
-                                <select className="form-select selectWidth" defaultValue={status1} aria-label="Default select example" onChange={(e)=>setStatus(e.target.value)}>
-                                    <option selected>{status1}</option>
+                                <select className="form-select selectWidth" defaultValue={status} aria-label="Default select example" onChange={(e)=>setStatus(e.target.value)}>
+                                    <option selected>{status}</option>
                                     <option value="active">active</option>
                                     <option value="inactive">inactive</option>
                                     <option value="arriving">arriving</option>
@@ -138,13 +135,13 @@ const UpdateFlight2 = () =>{
                                 </div>
                                 <div className="form-group mt-3">
                                     <label>Origin</label>
-                                    <input type="text" defaultValue={origin1} className="form-control mt-1" placeholder="Enter Origin place" onChange={(e)=>setOrigin(e.target.value)}
+                                    <input type="text" defaultValue={origin} className="form-control mt-1" placeholder="Enter Origin place" onChange={(e)=>setOrigin(e.target.value)}
                                     />
                                 </div>
 
                                 <div className="form-group mt-3">
                                     <label>Destination</label>
-                                    <input type="text" defaultValue={destination1} className="form-control mt-1" placeholder="Enter Destination place" onChange={(e)=>setDestination(e.target.value)}
+                                    <input type="text" defaultValue={destination} className="form-control mt-1" placeholder="Enter Destination place" onChange={(e)=>setDestination(e.target.value)}
                                     />
                                 </div>
 
@@ -154,7 +151,7 @@ const UpdateFlight2 = () =>{
                                     dateFormat="yyyy/MM/dd HH:mm:ss"
                                     onChange={date => b(date)}
                                     value={a} 
-                                    // defaultValue={deptDate1}
+                                    defaultValue={deptDate}
                                     minDate={new Date()}                                
                                     />
                                 </div>
@@ -165,7 +162,7 @@ const UpdateFlight2 = () =>{
                                     dateFormat="yyyy/MM/dd HH:mm:ss"
                                     onChange={date => d(date)}
                                     value={c} 
-                                    defaultValue={arrDate1}
+                                    defaultValue={arrDate}
                                     minDate={new Date()}                                
                                     />
                                 </div>
@@ -176,12 +173,12 @@ const UpdateFlight2 = () =>{
                                     type="text"
                                     className="form-control mt-1"
                                     placeholder="Enter Flight Id"
-                                    defaultValue={flightId1}
+                                    defaultValue={flightId}
                                     onChange={(e)=>setFlightId(e.target.value)}
                                     />
                                 </div>
                                 <div className="d-grid gap-2 mt-3">
-                                    <button type="submit" className="btn btn-primary" onClick={()=>{submitfun()}}>
+                                    <button type="button" className="btn btn-primary" onClick={()=>submitfun()}>
                                     Submit
                                     </button>
                                 </div>
