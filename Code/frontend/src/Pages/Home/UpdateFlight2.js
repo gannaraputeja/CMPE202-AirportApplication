@@ -30,9 +30,6 @@ const UpdateFlight2 = () =>{
         setArrDate(obj.flightInstance.arrDate);
 
     },[]);
-
-
-
     const [deptDate, setDeptDate] = useState('');
     const [arrDate, setArrDate] = useState('');
     const [origin, setOrigin] = useState('');
@@ -46,7 +43,6 @@ const UpdateFlight2 = () =>{
     const [c,d] =useState('');
     const navigate = useNavigate();
     const [FlightDBId,setFlightDBId] = useState('');
-    const [updatedata, setUpdatedata] = useState([]);
     const history = useNavigate();
     
     const converDeptDate = () =>{
@@ -95,14 +91,11 @@ const UpdateFlight2 = () =>{
       try {
           console.log(sessionStorage.getItem("FlightDBId"))
           const response = await Axios.post(`/airline/update/flight-schedule/${flightInstanceId}`, payload)
-          console.log("YYYYYYYYY");
           console.log(response);
           navigate('/UpdateFlight');
       } catch(err) {
-            console.log("XXXXXXX");
             console.log(err);
      }
-
     }
     return (
         <div>

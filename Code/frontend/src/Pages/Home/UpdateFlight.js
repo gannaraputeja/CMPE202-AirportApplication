@@ -27,7 +27,6 @@ const UpdateFlight = () =>{
     const [role,setRole] = useState('');
     const [profile,setProfile] = useState({})
     const navigate = useNavigate();
-    const [data,setData] = useState();
     const [hours,setHours] = useState(1);
     const [airportSchedule,setAirportSchedule] = useState([]);
 
@@ -43,7 +42,6 @@ const UpdateFlight = () =>{
     useEffect(() => {
         setRole(parseInt(sessionStorage.getItem("Role"),10));
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
-        console.log(profile)
         getAirportSchedule();
     }, []);
 
@@ -51,7 +49,6 @@ const UpdateFlight = () =>{
     const getAirportSchedule = () =>{
         Axios.get(`/airline/schedules/user/${user.id}`,)
         .then((response) => {
-            console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
         })
         .catch(err => {
@@ -62,7 +59,6 @@ const UpdateFlight = () =>{
     const postBaggage = () =>{
         Axios.post(`/airport/assign/baggageCarousel`)
         .then((response) =>{
-            console.log("Success:",response);
             alert("Successfully Assigned Baggage 👍");
         })
         .catch(err => {
@@ -84,7 +80,6 @@ const UpdateFlight = () =>{
         navigate('/BaggageCarousel');
     }
     const selectHour= event =>{
-        console.log("Hour VAL:::",event.target.value);
         setHours(event.target.value);
         getFlights();
     }
@@ -92,12 +87,8 @@ const UpdateFlight = () =>{
     }
     
     const submitfun = () =>{
-        console.log("clickedd submitfun");
-        console.log(origin,status,destination,deptDate,arrDate,flightId);
         converDeptDate();
         converArrDate();
-        console.log("deptDate::",deptDate);
-        console.log("arrDate::",arrDate);
         postData();
     }
     const navigateToAddFlight=()=>{
@@ -123,14 +114,11 @@ const UpdateFlight = () =>{
     }
 
     const getFlightId = (data) =>{
-        console.log(data);
         window.sessionStorage.setItem("FlightDBId", JSON.stringify(data));
-        console.log("ZZZZ:",sessionStorage.getItem("FlightDBId"));
         navigate('/UpdateFlight2');
     }
 
     const converDeptDate = () =>{
-        console.log("FUN 1:",a);
         var ss=JSON.stringify(a);
         ss=ss.toString();
         var date1 = ss.substring(1,11)+" "+a.toTimeString().split(" ")[0];
