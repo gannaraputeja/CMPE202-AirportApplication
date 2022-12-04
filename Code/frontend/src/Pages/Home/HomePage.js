@@ -44,18 +44,13 @@ const HomePage = () =>{
                                 </div>
                                 <div>
                                     {data && data.length > 0 && data.map((data)=>(
-                                        // <li>{data.name}</li>
-
                                         <button type="button" class="btn btn-default" onClick={navigateToSchedule} >{data.title}</button>
-
-
                                     ))}
                                 </div>
 
                             </div>
                 </div>
     </div>
-
 <Outlet />
 
 </>
