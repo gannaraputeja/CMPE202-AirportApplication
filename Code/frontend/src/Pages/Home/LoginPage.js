@@ -2,16 +2,19 @@ import React from 'react';
 import './LoginPage.css';
 import {useState,useEffect} from 'react';
 import validator from 'validator'
-import Axios from 'axios'
 import {Image} from 'react-bootstrap';
 import {Navbar, Container, Nav, Button} from 'react-bootstrap';
 import {Routes, Route, useNavigate} from 'react-router-dom';
-import backendUrl from './backendUrl'
+import Axios from 'axios';
+import backendurl from './backendUrl';
+
 
 // import airplane3 from '../Images/airplane3.jpg';
 // import a from '/Users/prudhvi/react/team_project/src/components/assets/b.jpg';
 
 function LoginPage (){
+
+    const API = Axios.create({baseURL: `${backendurl}`})
 
     const navigate = useNavigate();
     const [isUsername,setIsUsername]=useState('');
@@ -19,6 +22,7 @@ function LoginPage (){
     const [successfulLogin,setSuccess] = useState('');
     const [validateEmail,setValidateEmail] = useState(false);
     const [role,setRole] = useState('');
+    const [empRole,setEmpRole] = useState('');
 
     useEffect(() => {
         console.log("PAGE LOADED");
@@ -39,7 +43,6 @@ function LoginPage (){
         console.log("ROLE VAL:::",event.target.value);
         window.sessionStorage.setItem("Role",event.target.value);
         setRole(event.target.value);
-
     }
 
     const validate = () => {
@@ -109,7 +112,6 @@ function LoginPage (){
                                     value={isUsername}
                                     onChange={(e)=>setIsUsername(e.target.value)}
                                     />
-                                        {/* <input type="email" className="form-control mt-1" placeholder="Enter email" value={isUsername} onChange={usernameFun}/> */}
                                     </div>
                                     <div className="form-group mt-3">
                                         <label>Password</label>

@@ -104,7 +104,7 @@ const UpdateFlight2 = () =>{
           const response = await API.post(`/airline/update/flight-schedule/${flightInstanceId}`, payload)
           console.log("YYYYYYYYY");
           console.log(response);
-          //navigate('/UpdateFlight');
+          navigate('/UpdateFlight');
       } catch(err) {
             console.log("XXXXXXX");
             console.log(err);

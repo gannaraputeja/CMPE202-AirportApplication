@@ -141,6 +141,11 @@ const UpdateFlight = () =>{
 
     }
 
+    const logoutFun = () =>{
+        sessionStorage.clear();
+        navigate('/');
+    }
+
     const getFlightId = (data) =>{
         console.log(data);
         window.sessionStorage.setItem("FlightDBId", JSON.stringify(data));
@@ -164,79 +169,6 @@ const UpdateFlight = () =>{
     }
 
     return(
-    //     <div>
-    //     <div className="Container">
-    //             <div className="loginclass">
-    //                 <div className="Auth-form-container">
-    //                         <form className="Auth-form" onSubmit={submitfun}>
-    //                             <div className="Auth-form-content">
-    //                             <h3 className="Auth-form-title">Update Flight Schedule</h3>
-    //                             <div style={{marginTop:'25px'}}>
-    //                             <label>Status</label>
-    //                             <select className="form-select selectWidth" aria-label="Default select example" onChange={(e)=>setStatus(e.target.value)}>
-    //                                 <option selected>Select Status</option>
-    //                                 <option value="active">active</option>
-    //                                 <option value="inactive">inactive</option>
-    //                                 <option value="arriving">arriving</option>
-    //                                 <option value="arrived">arrived</option>
-    //                                 <option value="departed">departed</option>
-    //                                 <option value="delayed">delayed</option>
-    //                                 <option value="cancelled">cancelled</option>
-    //                             </select>
-    //                             </div>
-    //                             <div className="form-group mt-3">
-    //                                 <label>Origin</label>
-    //                                 <input type="text" className="form-control mt-1" placeholder="Enter Origin place" onChange={(e)=>setOrigin(e.target.value)}
-    //                                 />
-    //                             </div>
-
-    //                             <div className="form-group mt-3">
-    //                                 <label>Destination</label>
-    //                                 <input type="text" className="form-control mt-1" placeholder="Enter Destination place" onChange={(e)=>setDestination(e.target.value)}
-    //                                 />
-    //                             </div>
-
-    //                             <div className="form-group mt-3">
-    //                             <label>Select Dept Date</label>
-    //                                 <DateTimePicker 
-    //                                 dateFormat="yyyy/MM/dd HH:mm:ss"
-    //                                 onChange={date => b(date)}
-    //                                 value={a} 
-    //                                 minDate={new Date()}                                
-    //                                 />
-    //                             </div>
-
-    //                             <div className="form-group mt-3">
-    //                             <label>Select Arrival Date</label>
-    //                                 <DateTimePicker 
-    //                                 dateFormat="yyyy/MM/dd HH:mm:ss"
-    //                                 onChange={date => d(date)}
-    //                                 value={c} 
-    //                                 minDate={new Date()}                                
-    //                                 />
-    //                             </div>
-
-    //                             <div className="form-group mt-3">
-    //                                 <label>Flight Id</label>
-    //                                 <input
-    //                                 type="text"
-    //                                 className="form-control mt-1"
-    //                                 placeholder="Enter Flight Id"
-    //                                 onChange={(e)=>setFlightId(e.target.value)}
-    //                                 />
-    //                             </div>
-    //                             <div className="d-grid gap-2 mt-3">
-    //                                 <button type="submit" className="btn btn-primary" onClick={()=>{submitfun()}}>
-    //                                 Submit
-    //                                 </button>
-    //                             </div>
-    //                             </div>
-    //                         </form>
-    //                         </div>
-    //             </div>
-
-    //     </div>
-    // </div>
 
     <div>
     <Header/>
@@ -264,7 +196,7 @@ const UpdateFlight = () =>{
 
     <label style={{textAlign: 'center', fontSize:'20px',margin:'10px'}}>Flight Schedule</label>
 
-    <div class="row" style={{backgroundColor:'black', color:'white',textAlign:'right',margin:'0px',padding:'20px'}}>
+    {/* <div class="row" style={{backgroundColor:'black', color:'white',textAlign:'right',margin:'0px',padding:'20px'}}>
             <div class="col-4"></div>
             <div class="col-1"></div>
             <div class="col-7">
@@ -282,7 +214,7 @@ const UpdateFlight = () =>{
                         </div>
                 </div>
             </div>
-    </div>
+    </div> */}
 
 
 

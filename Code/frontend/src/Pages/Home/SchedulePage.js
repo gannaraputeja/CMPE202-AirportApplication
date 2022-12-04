@@ -53,6 +53,11 @@ const SchedulePage = () => {
         })
     }
 
+    const logoutFun = () =>{
+        sessionStorage.clear();
+        navigate('/');
+    }
+
     const navigateToGateway=()=>{
         navigate('/Gateway');
     }
@@ -112,7 +117,7 @@ const SchedulePage = () => {
                         <div class="row">
                             <div class="col-7">Display Flight in</div>
                             <div class="col-3">
-                                <select class="form-select" aria-label="Default select example" onChange={(e)=>{setHours(e.target.value)}}>
+                                <select class="form-select" aria-label="Default select example" onChange={(e)=>{setHours(e)}}>
                                             <option selected value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -120,13 +125,12 @@ const SchedulePage = () => {
                             </div>
                             <div class="col-2">
                                 Hour
-                                <button type="button" class="btn btn-primary bi-search" onClick={getAirportSchedule} ><i class="bi bi-search"></i>search</button>
+                                <button type="button" class="btn btn-primary bi-search" onClick={getAirportScheduleByHour} ><i class="bi bi-search"></i>search</button>
                                 </div>
                         </div>
                     </div>
-            </div>
-
-
+            </div>:
+            <div></div>}
 
             <table class="table table-hover table-dark">
                 
@@ -150,10 +154,10 @@ const SchedulePage = () => {
                             <th>{data.flightInstance.arrivalTime}</th>
                             <th>{data.flightInstance.origin}</th>
                             <th>{data.flightInstance.destination}</th>
-                            {data.gate ===null?<th>notass</th>:<th>{data.gate.name}</th>}
+                            {data.gate ===null?<th>NA</th>:<th>{data.gate.name}</th>}
                             {/* <th>{data.gate ==}</th> */}
                             <th>{data.terminal.name}</th>
-                            {data.baggageCarousel ===null?<th>notass</th>:<th>{data.baggageCarousel.name}</th>}
+                            {data.baggageCarousel ===null?<th>NA</th>:<th>{data.baggageCarousel.name}</th>}
                             {/* <th>{data.baggageCarousel.name}</th> */}
                         </tr>
                     </tbody>
