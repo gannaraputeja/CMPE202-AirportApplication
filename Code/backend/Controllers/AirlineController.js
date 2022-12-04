@@ -109,7 +109,7 @@ export const getSchedulesForAnAirline = async (req, res) => {
 
         const airportSchedules = await AirportSchedule.findAll({
             include: [{
-                model: FlightInstance, where: { flightId:  flight.id }
+                model: FlightInstance,include: [{model: Flight}], where: { flightId:  flight.id }
             }, { model : Terminal }, { model: Gate }, { model: BaggageCarousel }]
         })
 
