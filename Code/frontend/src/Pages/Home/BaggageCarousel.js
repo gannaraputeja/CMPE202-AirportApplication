@@ -4,17 +4,12 @@ import { useState,useEffect } from 'react';
 
 const BaggageCarousel = () =>{
 
-    const [data,setData] = useState();
-    const [radio,setRadio] = useState();
     const [role,setRole] = useState('');
     const [username,setUsername] = useState('');
-    const [gatewayList,setGatewayList] = useState([]);
 
     useEffect(()=>{
         setRole(parseInt(sessionStorage.getItem("Role"), 10));
         setUsername(sessionStorage.getItem("UserName"));
-        // getData();
-        // getGateMaintainData();
     },[]); 
 
 
@@ -34,7 +29,6 @@ const BaggageCarousel = () =>{
                                 }
                             </div>
                             {role !==1 || role !== 2?<div class="col usernameclass">Hi Guest 👋</div>:<div class="col usernameclass">Hi {username} 👋</div>}
-                            {/* <div class="col usernameclass">Hi {username} 👋</div> */}
                         </div>
                     </div>
                 </div>
