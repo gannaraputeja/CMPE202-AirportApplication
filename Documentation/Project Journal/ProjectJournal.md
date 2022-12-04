@@ -59,7 +59,7 @@
 #### Raviteja Gannarapu
 
 <li> What tasks did I work on / complete? - Created the Entity-Relationship diagram for the application. The Er diagram has been reviewed by the team.  </li>
-<li> What am I planning to work on next? - Start working on my assigned tasks - I will be creating the backend for updating the user profile and viewing the rewards account this week. </li>
+<li> What am I planning to work on next? - Start working on my assigned tasks - I will be creating the backend API for retrieving Flight Arrivals and Departures and Gate Assignments. </li>
 <li> What tasks are blocked waiting on another team member? - No Blockers </li>
 
 #### Jaya Prakash Reddy Pachika
