@@ -187,7 +187,7 @@ const UpdateFlight = () =>{
         <div>
             {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
                 <div>
-                    { "Terminal Name: " . data.terminal.name}
+                    { data.terminal.name}
                 </div>
             ))}
         </div>

@@ -19,7 +19,7 @@ const SchedulePage = () => {
         setRole(sessionStorage.getItem("Role"));
         setUsername(JSON.parse(sessionStorage.getItem("profile"))?.user.firstname);
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
-        getAirportSchedule();
+        getAirportScheduleByHour();
     }, []);
 
     Axios.interceptors.request.use((req) => {
@@ -29,7 +29,7 @@ const SchedulePage = () => {
         return req
     })
 
-    const getAirportSchedule = () =>{
+    const getAirportScheduleByHour = () =>{
         console.log(hours)
         Axios.get(`${backendurl}/airport-schedules/${hours}`,)
         .then((response) => {
@@ -46,7 +46,7 @@ const SchedulePage = () => {
         .then((response) =>{
             console.log("Success:",response);
             alert("Successfully Assigned Baggage 👍");
-            getAirportSchedule();
+            getAirportScheduleByHour();
         })
         .catch(err => {
             console.log(err.response);

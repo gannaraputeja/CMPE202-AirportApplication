@@ -6,15 +6,13 @@ import {Image} from 'react-bootstrap';
 import {Navbar, Container, Nav, Button} from 'react-bootstrap';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import Axios from 'axios';
-import backendurl from './backendUrl';
+import backendUrl from './backendUrl.js';
 
 
 // import airplane3 from '../Images/airplane3.jpg';
 // import a from '/Users/prudhvi/react/team_project/src/components/assets/b.jpg';
 
 function LoginPage (){
-
-    const API = Axios.create({baseURL: `${backendurl}`})
 
     const navigate = useNavigate();
     const [isUsername,setIsUsername]=useState('');
