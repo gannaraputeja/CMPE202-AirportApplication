@@ -91,8 +91,6 @@ const UpdateFlight = () =>{
     const getFlights = () =>{
     }
     
-
-
     const submitfun = () =>{
         console.log("clickedd submitfun");
         console.log(origin,status,destination,deptDate,arrDate,flightId);

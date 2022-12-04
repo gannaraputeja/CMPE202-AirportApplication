@@ -104,13 +104,10 @@ const UpdateFlight2 = () =>{
      }
 
     }
-
-
     return (
         <div>
             <Header/>
             <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
-
                  <div>
         <div className="Container">
                 <div className="loginclass">
@@ -147,13 +144,11 @@ const UpdateFlight2 = () =>{
                                     <input type="text" defaultValue={origin} className="form-control mt-1" placeholder="Enter Origin place" onChange={(e)=>setOrigin(e.target.value)}
                                     />
                                 </div>
-
                                 <div className="form-group mt-3">
                                     <label>Destination</label>
                                     <input type="text" defaultValue={destination} className="form-control mt-1" placeholder="Enter Destination place" onChange={(e)=>setDestination(e.target.value)}
                                     />
                                 </div>
-
                                 <div className="form-group mt-3">
                                 <label>Select Dept Date</label>
                                     <DateTimePicker 
@@ -161,7 +156,6 @@ const UpdateFlight2 = () =>{
                                     onChange={date => b(date)}
                                     id="deptdattime"
                                     value={a} 
-                                    // defaultValue={deptDate}
                                     defaultDate={deptDate}
                                     minDate={new Date()}                                
                                     />
