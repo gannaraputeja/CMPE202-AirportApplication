@@ -74,7 +74,7 @@ const SchedulePage = () => {
 
     const getAirportSchedule = () =>{
         //console.log(hours)
-        Axios.get(`${backendurl}/airport-schedules`,)
+        Axios.get(`/airport-schedules`,)
         .then((response) => {
             console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
