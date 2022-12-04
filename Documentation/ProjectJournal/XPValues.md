@@ -253,9 +253,8 @@
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
-- We are progressing towards the term project.
-- Each team member showcased the tasks done and discussed about the next steps along with in corporating the feedback from other team members.
 - Comunication is clear with meetings and weekly standups.
+- Achieved the project goals.
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
