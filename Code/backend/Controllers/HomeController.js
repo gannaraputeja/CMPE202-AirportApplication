@@ -3,7 +3,7 @@ import { Op } from 'sequelize'
 
 export const getSchedulesByHour = async (req, res) => {
     try{
-        if(req.params.id.trim() === '' || isNaN(req.params.id))
+        if(req.params?.id && (req.params.id.trim() === '' || isNaN(req.params.id)))
             res.status(400).json({message: 'Invalid number'});
 
         var startDate = new Date();
@@ -43,7 +43,7 @@ export const getSchedulesByHour = async (req, res) => {
         res.status(200).json(response);    
     }
     catch(err){ 
-        res.status(400).json({message:`Error while retrieving flight schedule`});
+        res.status(400).json({message:'Error while retrieving flight schedule.'});
     }
 };
 
