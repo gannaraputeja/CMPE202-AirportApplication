@@ -1,10 +1,8 @@
 import React from "react";
 import {useState,useEffect} from 'react';
 import './HomePage.css';
-import Axios from "axios";
-import { Outlet, Link} from "react-router-dom";
+import { Outlet} from "react-router-dom";
 import {Routes, Route, useNavigate} from 'react-router-dom';
-import { Button } from 'react-bootstrap';
 import Header from "../../Components/Header";
 
 const HomePage = () =>{
@@ -52,7 +50,6 @@ const HomePage = () =>{
                 </div>
     </div>
 <Outlet />
-
 </>
     )
 }

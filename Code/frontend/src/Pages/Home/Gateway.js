@@ -1,7 +1,6 @@
 import React from 'react';
 import './Gateway.css';
 import { useState,useEffect } from 'react';
-import Navbar from './Navbar';
 import axios from 'axios';
 import backendurl from './backendUrl';
 import { useNavigate } from "react-router-dom";
@@ -15,9 +14,6 @@ const Gateway = () => {
         }
         return req
     })
-
-    const [data,setData] = useState();
-    const [radio,setRadio] = useState();
     const [role,setRole] = useState('');
     const [username,setUsername] = useState('');
     const [gatewayList,setGatewayList] = useState([]);
