@@ -11,8 +11,11 @@ Team 4
 4. Prudhvi M.V.N.S (SJSU ID: 016597581)
 
 ### XP Values
-- **Communication:**  
-- **Feedback:**
+- **Communication:**  Our team communicated with each other regularly and Scrum meetings were held every alternative Monday. We discussed about the dependency, issues faced and provide constructive feedback to each other which helped to progress with the project. We used Github Project Board to track progress of the sprints.
+- **Simplicity:** We implemented the essential and required tasks in the project.
+- **Feedback:** Each team member provided constructive feedback on the work performed and ensured that the feedback was implemented in the next sprint.
+- **Courage:** We had the courage to incorporate any additional details/tasks that were required for the project progress.
+- **Respect:** Each team member respected each other’s decisions and timelines.
 
 ### Tools and Languages
 - Frontend - ReactJS
