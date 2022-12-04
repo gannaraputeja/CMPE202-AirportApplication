@@ -73,7 +73,6 @@ const SchedulePage = () => {
     const getAirportSchedule = () =>{
         Axios.get(`/airport-schedules`,)
         .then((response) => {
-            console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
         })
         .catch(err => {
@@ -84,12 +83,10 @@ const SchedulePage = () => {
     const postBaggage = () =>{
         Axios.post(`/airport/assign/baggage-carousel`)
         .then((response) =>{
-            console.log("Success:",response);
             alert(response.data.message);
             getAirportSchedule();
         })
         .catch(err => {
-            console.log(err.response);
             alert(err.response.data.message)
         })
     }
@@ -157,7 +154,6 @@ const SchedulePage = () => {
                     }
             </div>
             <label style={{textAlign: 'center', fontSize:'20px',marginBottom:'10px'}}>Flight Schedule</label>
-
                 {role !==1 && role !==2? 
             <div class="row" style={{backgroundColor:'black', color:'white',textAlign:'right',margin:'0px',padding:'20px'}}>
                     <div class="col-4"></div>
@@ -179,9 +175,7 @@ const SchedulePage = () => {
                         </div>
                     </div>
             </div>:<div></div>}
-
             <table class="table table-hover table-dark">
-                
                     <thead class="thead-dark">
                         <tr>
                             <th>Flight Name</th>

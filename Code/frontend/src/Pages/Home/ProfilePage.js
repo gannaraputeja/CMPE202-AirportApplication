@@ -21,7 +21,6 @@ const ProfilePage = () =>{
 
     useEffect(() => {
         var userObj = JSON.parse(sessionStorage.getItem("profile"));
-        console.log(userObj.user);
         setfname(userObj.user.firstname);
         setlname(userObj.user.lastname);
         settype(userObj.user.type);
@@ -81,8 +80,6 @@ const ProfilePage = () =>{
                                         disabled={true}  
                                         />
                                     </div>
-
-
                                     <div className="form-group mt-3">
                                         <label>Employee Type</label>
                                         <input
