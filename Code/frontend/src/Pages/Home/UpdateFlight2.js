@@ -13,10 +13,6 @@ const UpdateFlight2 = () =>{
     useEffect(() => {
         var obj = JSON.parse(sessionStorage.getItem("FlightDBId"));
         console.log("✌️",obj);
-        // console.log("ZZZZQQQQQQ:",sessionStorage.getItem("FlightDBId"));
-        // console.log("ZZZZ:",sessionStorage.getItem("Role"));
-
-
         setFlightDBId(sessionStorage.getItem("FlightDBId"));
         console.log(obj.flightInstance.origin);
         // for (var i = 0; i < sessionStorage.getItem("FlightDBId"))
@@ -28,7 +24,8 @@ const UpdateFlight2 = () =>{
         setFlightNumber((obj.flightInstance.flight.number))
         setDeptDate(obj.flightInstance.departureTime);
         setArrDate(obj.flightInstance.arrDate);
-        console.log("👎",obj.flightInstance.departureTime);
+        // console.log("👎",obj.flightInstance.departureTime);
+        // $("#datetimepicker-input").val("11-11-2022" + " 00:01:00");
         // converDeptDate1(obj.flightInstance.departureTime);
 
     },[]);
@@ -165,8 +162,10 @@ const UpdateFlight2 = () =>{
                                     <DateTimePicker 
                                     dateFormat="yyyy/MM/dd HH:mm:ss"
                                     onChange={date => b(date)}
+                                    id="deptdattime"
                                     value={a} 
-                                    defaultValue={deptDate}
+                                    // defaultValue={deptDate}
+                                    defaultDate={deptDate}
                                     minDate={new Date()}                                
                                     />
                                 </div>
