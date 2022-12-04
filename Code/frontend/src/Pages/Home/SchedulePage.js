@@ -11,9 +11,7 @@ import Moment from "moment/moment";
 const SchedulePage = () => {
 
     const Axios = axios.create({baseURL: `${backendurl}`})
-
     Moment.locale('en');
-
     const [role,setRole] = useState(0);
     const [username,setUsername] = useState('');
     const navigate = useNavigate();
@@ -64,7 +62,6 @@ const SchedulePage = () => {
     const getAirportScheduleByHour = () =>{
         Axios.get(`/airport-schedules/${hours}`,)
         .then((response) => {
-            console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
         })
         .catch(err => {
@@ -74,7 +71,6 @@ const SchedulePage = () => {
 
 
     const getAirportSchedule = () =>{
-        //console.log(hours)
         Axios.get(`/airport-schedules`,)
         .then((response) => {
             console.log("AAAA:",response.data);
@@ -109,7 +105,6 @@ const SchedulePage = () => {
                 console.log(err.response);
             })
     }
-
     const logoutFun = () =>{
         sessionStorage.clear();
         navigate('/');
@@ -195,7 +190,6 @@ const SchedulePage = () => {
                             <th>Arrival Time</th>
                             <th>Origin</th>
                             <th>Destination</th>
-                            {/* <th>Flight Name</th> */}
                             <th>Terminal Name</th>
                             <th>Gate Name</th>
                             <th>Baggage Corousel Name</th>
@@ -210,12 +204,9 @@ const SchedulePage = () => {
                             <th>{Moment(data.flightInstance.arrivalTime).format('MM-DD HH:mm')}</th>
                             <th>{data.flightInstance.origin}</th>
                             <th>{data.flightInstance.destination}</th>
-                            {/* <th>{data.flightInstance.flight.number}</th> */}
                             <th>{data.terminal.name}</th>
                             {data.gate ===null?<th>NA</th>:<th>{data.gate.name}</th>}
-                            {/* <th>{data.gate ==}</th> */}
                             {data.baggageCarousel ===null?<th>NA</th>:<th>{data.baggageCarousel.name}</th>}
-                            {/* <th>{data.baggageCarousel.name}</th> */}
                         </tr>
                     </tbody>
 
