@@ -16,7 +16,7 @@ Team 4
 
 ### Tools and Languages
 - Frontend - ReactJS
-- Backend - Java
+- Backend - Node.js
 - Database – MySQL
 - UI Icons – Bootstrap and CSS
 - Postman - REST API client to test the developed APIs
@@ -25,9 +25,19 @@ Team 4
 ### Design Decisions
 
 ### Architecture Level
+- ReactJS as Frontend with React-Redux.
+- NodeJS as Backend with Express Framework.
+- MySQL as Database with Sequelize Library.
+- REST APIs using JSON.
+- AWS as the cloud provider.
 
 ### Business Level 
-
+- Login for airport and airline employees.
+- Arrival and departure flight Schedules based on given hours.
+- Add or update flight schedules.
+- Auto gates assignment for arriving flights.
+- Auto baggage carousel assignments for arrived flights.
+- Enable/Disable gates for maintenance.
 
 ### Areas of Contribution
 - **Frontend:** Raviteja Gannarapu, Jaya Prakash Reddy Pachika, Dasaradh Gutta, Prudhvi M.V.N.S
@@ -39,25 +49,24 @@ Team 4
 
 
 ### Architecture Diagram
-<img width="468" alt="Architecture" src="https://user-images.githubusercontent.com/87602109/205535302-03af3b7b-22ab-4cee-8df0-d358d4fd474b.png">
+<img width="468" alt="Architecture" src="architecturediagram.png">
 
 
 ### Database Design Diagram
-
+<img width="468" alt="Architecture" src="ERDiagram.png">
 
 ### Deployment Diagram
 
 
 ### UI Wireframes
-
+https://github.com/gopinathsjsu/team-project-team-four/blob/main/Documentation/FigmaUIWireframes.pdf
 
 ### Scrum Board
 https://github.com/orgs/gopinathsjsu/projects/42/views/1
 
 
-
 ### Project Journal
-
+https://github.com/gopinathsjsu/team-project-team-four/blob/main/Documentation/ProjectJournal/ProjectJournal.md
 
 ### Sprint Task Sheet and Burn-down Chart
 https://docs.google.com/spreadsheets/d/1mV-_rTtNV9uXpyWfrkMKbHonhV6h5qCk/edit#gid=624292443
