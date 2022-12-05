@@ -21,30 +21,19 @@ const ProfilePage = () =>{
 
     useEffect(() => {
         var userObj = JSON.parse(sessionStorage.getItem("profile"));
-        console.log(userObj.user);
         setfname(userObj.user.firstname);
         setlname(userObj.user.lastname);
         settype(userObj.user.type);
         setaccstatus(userObj.user.accountStatus);
         setemail(userObj.user.email);
         setpno(userObj.user.phone);
-        console.log("fname",fname);
-
-
     },[fname,lname,accstatus]);
-
-
-
     const goBack = () =>{
         history(-1);
     }
-
-
-
     return (
     <div>
-                            <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
-
+            <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
             <div class="Container">
                     <div class="loginclass">
                         <div className="Auth-form-container">
@@ -58,13 +47,9 @@ const ProfilePage = () =>{
                                     className="form-control mt-1"
                                     placeholder="Enter email"
                                     defaultValue={fname}
-                                    // value={fname}
                                     disabled={true}
-                                    // onChange={(e)=>setIsUsername(e.target.value)}
                                     />
-                                    
                                     </div>
-
                                     <div className="form-group mt-3">
                                         <label>Last Name</label>
                                         <input
@@ -95,8 +80,6 @@ const ProfilePage = () =>{
                                         disabled={true}  
                                         />
                                     </div>
-
-
                                     <div className="form-group mt-3">
                                         <label>Employee Type</label>
                                         <input
@@ -116,26 +99,7 @@ const ProfilePage = () =>{
                                         disabled={true}  
                                         />
                                     </div>
-
-
-
-                                    {/* <div style={{marginTop:'25px'}}>
-                                    <label>Select Role</label>
-                                    <select class="form-select selectWidth" aria-label="Default select example" 
-                                    >
-                                        <option selected>Select Role 👨‍🏭</option>
-                                        <option value="1">Airport Employee</option>
-                                        <option value="2">Airline Employee</option>
-                                    </select>
-                                    </div> */}
-
-                                    {/* <div className="d-grid gap-2 mt-3">
-                                        <button type="button" className="btn btn-primary"  >
-                                        Submit
-                                        </button>
-                                    </div> */}
                                     </div>
-
                                 </form>
                                 </div>
                     </div>

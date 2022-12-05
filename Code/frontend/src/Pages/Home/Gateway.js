@@ -1,25 +1,19 @@
 import React from 'react';
 import './Gateway.css';
 import { useState,useEffect } from 'react';
-import Navbar from './Navbar';
 import axios from 'axios';
 import backendurl from './backendUrl';
 import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header";
 
 const Gateway = () => {
-
     const Axios = axios.create({baseURL: `${backendurl}`})
-
     Axios.interceptors.request.use((req) => {
         if(sessionStorage.getItem('profile')) {
             req.headers.Authorization = `Bearer ${JSON.parse(sessionStorage.getItem('profile')).token}`
         }
         return req
     })
-
-    const [data,setData] = useState();
-    const [radio,setRadio] = useState();
     const [role,setRole] = useState('');
     const [username,setUsername] = useState('');
     const [gatewayList,setGatewayList] = useState([]);
@@ -28,7 +22,6 @@ const Gateway = () => {
     useEffect(()=>{
         setRole(parseInt(sessionStorage.getItem("Role"), 10));
         setUsername(sessionStorage.getItem("UserName"));
-        // getData();
         getGateMaintainData();
     },[]); 
 
@@ -71,38 +64,15 @@ const Gateway = () => {
         })
 
     }
-
     const fun = (event,a) =>{
-        console.log("THIS IS FUNNN");
-        console.log(event.target.checked);
-        console.log(event.target.value);
-        console.log(a.id);
         updateGateStatus(a.id);
-        // console.log(var);
     }
-
-    const fun2 = (name) =>{
-        console.log("fun",name);
-        
-    }
-
-
 
 
     return(
-        // <Navbar></Navbar>
         <div>
             <Header/>
-
             <div>
-                    {/* {gatewayList && gatewayList.length > 0 && gatewayList.map((data)=>(
-                        <div>
-                            {data.terminal.name}
-                            {data.id}
-                            {data.name}
-                            {data.status}
-                        </div>
-                    ))} */}
                 </div>
 
                     <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
@@ -124,9 +94,7 @@ const Gateway = () => {
                             <th>{data.name}</th>
                             <th>{data.status}</th>
                             <th>{data.terminal.name}</th>
-                            {/* <th>{data.body}</th> */}
                             <th>
-                                {/* {var status = FunStatus()} */}
                                 {data.status === 'active'?
                                 <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" defaultChecked={true} role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault"/>
@@ -144,12 +112,7 @@ const Gateway = () => {
                                                                  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                                                                  </div>
 
-                                                                
-                                
-                            
                             }
-
-
                             </th>
                         </tr>
                     </tbody>

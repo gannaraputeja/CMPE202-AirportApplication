@@ -1,12 +1,5 @@
 import React, {useState,useEffect} from 'react';
 import defaultProfile from './assets/defaultProfile.jpg'
-// import DatePicker from 'react-datepicker';
-// import 'react-datepicker/dist/react-datepicker.css';
-// import TimePicker from "react-time-picker";
-// import TimePicker from 'react-timepicker';
-// import 'react-time-picker/dist/TimePicker.css';
-// import 'react-clock/dist/Clock.css';
-// import TimePicker from 'react-time-picker/dist/entry.nostyle';
 import DateTimePicker from 'react-datetime-picker';
 import axios from 'axios';
 import backendurl from './backendUrl';
@@ -14,14 +7,6 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header";
 import {useSelector} from "react-redux";
 import Moment from 'moment'
-// import TimePicker from 'react-timepicker';
-// import 'react-timepicker/dist/react-timepicker.css';
-
-
-// import TimePicker from "react-time-picker/dist/entry.nostyle";
-
-
-
 
 const UpdateFlight = () =>{
 
@@ -39,14 +24,9 @@ const UpdateFlight = () =>{
     const [c,d] =useState('');
     const [updatedata, setUpdatedata] = useState([]);
     const history = useNavigate();
-
-
-
-
     const [role,setRole] = useState('');
     const [profile,setProfile] = useState({})
     const navigate = useNavigate();
-    const [data,setData] = useState();
     const [hours,setHours] = useState(1);
     const [airportSchedule,setAirportSchedule] = useState([]);
 
@@ -62,7 +42,6 @@ const UpdateFlight = () =>{
     useEffect(() => {
         setRole(parseInt(sessionStorage.getItem("Role"),10));
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
-        console.log(profile)
         getAirportSchedule();
     }, []);
 
@@ -70,7 +49,6 @@ const UpdateFlight = () =>{
     const getAirportSchedule = () =>{
         Axios.get(`/airline/schedules/user/${user.id}`,)
         .then((response) => {
-            console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
         })
         .catch(err => {
@@ -81,7 +59,6 @@ const UpdateFlight = () =>{
     const postBaggage = () =>{
         Axios.post(`/airport/assign/baggageCarousel`)
         .then((response) =>{
-            console.log("Success:",response);
             alert("Successfully Assigned Baggage 👍");
         })
         .catch(err => {
@@ -103,40 +80,20 @@ const UpdateFlight = () =>{
         navigate('/BaggageCarousel');
     }
     const selectHour= event =>{
-        console.log("Hour VAL:::",event.target.value);
         setHours(event.target.value);
         getFlights();
     }
     const getFlights = () =>{
-        console.log("getttt flightssss");
     }
     
-
-
     const submitfun = () =>{
-
-        console.log("clickedd submitfun");
-        console.log(origin,status,destination,deptDate,arrDate,flightId);
         converDeptDate();
         converArrDate();
-        console.log("deptDate::",deptDate);
-        console.log("arrDate::",arrDate);
         postData();
     }
-
     const navigateToAddFlight=()=>{
         navigate('/AddFlight');
     }
-
-
-    // status: req.body.status,
-    // departureTime: req.body.departureTime,
-    // arrivalTime: req.body.arrivalTime,
-    // origin: req.body.origin,
-    // destination: req.body.destination,
-    // flightId: req.body.flightId
-
-
     const postData = () =>{
         const payload = {
             status: status,
@@ -146,35 +103,22 @@ const UpdateFlight = () =>{
             destination: destination,
             flightId: flightId
           }
-
-          console.log("payload❌", payload);
-
         Axios.put(`/airline/updateFlightSchedule/${flightId}`, payload)
         .then((response) => {
-            console.log("YYYYYYYYY");
             console.log(response);
         })
         .catch(err => {
-            console.log("XXXXXXX");
             console.log(err);
         });
 
     }
 
-    const logoutFun = () =>{
-        sessionStorage.clear();
-        navigate('/');
-    }
-
     const getFlightId = (data) =>{
-        console.log(data);
         window.sessionStorage.setItem("FlightDBId", JSON.stringify(data));
-        console.log("ZZZZ:",sessionStorage.getItem("FlightDBId"));
         navigate('/UpdateFlight2');
     }
 
     const converDeptDate = () =>{
-        console.log("FUN 1:",a);
         var ss=JSON.stringify(a);
         ss=ss.toString();
         var date1 = ss.substring(1,11)+" "+a.toTimeString().split(" ")[0];

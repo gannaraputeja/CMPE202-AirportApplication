@@ -11,9 +11,7 @@ import Moment from "moment/moment";
 const SchedulePage = () => {
 
     const Axios = axios.create({baseURL: `${backendurl}`})
-
     Moment.locale('en');
-
     const [role,setRole] = useState(0);
     const [username,setUsername] = useState('');
     const navigate = useNavigate();
@@ -24,10 +22,7 @@ const SchedulePage = () => {
     const history = useNavigate();
 
     useEffect(() => {
-        // setRole(parseInt(sessionStorage.getItem("Role"), 10));
-        // console.log(role);
         var userObj = JSON.parse(sessionStorage.getItem("profile"));
-        // console.log(userObj.user.type);
         if(userObj!==null){
             if(userObj.user.type === 'airport'){
                 setRole(1);
@@ -42,7 +37,6 @@ const SchedulePage = () => {
         callScheduleFuns();
         setUsername(JSON.parse(sessionStorage.getItem("profile"))?.user.firstname);
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
-        // getAirportScheduleByHour();
     }, [role,setRole]);
 
     Axios.interceptors.request.use((req) => {
@@ -53,7 +47,7 @@ const SchedulePage = () => {
     })
 
     const callScheduleFuns =() =>{
-        if(role===1 || role === 2){
+        if(role === 1 || role === 2){
             getAirportSchedule();
         }
         else{
@@ -66,10 +60,8 @@ const SchedulePage = () => {
     }
 
     const getAirportScheduleByHour = () =>{
-        //console.log(hours)
         Axios.get(`/airport-schedules/${hours}`,)
         .then((response) => {
-            console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
         })
         .catch(err => {
@@ -79,10 +71,8 @@ const SchedulePage = () => {
 
 
     const getAirportSchedule = () =>{
-        //console.log(hours)
         Axios.get(`/airport-schedules`,)
         .then((response) => {
-            console.log("AAAA:",response.data);
             setAirportSchedule(response.data);
         })
         .catch(err => {
@@ -93,12 +83,10 @@ const SchedulePage = () => {
     const postBaggage = () =>{
         Axios.post(`/airport/assign/baggage-carousel`)
         .then((response) =>{
-            console.log("Success:",response);
             alert(response.data.message);
             getAirportSchedule();
         })
         .catch(err => {
-            console.log(err.response);
             alert(err.response.data.message)
         })
     }
@@ -112,10 +100,8 @@ const SchedulePage = () => {
             })
             .catch(err => {
                 console.log(err.response);
-                //alert(err.response.data.message)
             })
     }
-
     const logoutFun = () =>{
         sessionStorage.clear();
         navigate('/');
@@ -157,12 +143,8 @@ const SchedulePage = () => {
                     <button type="submit" style ={{marginRight:'10px'}}className="btn btn-primary" onClick={navigateToGateway}>Gateway maintenance 🚪</button>
                     <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Assign Baggage Carousel</button>
                     <button className="btn btn-primary" style={{marginRight: '10px'}} onClick={postGates}>Assign Gates</button>
-
-                    </div>:
-                    <div>
-                    </div>
+                    </div>:<div></div>
                     }
-
                     {role === 2?
                     <div>
                     <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={navigateToAddFlight}>Add Flights</button>
@@ -170,21 +152,8 @@ const SchedulePage = () => {
                     </div>:
                     <div></div>
                     }
-
             </div>
-
-                {/*<div>
-                    {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
-                        <div>
-                            {data.terminal.name}
-                        </div>
-                    ))}
-                </div>*/}
-
-
-
             <label style={{textAlign: 'center', fontSize:'20px',marginBottom:'10px'}}>Flight Schedule</label>
-
                 {role !==1 && role !==2? 
             <div class="row" style={{backgroundColor:'black', color:'white',textAlign:'right',margin:'0px',padding:'20px'}}>
                     <div class="col-4"></div>
@@ -206,9 +175,7 @@ const SchedulePage = () => {
                         </div>
                     </div>
             </div>:<div></div>}
-
             <table class="table table-hover table-dark">
-                
                     <thead class="thead-dark">
                         <tr>
                             <th>Flight Name</th>
@@ -217,7 +184,6 @@ const SchedulePage = () => {
                             <th>Arrival Time</th>
                             <th>Origin</th>
                             <th>Destination</th>
-                            {/* <th>Flight Name</th> */}
                             <th>Terminal Name</th>
                             <th>Gate Name</th>
                             <th>Baggage Corousel Name</th>
@@ -232,12 +198,9 @@ const SchedulePage = () => {
                             <th>{Moment(data.flightInstance.arrivalTime).format('MM-DD HH:mm')}</th>
                             <th>{data.flightInstance.origin}</th>
                             <th>{data.flightInstance.destination}</th>
-                            {/* <th>{data.flightInstance.flight.number}</th> */}
                             <th>{data.terminal.name}</th>
                             {data.gate ===null?<th>NA</th>:<th>{data.gate.name}</th>}
-                            {/* <th>{data.gate ==}</th> */}
                             {data.baggageCarousel ===null?<th>NA</th>:<th>{data.baggageCarousel.name}</th>}
-                            {/* <th>{data.baggageCarousel.name}</th> */}
                         </tr>
                     </tbody>
 

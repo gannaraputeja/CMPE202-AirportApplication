@@ -19,10 +19,7 @@ const UpdateFlight2 = () =>{
 
     useEffect(() => {
         var obj = JSON.parse(sessionStorage.getItem("FlightDBId"));
-        console.log("✌️",obj);
         setFlightDBId(sessionStorage.getItem("FlightDBId"));
-        console.log(obj.flightInstance.origin);
-        // for (var i = 0; i < sessionStorage.getItem("FlightDBId"))
         setOrigin(obj.flightInstance.origin);
         setDestination(obj.flightInstance.destination);
         setStatus(obj.flightInstance.status);
@@ -31,14 +28,8 @@ const UpdateFlight2 = () =>{
         setFlightNumber((obj.flightInstance.flight.number))
         setDeptDate(obj.flightInstance.departureTime);
         setArrDate(obj.flightInstance.arrDate);
-        // console.log("👎",obj.flightInstance.departureTime);
-        // $("#datetimepicker-input").val("11-11-2022" + " 00:01:00");
-        // converDeptDate1(obj.flightInstance.departureTime);
 
     },[]);
-
-
-
     const [deptDate, setDeptDate] = useState('');
     const [arrDate, setArrDate] = useState('');
     const [origin, setOrigin] = useState('');
@@ -52,12 +43,8 @@ const UpdateFlight2 = () =>{
     const [c,d] =useState('');
     const navigate = useNavigate();
     const [FlightDBId,setFlightDBId] = useState('');
-    const [updatedata, setUpdatedata] = useState([]);
     const history = useNavigate();
-
-
-
-
+    
     const converDeptDate = () =>{
         console.log("FUN 1:",a);
         var ss=JSON.stringify(a);
@@ -86,13 +73,8 @@ const UpdateFlight2 = () =>{
     }
 
     const submitfun = () =>{
-
-        console.log("clickedd submitfun");
-        // console.log(origin,status,destination,deptDate,arrDate,flightId);
         converDeptDate();
         converArrDate();
-        console.log("deptDate::",deptDate);
-        console.log("arrDate::",arrDate);
         postData();
     }
 
@@ -106,29 +88,19 @@ const UpdateFlight2 = () =>{
             destination: destination,
             flightId: flightId
           }
-
-          console.log("ID:",FlightDBId);
-          console.log("payload❌", payload);
-
       try {
           console.log(sessionStorage.getItem("FlightDBId"))
           const response = await Axios.post(`/airline/update/flight-schedule/${flightInstanceId}`, payload)
-          console.log("YYYYYYYYY");
           console.log(response);
           navigate('/UpdateFlight');
       } catch(err) {
-            console.log("XXXXXXX");
             console.log(err);
      }
-
     }
-
-
     return (
         <div>
             <Header/>
             <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
-
                  <div>
         <div className="Container">
                 <div className="loginclass">
@@ -165,13 +137,11 @@ const UpdateFlight2 = () =>{
                                     <input type="text" defaultValue={origin} className="form-control mt-1" placeholder="Enter Origin place" onChange={(e)=>setOrigin(e.target.value)}
                                     />
                                 </div>
-
                                 <div className="form-group mt-3">
                                     <label>Destination</label>
                                     <input type="text" defaultValue={destination} className="form-control mt-1" placeholder="Enter Destination place" onChange={(e)=>setDestination(e.target.value)}
                                     />
                                 </div>
-
                                 <div className="form-group mt-3">
                                 <label>Select Dept Date</label>
                                     <DateTimePicker 
@@ -179,7 +149,6 @@ const UpdateFlight2 = () =>{
                                     onChange={date => b(date)}
                                     id="deptdattime"
                                     value={a} 
-                                    // defaultValue={deptDate}
                                     defaultDate={deptDate}
                                     minDate={new Date()}                                
                                     />
