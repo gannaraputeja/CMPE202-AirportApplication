@@ -2,75 +2,75 @@
 
 ## Week 1
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication
+
+- Understanding the requirements and setting up GitHub project
+
+### Jaya Prakash Reddy Pachika - Communication
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Dasaradh Gutta - Communication
 
 -
 
-### Dasaradh Gutta
-
--
-
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication
 
 -
 
 ## Week 2
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback
 
 -
 
 
 ## Weeks 3
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity
 
 -
 
 
 ## Week 4
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity
 
 -
 
@@ -78,146 +78,146 @@
 
 ## Week 5
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity
 
 -
 
 ## Week 6
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity
 
 -
 
 ## Week 7
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
 ## Week 8
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
 ## Week 9
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
 
 ## Week 10
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
 ## Week 11
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
 ## Week 12
 
-### Raviteja Gannarapu
+### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Jaya Prakash Reddy Pachika
+### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Dasaradh Gutta
+### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
-### Prudhvi M.V.N.S
+### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
 -
 
