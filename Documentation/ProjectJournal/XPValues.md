@@ -130,7 +130,9 @@
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity
 
--
+- Build Airline Schedule Page.
+- Used Axios method to fetch the data from MySQl and displayed it on frontend through react JS.
+- Displayed different buttons like Baggage Carousel, update flights, Add flights,menu.
 
 ## Week 7
 
@@ -148,10 +150,13 @@
 - Discussed APIs and reviewed component design with team.
 - Feedback recieved and provided.
 - The project progressed with the individual tasks performed.
+- Disscussed about changes with team and TOOK feedback and worked on it.
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- Build Baggage Gate assignment page using React JS.
+- Fetched aal the data from Gate table in My SQL. Applied CSS to present it in a attractive way.
+- Disscussed about changes with team and TOOK feedback and worked on it.
 
 ## Week 8
 
