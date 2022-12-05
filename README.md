@@ -69,7 +69,7 @@ https://github.com/orgs/gopinathsjsu/projects/42/views/1
 https://github.com/gopinathsjsu/team-project-team-four/blob/main/Documentation/ProjectJournal/ProjectJournal.md
 
 ### Sprint Task Sheet and Burn-down Chart
-https://docs.google.com/spreadsheets/d/1mV-_rTtNV9uXpyWfrkMKbHonhV6h5qCk/edit#gid=624292443
+https://docs.google.com/spreadsheets/d/1Nh1BdyOhCOOXxJthjkFU8YmAl2eKb8Kg
 
 
 ### Steps to Run Application
