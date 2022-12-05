@@ -124,6 +124,9 @@ const SchedulePage = () => {
     const navigateToGateway=()=>{
         navigate('/Gateway');
     }
+    const navigateToAddFlight=()=>{
+        navigate('/AddFlight');
+    }
     const navigateupdateFlight = () =>{
         navigate('/UpdateFlight');
     }
@@ -156,11 +159,15 @@ const SchedulePage = () => {
                     <button className="btn btn-primary" style={{marginRight: '10px'}} onClick={postGates}>Assign Gates</button>
 
                     </div>:
-                    <div></div>
+                    <div>
+                    </div>
                     }
 
                     {role === 2?
-                    <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>:
+                    <div>
+                    <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={navigateToAddFlight}>Add Flights</button>
+                    <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>
+                    </div>:
                     <div></div>
                     }
 

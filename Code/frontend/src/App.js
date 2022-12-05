@@ -10,6 +10,7 @@ import UpdateFlight from './Pages/Home/UpdateFlight';
 import BaggageCarousel from './Pages/Home/BaggageCarousel';
 import UpdateFlight2 from './Pages/Home/UpdateFlight2';
 import ProfilePage from './Pages/Home/ProfilePage';
+import AddFlight from './Pages/Home/AddFlight';
 function App() {
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
           <Route path="/BaggageCarousel" element={<BaggageCarousel />}></Route>
           <Route path="/UpdateFlight2" element={<UpdateFlight2 />}></Route>
           <Route path="/ProfilePage" element={<ProfilePage />}></Route>
+          <Route path="/AddFlight" element={<AddFlight />}></Route>
 
         </Routes>
     </div>

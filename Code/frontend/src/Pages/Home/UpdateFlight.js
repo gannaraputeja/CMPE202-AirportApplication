@@ -124,6 +124,10 @@ const UpdateFlight = () =>{
         postData();
     }
 
+    const navigateToAddFlight=()=>{
+        navigate('/AddFlight');
+    }
+
 
     // status: req.body.status,
     // departureTime: req.body.departureTime,
@@ -212,7 +216,33 @@ const UpdateFlight = () =>{
 
 
 
-    <label style={{textAlign: 'center', fontSize:'20px',marginBottom:'10px'}}>Flight Schedules</label>
+    <label style={{textAlign: 'center', fontSize:'20px'}}>Flight Schedules</label>
+
+    <div style={{width:'90vw', margin:'auto'}}>
+                <div style={{float: 'right'}}>
+
+                    {role === 1?
+                    <div>
+                    <button type="submit" style ={{marginRight:'10px'}}className="btn btn-primary" onClick={navigateToGateway}>Gateway maintenance 🚪</button>
+                    <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Assign Baggage Carousel</button>
+                    <button className="btn btn-primary" style={{marginRight: '10px'}} >Assign Gates</button>
+
+                    </div>:
+                    <div>
+                    </div>
+                    }
+
+                    {role === 2?
+                    <div>
+                    <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={navigateToAddFlight} >Add Flights</button>
+                    <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>
+                    </div>:
+                    <div></div>
+                    }
+
+            </div>
+            </div>
+
 
     {/* <div class="row" style={{backgroundColor:'black', color:'white',textAlign:'right',margin:'0px',padding:'20px'}}>
             <div class="col-4"></div>
