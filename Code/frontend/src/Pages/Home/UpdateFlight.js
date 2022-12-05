@@ -38,6 +38,8 @@ const UpdateFlight = () =>{
     const [a,b] =useState('');
     const [c,d] =useState('');
     const [updatedata, setUpdatedata] = useState([]);
+    const history = useNavigate();
+
 
 
 
@@ -85,6 +87,10 @@ const UpdateFlight = () =>{
         .catch(err => {
             console.log(err.response);
         })
+    }
+
+    const goBack = () =>{
+        history(-1);
     }
 
     const navigateToGateway=()=>{
@@ -182,6 +188,8 @@ const UpdateFlight = () =>{
 
     <div>
     <Header/>
+    <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
+
     <div style={{width:'90vw', margin:'auto',marginTop:'10vh'}}>
         <div style={{float: 'right'}}>
 

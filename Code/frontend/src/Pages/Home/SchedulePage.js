@@ -7,6 +7,7 @@ import backendurl from './backendUrl';
 import Header from "../../Components/Header";
 import Moment from "moment/moment";
 
+
 const SchedulePage = () => {
 
     const Axios = axios.create({baseURL: `${backendurl}`})
@@ -19,7 +20,8 @@ const SchedulePage = () => {
     const [data,setData] = useState();
     const [hours,setHours] = useState('1');
     const [airportSchedule,setAirportSchedule] = useState([]);
-    const [profile, setProfile] = useState({})
+    const [profile, setProfile] = useState({});
+    const history = useNavigate();
 
     useEffect(() => {
         // setRole(sessionStorage.getItem("Role"));
@@ -57,6 +59,10 @@ const SchedulePage = () => {
         else{
             getAirportScheduleByHour();
         }
+    }
+
+    const goBack = () =>{
+        history(-1);
     }
 
     const getAirportScheduleByHour = () =>{
@@ -124,6 +130,8 @@ const SchedulePage = () => {
     return (
         <div>
             <Header />
+            <button style={{margin:'20px'}} type="button" class="btn btn-primary" onClick={() => goBack()}>Return</button>
+
             <div style={{width:'90vw', margin:'auto',marginTop:'10vh'}}>
                 <div style={{float: 'right'}}>
 
@@ -181,11 +189,13 @@ const SchedulePage = () => {
                 
                     <thead class="thead-dark">
                         <tr>
+                            <th>Flight Name</th>
                             <th>Status</th>
                             <th>Departure Time</th>
                             <th>Arrival Time</th>
                             <th>Origin</th>
                             <th>Destination</th>
+                            {/* <th>Flight Name</th> */}
                             <th>Gate Name</th>
                             <th>Baggage Corousel Name</th>
                             <th>Terminal Name</th>
@@ -194,11 +204,13 @@ const SchedulePage = () => {
                         {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
                     <tbody>
                         <tr>
+                            <th>{data.flightInstance.flight.number}</th>
                             <th>{data.flightInstance.status}</th>
                             <th>{Moment(data.flightInstance.departureTime).format('MM-DD HH:MM')}</th>
                             <th>{Moment(data.flightInstance.arrivalTime).format('MM-DD HH:MM')}</th>
                             <th>{data.flightInstance.origin}</th>
                             <th>{data.flightInstance.destination}</th>
+                            {/* <th>{data.flightInstance.flight.number}</th> */}
                             {data.gate ===null?<th>NA</th>:<th>{data.gate.name}</th>}
                             {/* <th>{data.gate ==}</th> */}
                             <th>{data.terminal.name}</th>

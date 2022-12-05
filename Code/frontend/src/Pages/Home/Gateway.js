@@ -4,6 +4,7 @@ import { useState,useEffect } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
 import backendurl from './backendUrl';
+import { useNavigate } from "react-router-dom";
 
 const Gateway = () => {
 
@@ -14,6 +15,7 @@ const Gateway = () => {
     const [role,setRole] = useState('');
     const [username,setUsername] = useState('');
     const [gatewayList,setGatewayList] = useState([]);
+    const history = useNavigate();
 
     useEffect(()=>{
         setRole(sessionStorage.getItem("Role"));
@@ -21,6 +23,10 @@ const Gateway = () => {
         // getData();
         getGateMaintainData();
     },[]); 
+
+    const goBack = () =>{
+        history(-1);
+    }
 
     const FunStatus = (e) =>{
         if(e==='active'){
@@ -106,6 +112,7 @@ const Gateway = () => {
                     ))} */}
                 </div>
 
+                    <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
             <div style={{width:'90vw',margin:'auto',marginTop:'10vh'}}>
                 <label style={{fontSize:'20px'}}>Gate Maintenance</label>
                 <table class="table table-hover table-dark">
