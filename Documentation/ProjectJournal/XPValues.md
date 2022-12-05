@@ -16,8 +16,9 @@
 
 ### Prudhvi M.V.N.S - Communication
 
+
 - Got to know about each team member's expertise in tech stack for a productive collaborative work.
-- Discussed about the requirements and setting up.
+- Discussed about the requirements and setting up in device.
 
 ## Week 2
 
@@ -39,7 +40,6 @@
 - created some mock wireframes and took feedback from the team.
 - created sprint sheet to enter sprint logs.
 
-
 ## Weeks 3
 
 ### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity
@@ -58,7 +58,6 @@
 
 - Created wireframes using  figma for Home page, login page, schedule page, update flight page, Baggage carousel page,profile page.
 - Disccused with the team about the design, colours and the functionality through UI Buttons and routes.
-
 
 ## Week 4
 
@@ -80,8 +79,6 @@
 - Used React JS by instaliing Node and other required packages.
 - Got to know different concepts like Axios, Redux, etc;
 
-
-
 ## Week 5
 
 ### Raviteja Gannarapu - Communication, Feedback, Respect, Simplicity
@@ -100,6 +97,7 @@
 
 - Discussed about the database tables and their relationship with other tables.
 - Worked on Database Views and discussed with team members.
+
 
 ## Week 6
 
