@@ -6,14 +6,15 @@ import {Dropdown} from "react-bootstrap";
 
 const Header = () => {
 
-    const [role,setRole] = useState('');
+    const [role,setRole] = useState(null);
     const [username,setUsername] = useState('');
     const [profile,setProfile] = useState({})
     const navigate = useNavigate();
 
 
     useEffect(() => {
-        setRole(sessionStorage.getItem("Role"));
+        console.log(typeof parseInt(sessionStorage.getItem("Role"), 10))
+        setRole(parseInt(sessionStorage.getItem("Role"), 10));
         setUsername(JSON.parse(sessionStorage.getItem("profile"))?.user.firstname);
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
     }, []);
@@ -36,7 +37,7 @@ const Header = () => {
                 <div className="col-4"></div>
                 <div className="col-4">
                     <div className="row">
-                        {role !== '1' && role !== '2' ?
+                        {role !== 1 && role !== 2 ?
                             <div className="col usernameclass loginbtn">
                                 <button type="submit"  className="btn" onClick={navigateToLoginPage}>LOGIN</button>
                             </div>

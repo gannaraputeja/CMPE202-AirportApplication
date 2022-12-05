@@ -26,7 +26,7 @@ const Gateway = () => {
     const history = useNavigate();
 
     useEffect(()=>{
-        setRole(sessionStorage.getItem("Role"));
+        setRole(parseInt(sessionStorage.getItem("Role"), 10));
         setUsername(sessionStorage.getItem("UserName"));
         // getData();
         getGateMaintainData();

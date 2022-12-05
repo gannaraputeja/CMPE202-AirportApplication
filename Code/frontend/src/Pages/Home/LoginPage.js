@@ -21,7 +21,7 @@ function LoginPage (){
     const [isPassword,setIsPassword]=useState('');
     const [successfulLogin,setSuccess] = useState('');
     const [validateEmail,setValidateEmail] = useState(false);
-    const [role,setRole] = useState('');
+    const [role,setRole] = useState(null);
     const [empRole,setEmpRole] = useState('');
 
     useEffect(() => {
@@ -43,7 +43,7 @@ function LoginPage (){
     const handleRole= event =>{
         console.log("ROLE VAL:::",event.target.value);
         window.sessionStorage.setItem("Role",event.target.value);
-        setRole(event.target.value);
+        setRole(parseInt(event.target.value));
     }
 
     const validate = () => {
@@ -60,14 +60,14 @@ function LoginPage (){
         const payload = {
             email: isUsername,
             password: isPassword,
-            role: role == '1' ? "airport" : role == '2' ? "airline" : "user"
+            role: role == 1 ? "airport" : role == 2 ? "airline" : "user"
         }
 
         Axios.post(`${backendUrl}/auth/login`, payload).then((res) => {
             console.log(res.data)
             window.sessionStorage.setItem("profile", JSON.stringify(res.data))
             dispatch({type: 'AUTH_SUCCESS', data: res.data})
-            if(role==='1'){
+            if(role===1){
                 // Airport
                 setSuccess(true);
                 console.log("successfulLogin");
@@ -76,7 +76,7 @@ function LoginPage (){
                 // navigateToAirportEmp();
                 navigate('/SchedulePage');
             }
-            else if(role==='2'){
+            else if(role===2){
                 // Airline
                 setSuccess(true);
                 console.log("successfulLogin");

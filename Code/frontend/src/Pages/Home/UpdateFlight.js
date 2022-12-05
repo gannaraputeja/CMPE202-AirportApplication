@@ -60,7 +60,7 @@ const UpdateFlight = () =>{
     })
 
     useEffect(() => {
-        setRole(sessionStorage.getItem("Role"));
+        setRole(parseInt(sessionStorage.getItem("Role"),10));
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
         console.log(profile)
         getAirportSchedule();
@@ -193,11 +193,11 @@ const UpdateFlight = () =>{
     <div style={{width:'90vw', margin:'auto',marginTop:'10vh'}}>
         <div style={{float: 'right'}}>
 
-            {role ==='1' &&
+            {role === 1 &&
                 <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Baggage Carousel</button>
             }
 
-            {role === '' &&
+            {role !== 1 && role !== 2 &&
                 <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>
             }
     </div>
@@ -255,8 +255,8 @@ const UpdateFlight = () =>{
             <tbody>
                 <tr>
                     <th>{data.flightInstance.status}</th>
-                    <th>{Moment(data.flightInstance.departureTime).format('MM-DD HH:MM')}</th>
-                    <th>{Moment(data.flightInstance.arrivalTime).format('MM-DD HH:MM')}</th>
+                    <th>{Moment(data.flightInstance.departureTime).format('MM-DD HH:mm')}</th>
+                    <th>{Moment(data.flightInstance.arrivalTime).format('MM-DD HH:mm')}</th>
                     <th>{data.flightInstance.origin}</th>
                     <th>{data.flightInstance.destination}</th>
                     {data.gate ===null?<th>NA</th>:<th>{data.gate.name}</th>}

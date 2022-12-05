@@ -24,7 +24,7 @@ const SchedulePage = () => {
     const history = useNavigate();
 
     useEffect(() => {
-        // setRole(sessionStorage.getItem("Role"));
+        // setRole(parseInt(sessionStorage.getItem("Role"), 10));
         // console.log(role);
         var userObj = JSON.parse(sessionStorage.getItem("profile"));
         // console.log(userObj.user.type);
@@ -94,12 +94,26 @@ const SchedulePage = () => {
         Axios.post(`/airport/assign/baggage-carousel`)
         .then((response) =>{
             console.log("Success:",response);
-            alert("Successfully Assigned Baggage 👍");
+            alert(response.data.message);
             getAirportSchedule();
         })
         .catch(err => {
             console.log(err.response);
+            alert(err.response.data.message)
         })
+    }
+
+    const postGates = () =>{
+        Axios.post(`/airport/assign/gate`)
+            .then((response) =>{
+                console.log("Success:",response);
+                alert(response.data.message);
+                getAirportSchedule();
+            })
+            .catch(err => {
+                console.log(err.response);
+                //alert(err.response.data.message)
+            })
     }
 
     const logoutFun = () =>{
@@ -139,6 +153,7 @@ const SchedulePage = () => {
                     <div>
                     <button type="submit" style ={{marginRight:'10px'}}className="btn btn-primary" onClick={navigateToGateway}>Gateway maintenance 🚪</button>
                     <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Assign Baggage Carousel</button>
+                    <button className="btn btn-primary" style={{marginRight: '10px'}} onClick={postGates}>Assign Gates</button>
 
                     </div>:
                     <div></div>
@@ -206,8 +221,8 @@ const SchedulePage = () => {
                         <tr>
                             <th>{data.flightInstance.flight.number}</th>
                             <th>{data.flightInstance.status}</th>
-                            <th>{Moment(data.flightInstance.departureTime).format('MM-DD HH:MM')}</th>
-                            <th>{Moment(data.flightInstance.arrivalTime).format('MM-DD HH:MM')}</th>
+                            <th>{Moment(data.flightInstance.departureTime).format('MM-DD HH:mm')}</th>
+                            <th>{Moment(data.flightInstance.arrivalTime).format('MM-DD HH:mm')}</th>
                             <th>{data.flightInstance.origin}</th>
                             <th>{data.flightInstance.destination}</th>
                             {/* <th>{data.flightInstance.flight.number}</th> */}
