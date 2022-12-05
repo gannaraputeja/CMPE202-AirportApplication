@@ -8,11 +8,12 @@
 
 ### Jaya Prakash Reddy Pachika - Communication
 
--
+- We discussed on team members experience in IT industry and the languages in which they are proficient and worked previously.
+- Discussed on the rough roadmap of the project.
 
 ### Dasaradh Gutta - Communication
 
-- We discussed on team members experience in IT industry and the languages in which they are proficient and worked previously.
+- We discussed on team members experience in IT industry.
 - Discussed on the rough roadmap of the project.
 
 ### Prudhvi M.V.N.S - Communication
@@ -29,7 +30,8 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback
 
--
+-Provided Feedback on Database Design.
+-Listed all the required REST APIs.
 
 ### Dasaradh Gutta - Communication, Feedback
 
@@ -53,7 +55,8 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity
 
--
+- Each team member took up tasks and estimates required to finish the application and user stories were updated accordingly.
+- Each member is treated with respect, and we are taking small measurable steps to complete the project in the given time.
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity
 
@@ -76,7 +79,8 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity
 
-- 
+- Setup is done for Backend.
+- Used Node Js and Express for backend and MYSQL as database.
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity
 
@@ -100,7 +104,9 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity
 
--
+- Discussed design details for backend components and APIs.
+- Feedback received and provided.
+- The project is progressing with no roadblocks
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity
 
@@ -122,7 +128,9 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity
 
--
+- We are progressing towards the term project.
+- Each team member showcased the tasks done and discussed about the next steps along with in corporating the feedback from other team members.
+- Comunication is clear with meetings and weekly standups
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity
 
@@ -143,7 +151,7 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- Each team member showcased the tasks done and discussed about the next steps along with in corporating the feedback from other team members. Integration discussions done.
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
@@ -164,7 +172,8 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- Each team member discussed and reviewed their components with the team.
+- Each team member worked towards bug fixes and improvements for the project.
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
@@ -185,7 +194,7 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- Each team member started integrating backend components with frontend and provided feedback to each other.
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
@@ -207,7 +216,8 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- We are progressing towards the term project.
+- Each team member showcased the tasks done and discussed about the next steps along with in corporating the feedback from other team members.
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
@@ -228,7 +238,7 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- We are progressing towards the term project.
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
@@ -249,11 +259,13 @@
 
 ### Jaya Prakash Reddy Pachika - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- Each team member showcased the tasks done and discussed the next steps along with incorporating the feedback from other team members.
+- Communication is clear with meetings and weekly stand-ups
+- All backlog items are finished and project is deployed on AWS.
 
 ### Dasaradh Gutta - Communication, Feedback, Respect, Simplicity, Courage
 
-- Comunication is clear with meetings and weekly standups.
+- Communication is clear with meetings and weekly standups.
 - Achieved the project goals.
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
