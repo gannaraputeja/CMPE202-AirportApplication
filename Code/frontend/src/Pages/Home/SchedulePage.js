@@ -127,7 +127,7 @@ const SchedulePage = () => {
             <div style={{width:'90vw', margin:'auto',marginTop:'10vh'}}>
                 <div style={{float: 'right'}}>
 
-                    {role ==='1'?
+                    {role === 1?
                     <div>
                     <button type="submit" style ={{marginRight:'10px'}}className="btn btn-primary" onClick={navigateToGateway}>Gateway maintenance 🚪</button>
                     <button class="btn btn-primary" style={{marginRight:'10px'}} onClick={postBaggage}>Assign Baggage Carousel</button>
@@ -136,7 +136,7 @@ const SchedulePage = () => {
                     <div></div>
                     }
 
-                    {role === '2'?
+                    {role === 2?
                     <button class="btn btn-primary" onClick={navigateupdateFlight}>Update Flight Schedule</button>:
                     <div></div>
                     }
