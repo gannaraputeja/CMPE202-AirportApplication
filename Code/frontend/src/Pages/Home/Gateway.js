@@ -4,10 +4,18 @@ import { useState,useEffect } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
 import backendurl from './backendUrl';
+import Header from "../../Components/Header";
 
 const Gateway = () => {
 
     const Axios = axios.create({baseURL: `${backendurl}`})
+
+    Axios.interceptors.request.use((req) => {
+        if(sessionStorage.getItem('profile')) {
+            req.headers.Authorization = `Bearer ${JSON.parse(sessionStorage.getItem('profile')).token}`
+        }
+        return req
+    })
 
     const [data,setData] = useState();
     const [radio,setRadio] = useState();
@@ -46,7 +54,7 @@ const Gateway = () => {
     }
 
     const updateGateStatus = (e) =>{
-        Axios.put(`${backendurl}/airport/update/gate/${e}`,)
+        Axios.put(`/airport/update/gate/${e}`)
         .then((response)=>{
             console.log("RES:::",response.data);
             setGatewayList(response.data);
@@ -78,22 +86,7 @@ const Gateway = () => {
     return(
         // <Navbar></Navbar>
         <div>
-            <div class="Container">
-                <div class="row navbar">
-                    <div class="col-4">Airport</div>
-                    <div class="col-4"></div>
-                    <div class="col-4">
-                        <div class="row">
-                            <div class="col">
-                                {role==='1'? 
-                                    <button type="submit" className="btn btn-primary" >Airline Employee ✈️👨‍✈️</button>:<div></div>
-                                }
-                            </div>
-                            <div class="col usernameclass">Hi {username} 👋</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Header/>
 
             <div>
                     {/* {gatewayList && gatewayList.length > 0 && gatewayList.map((data)=>(
