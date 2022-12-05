@@ -64,7 +64,10 @@ https://docs.google.com/spreadsheets/d/1mV-_rTtNV9uXpyWfrkMKbHonhV6h5qCk/edit#gi
 
 
 ### Steps to Run Application
-- Clone the entire repository on work machine that has Java installed on it.
+- Clone the entire repository on work machine and run below cmds.
+- Backend npm start
+- Frontend npm start
+
 
 
 
