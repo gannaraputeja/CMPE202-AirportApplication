@@ -1,4 +1,4 @@
-import {AirportSchedule, BaggageCarousel, Flight, FlightInstance, Gate, Terminal} from '../Models/index.js'
+import {Airline, AirportSchedule, BaggageCarousel, Flight, FlightInstance, Gate, Terminal} from '../Models/index.js'
 import { Op } from 'sequelize'
 
 export const getSchedulesByHour = async (req, res) => {
@@ -27,6 +27,9 @@ export const getSchedulesByHour = async (req, res) => {
                     include: [
                         {model: Flight,
                             attributes:['id', 'number'],
+                            include: [
+                                {model: Airline, attributes: ['id', 'name']}
+                            ]
                         }
                     ]
                     },
@@ -59,6 +62,7 @@ export const getSchedules = async (req, res) => {
                     include: [
                         {model: Flight,
                             attributes:['id', 'number'],
+                            include: [{model: Airline, attributes: ['id', 'name']}]
                         }
                     ]
                 },
@@ -86,7 +90,8 @@ export const getBaggageCarouselInfo = async(req, res) => {
             include:[
                 {
                     model: FlightInstance,
-                    where: {status: 'arrived'}
+                    where: {status: 'arrived'},
+                    include: [{model: Flight, include: [{model: Airline}]}]
                 }
             ]
         });
