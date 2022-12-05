@@ -59,7 +59,7 @@ Team 4
 <img width="468" alt="Architecture" src="ERDiagram.png">
 
 ### Deployment Diagram
-
+<img width="468" alt="Architecture" src="AWSDeploymentDiagram.jpg">
 
 ### UI Wireframes
 https://github.com/gopinathsjsu/team-project-team-four/blob/main/Documentation/FigmaUIWireframes.pdf
