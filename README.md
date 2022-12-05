@@ -39,6 +39,7 @@ Team 4
 
 
 ### Architecture Diagram
+<img width="468" alt="Architecture" src="https://user-images.githubusercontent.com/87602109/205535302-03af3b7b-22ab-4cee-8df0-d358d4fd474b.png">
 
 
 ### Database Design Diagram
