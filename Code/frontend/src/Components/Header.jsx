@@ -30,6 +30,10 @@ const Header = () => {
         navigate('/LoginPage')
     }
 
+    const navigateToProfilePage = () =>{
+        navigate('/ProfilePage');
+    }
+
     return <div>
         <div className="Container">
             <div className="row navbar">
@@ -50,7 +54,7 @@ const Header = () => {
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu>
-                                            <Dropdown.Item>Hi {username} <img src={defaultProfile} className="profilePic"/></Dropdown.Item>
+                                            <Dropdown.Item>Hi {username} <img src={defaultProfile} onClick={()=>{navigateToProfilePage()}} className="profilePic"/></Dropdown.Item>
                                             <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>

@@ -16,7 +16,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 // CORS Setup
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: '*', credentials: true }));
 
 
 
@@ -46,7 +46,7 @@ dotenv.config()
 
 // Default Headers
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader(
     'Access-Control-Allow-Methods',
