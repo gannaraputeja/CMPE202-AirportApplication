@@ -211,9 +211,9 @@ const SchedulePage = () => {
                             <th>Origin</th>
                             <th>Destination</th>
                             {/* <th>Flight Name</th> */}
+                            <th>Terminal Name</th>
                             <th>Gate Name</th>
                             <th>Baggage Corousel Name</th>
-                            <th>Terminal Name</th>
                         </tr>
                     </thead>
                         {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
@@ -226,9 +226,9 @@ const SchedulePage = () => {
                             <th>{data.flightInstance.origin}</th>
                             <th>{data.flightInstance.destination}</th>
                             {/* <th>{data.flightInstance.flight.number}</th> */}
+                            <th>{data.terminal.name}</th>
                             {data.gate ===null?<th>NA</th>:<th>{data.gate.name}</th>}
                             {/* <th>{data.gate ==}</th> */}
-                            <th>{data.terminal.name}</th>
                             {data.baggageCarousel ===null?<th>NA</th>:<th>{data.baggageCarousel.name}</th>}
                             {/* <th>{data.baggageCarousel.name}</th> */}
                         </tr>

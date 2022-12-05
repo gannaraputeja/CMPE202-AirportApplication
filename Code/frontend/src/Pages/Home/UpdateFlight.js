@@ -245,9 +245,9 @@ const UpdateFlight = () =>{
                     <th>Arrival Time</th>
                     <th>Origin</th>
                     <th>Destination</th>
+                    <th>Terminal Name</th>
                     <th>Gate Name</th>
                     <th>Baggage Corousel Name</th>
-                    <th>Terminal Name</th>
                     <th>Update</th>
                 </tr>
             </thead>
@@ -259,9 +259,9 @@ const UpdateFlight = () =>{
                     <th>{Moment(data.flightInstance.arrivalTime).format('MM-DD HH:mm')}</th>
                     <th>{data.flightInstance.origin}</th>
                     <th>{data.flightInstance.destination}</th>
+                    <th>{data.terminal.name}</th>
                     {data.gate ===null?<th>NA</th>:<th>{data.gate.name}</th>}
                             {/* <th>{data.gate ==}</th> */}
-                            <th>{data.terminal.name}</th>
                             {data.baggageCarousel ===null?<th>NA</th>:<th>{data.baggageCarousel.name}</th>}
                             {/* <th>{data.baggageCarousel.name}</th> */}
                     <th><button type="button" class="btn btn-primary" onClick={()=>{getFlightId(data)}}>Update</button></th>
