@@ -5,11 +5,12 @@ import {
     Airline,
     AirlineEmployee,
     User,
-    BaggageCarousel, Terminal, Gate
+    BaggageCarousel, Terminal, Gate, db
 } from "../Models/index.js";
 import {Op} from "sequelize";
 
 export const addFlightSchedule = async(req, res) =>{
+    const t = await db.sequelize.transaction()
     try{
         if (req.body == null)
             res.status(400).json({message: 'Empty request payload.'})
@@ -21,21 +22,24 @@ export const addFlightSchedule = async(req, res) =>{
             origin: req.body.origin,
             destination: req.body.destination,
             flightId: req.body.flightId
-        })
+        },{transaction: t})
 
         //console.log(flightData);
+
+        //const terminal = await Terminal.findOne({where: {name: req.body.terminalId}})
 
         const airportSchedule = await AirportSchedule.create({
             terminalId: req.body.terminalId,
             flightInstanceId: flightData.id
-        })
+        },{transaction: t})
 
         //console.log(airportSchedule);
-
+        await t.commit()
         res.status(201).send(flightData);
     }
     catch(err){
         //console.log(err);
+        await t.rollback()
         res.status(400).json({message: "Airline flights schedule could not be added"});
     }
 };
@@ -120,4 +124,8 @@ export const getSchedulesForAnAirline = async (req, res) => {
         console.log(err)
         res.status(400).json({message: "Couldn't retrieve any flight schedules for an airline."});
     }
+}
+
+export const addGates = async (req, res) => {
+
 }
