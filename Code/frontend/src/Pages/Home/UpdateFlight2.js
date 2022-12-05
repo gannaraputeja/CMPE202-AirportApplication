@@ -19,10 +19,7 @@ const UpdateFlight2 = () =>{
 
     useEffect(() => {
         var obj = JSON.parse(sessionStorage.getItem("FlightDBId"));
-        console.log("✌️",obj);
         setFlightDBId(sessionStorage.getItem("FlightDBId"));
-        console.log(obj.flightInstance.origin);
-        // for (var i = 0; i < sessionStorage.getItem("FlightDBId"))
         setOrigin(obj.flightInstance.origin);
         setDestination(obj.flightInstance.destination);
         setStatus(obj.flightInstance.status);
@@ -31,9 +28,6 @@ const UpdateFlight2 = () =>{
         setFlightNumber((obj.flightInstance.flight.number))
         setDeptDate(obj.flightInstance.departureTime);
         setArrDate(obj.flightInstance.arrDate);
-        // console.log("👎",obj.flightInstance.departureTime);
-        // $("#datetimepicker-input").val("11-11-2022" + " 00:01:00");
-        // converDeptDate1(obj.flightInstance.departureTime);
 
     },[]);
 
@@ -54,10 +48,7 @@ const UpdateFlight2 = () =>{
     const [FlightDBId,setFlightDBId] = useState('');
     const [updatedata, setUpdatedata] = useState([]);
     const history = useNavigate();
-
-
-
-
+    
     const converDeptDate = () =>{
         console.log("FUN 1:",a);
         var ss=JSON.stringify(a);

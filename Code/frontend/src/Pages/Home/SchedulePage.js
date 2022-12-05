@@ -24,10 +24,7 @@ const SchedulePage = () => {
     const history = useNavigate();
 
     useEffect(() => {
-        // setRole(parseInt(sessionStorage.getItem("Role"), 10));
-        // console.log(role);
         var userObj = JSON.parse(sessionStorage.getItem("profile"));
-        // console.log(userObj.user.type);
         if(userObj!==null){
             if(userObj.user.type === 'airport'){
                 setRole(1);
@@ -42,7 +39,6 @@ const SchedulePage = () => {
         callScheduleFuns();
         setUsername(JSON.parse(sessionStorage.getItem("profile"))?.user.firstname);
         setProfile(JSON.parse(sessionStorage.getItem("profile")))
-        // getAirportScheduleByHour();
     }, [role,setRole]);
 
     Axios.interceptors.request.use((req) => {
@@ -53,7 +49,7 @@ const SchedulePage = () => {
     })
 
     const callScheduleFuns =() =>{
-        if(role===1 || role === 2){
+        if(role === 1 || role === 2){
             getAirportSchedule();
         }
         else{
@@ -66,7 +62,6 @@ const SchedulePage = () => {
     }
 
     const getAirportScheduleByHour = () =>{
-        //console.log(hours)
         Axios.get(`/airport-schedules/${hours}`,)
         .then((response) => {
             console.log("AAAA:",response.data);
@@ -112,7 +107,6 @@ const SchedulePage = () => {
             })
             .catch(err => {
                 console.log(err.response);
-                //alert(err.response.data.message)
             })
     }
 
@@ -172,16 +166,6 @@ const SchedulePage = () => {
                     }
 
             </div>
-
-                {/*<div>
-                    {airportSchedule && airportSchedule.length > 0 && airportSchedule.map((data)=>(
-                        <div>
-                            {data.terminal.name}
-                        </div>
-                    ))}
-                </div>*/}
-
-
 
             <label style={{textAlign: 'center', fontSize:'20px',marginBottom:'10px'}}>Flight Schedule</label>
 
