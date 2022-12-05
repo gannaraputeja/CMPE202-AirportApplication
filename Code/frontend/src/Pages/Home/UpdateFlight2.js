@@ -46,6 +46,8 @@ const UpdateFlight2 = () =>{
     const navigate = useNavigate();
     const [FlightDBId,setFlightDBId] = useState('');
     const [updatedata, setUpdatedata] = useState([]);
+    const history = useNavigate();
+
 
 
 
@@ -70,6 +72,10 @@ const UpdateFlight2 = () =>{
         sss=sss.toString();
         var date2 = sss.substring(1,11)+" "+c.toTimeString().split(" ")[0];
         setArrDate(date2);
+    }
+
+    const goBack = () =>{
+        history(-1);
     }
 
     const submitfun = () =>{
@@ -114,6 +120,8 @@ const UpdateFlight2 = () =>{
     return (
         <div>
             <Header/>
+            <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
+
                  <div>
         <div className="Container">
                 <div className="loginclass">

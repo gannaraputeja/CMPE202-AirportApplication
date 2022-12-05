@@ -26,6 +26,7 @@ function LoginPage (){
 
     useEffect(() => {
         console.log("PAGE LOADED");
+        sessionStorage.clear();
       });
 
     const navigateToAirportEmp = () => {
