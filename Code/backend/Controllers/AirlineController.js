@@ -26,10 +26,10 @@ export const addFlightSchedule = async(req, res) =>{
 
         //console.log(flightData);
 
-        const terminal = await Terminal.findOne({where: {name: req.body.terminalId}})
+        //const terminal = await Terminal.findOne({where: {name: req.body.terminalId}})
 
         const airportSchedule = await AirportSchedule.create({
-            terminalId: terminal.id,
+            terminalId: req.body.terminalId,
             flightInstanceId: flightData.id
         },{transaction: t})
 
@@ -124,4 +124,8 @@ export const getSchedulesForAnAirline = async (req, res) => {
         console.log(err)
         res.status(400).json({message: "Couldn't retrieve any flight schedules for an airline."});
     }
+}
+
+export const addGates = async (req, res) => {
+
 }
