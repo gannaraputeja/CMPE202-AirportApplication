@@ -10,6 +10,13 @@ const UpdateFlight2 = () =>{
 
     const Axios = axios.create({baseURL: `${backendurl}`})
 
+    Axios.interceptors.request.use((req) => {
+        if(sessionStorage.getItem('profile')) {
+            req.headers.Authorization = `Bearer ${JSON.parse(sessionStorage.getItem('profile')).token}`
+        }
+        return req
+    })
+
     useEffect(() => {
         var obj = JSON.parse(sessionStorage.getItem("FlightDBId"));
         console.log("✌️",obj);

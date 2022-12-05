@@ -18,7 +18,7 @@ Team 4
 - Frontend - ReactJS
 - Backend - Java
 - Database – MySQL
-- UI Icons – Material UI and CSS
+- UI Icons – Bootstrap and CSS
 - Postman - REST API client to test the developed APIs
 - Deployment - Amazon Web Services (AWS)
 
@@ -39,6 +39,7 @@ Team 4
 
 
 ### Architecture Diagram
+<img width="468" alt="Architecture" src="https://user-images.githubusercontent.com/87602109/205535302-03af3b7b-22ab-4cee-8df0-d358d4fd474b.png">
 
 
 ### Database Design Diagram
@@ -63,7 +64,10 @@ https://docs.google.com/spreadsheets/d/1mV-_rTtNV9uXpyWfrkMKbHonhV6h5qCk/edit#gi
 
 
 ### Steps to Run Application
-- Clone the entire repository on work machine that has Java installed on it.
+- Clone the entire repository on work machine and run below cmds.
+- Backend npm start
+- Frontend npm start
+
 
 
 
