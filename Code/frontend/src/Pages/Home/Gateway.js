@@ -1,24 +1,33 @@
 import React from 'react';
 import './Gateway.css';
 import { useState,useEffect } from 'react';
-import Navbar from './Navbar';
-import Axios from 'axios';
+import axios from 'axios';
 import backendurl from './backendUrl';
+import { useNavigate } from "react-router-dom";
+import Header from "../../Components/Header";
 
 const Gateway = () => {
-
-    const [data,setData] = useState();
-    const [radio,setRadio] = useState();
+    const Axios = axios.create({baseURL: `${backendurl}`})
+    Axios.interceptors.request.use((req) => {
+        if(sessionStorage.getItem('profile')) {
+            req.headers.Authorization = `Bearer ${JSON.parse(sessionStorage.getItem('profile')).token}`
+        }
+        return req
+    })
     const [role,setRole] = useState('');
     const [username,setUsername] = useState('');
     const [gatewayList,setGatewayList] = useState([]);
+    const history = useNavigate();
 
     useEffect(()=>{
-        setRole(sessionStorage.getItem("Role"));
+        setRole(parseInt(sessionStorage.getItem("Role"), 10));
         setUsername(sessionStorage.getItem("UserName"));
-        // getData();
         getGateMaintainData();
     },[]); 
+
+    const goBack = () =>{
+        history(-1);
+    }
 
     const FunStatus = (e) =>{
         if(e==='active'){
@@ -33,9 +42,8 @@ const Gateway = () => {
     }
 
     const getGateMaintainData = () =>{
-        Axios.get(`${backendurl}/airport/get/gates`,)
+        Axios.get(`/airport/get/gates`,)
         .then((response)=>{
-            console.log("RES:::",response.data);
             setGatewayList(response.data);
         })
         .catch(err =>{
@@ -44,9 +52,8 @@ const Gateway = () => {
     }
 
     const updateGateStatus = (e) =>{
-        Axios.put(`${backendurl}/airport/update/gate/${e}`,)
+        Axios.put(`/airport/update/gate/${e}`)
         .then((response)=>{
-            console.log("RES:::",response.data);
             setGatewayList(response.data);
             getGateMaintainData();
         })
@@ -55,55 +62,18 @@ const Gateway = () => {
         })
 
     }
-
     const fun = (event,a) =>{
-        console.log("THIS IS FUNNN");
-        console.log(event.target.checked);
-        console.log(event.target.value);
-        console.log(a.id);
         updateGateStatus(a.id);
-        // console.log(var);
     }
-
-    const fun2 = (name) =>{
-        console.log("fun",name);
-        
-    }
-
-
 
 
     return(
-        // <Navbar></Navbar>
         <div>
-            <div class="Container">
-                <div class="row navbar">
-                    <div class="col-4">Airport</div>
-                    <div class="col-4"></div>
-                    <div class="col-4">
-                        <div class="row">
-                            <div class="col">
-                                {role==='1'? 
-                                    <button type="submit" className="btn btn-primary" >Airline Employee ✈️👨‍✈️</button>:<div></div>
-                                }
-                            </div>
-                            <div class="col usernameclass">Hi {username} 👋</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <Header/>
             <div>
-                    {/* {gatewayList && gatewayList.length > 0 && gatewayList.map((data)=>(
-                        <div>
-                            {data.terminal.name}
-                            {data.id}
-                            {data.name}
-                            {data.status}
-                        </div>
-                    ))} */}
                 </div>
 
+                    <button type="button" style={{margin:'20px'}} class="btn btn-primary" onClick={() => goBack()}>Return</button>
             <div style={{width:'90vw',margin:'auto',marginTop:'10vh'}}>
                 <label style={{fontSize:'20px'}}>Gate Maintenance</label>
                 <table class="table table-hover table-dark">
@@ -122,9 +92,7 @@ const Gateway = () => {
                             <th>{data.name}</th>
                             <th>{data.status}</th>
                             <th>{data.terminal.name}</th>
-                            <th>{data.body}</th>
                             <th>
-                                {/* {var status = FunStatus()} */}
                                 {data.status === 'active'?
                                 <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" defaultChecked={true} role="switch" onChange={(e) => {fun(e, data); }}  id="flexSwitchCheckDefault"/>
@@ -142,12 +110,7 @@ const Gateway = () => {
                                                                  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                                                                  </div>
 
-                                                                
-                                
-                            
                             }
-
-
                             </th>
                         </tr>
                     </tbody>

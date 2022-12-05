@@ -1,0 +1,12 @@
+.usernameclass{
+    display: flex;
+    text-align:center;
+    column-gap: 10px;
+    justify-content: end;
+}
+
+.profilePic, img {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}

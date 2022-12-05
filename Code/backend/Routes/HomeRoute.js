@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     res.send('Welcome Airport Application')
 })
 
-router.get("/airport-schedules/:id", getSchedulesByHour);
+router.get("/airport-schedules/:hour", getSchedulesByHour);
 
 router.get("/airport-schedules", getSchedules);
 

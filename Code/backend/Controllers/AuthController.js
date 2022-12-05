@@ -35,12 +35,14 @@ export const signUpUser = async (req, res) => {
 
 export const loginUser = async (req, res) => {
 
-    const {email, password} = req.body
+    const {email, password, role} = req.body
 
     try {
         const user = await User.findOne({where: {email}})
 
         if(user) {
+            if(user.type != role)
+                return res.status(400).json({message: "User does role does not match."})
             const validity = await bcrypt.compare(password, user.password)
 
             if(!validity) {

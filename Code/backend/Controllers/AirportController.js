@@ -133,7 +133,7 @@ export const autoAssignBaggageCarousel = async (req, res) => {
         })
 
         if(airportSchedules.length == 0)
-            return res.status(200).json({message: 'There are no baggage carousel unassigned arriving flights at the moment.'})
+            return res.status(200).json({message: 'There are no arrived flights with unassigned baggage carousels at the moment.'})
 
         let baggageCarousels = await BaggageCarousel.findAll({ where: {status: 'active'} })
 
@@ -172,6 +172,58 @@ export const autoAssignBaggageCarousel = async (req, res) => {
         console.log(err)
         await t.rollback()
         res.status(400).json({message: 'Failed to assign baggage carousels.'})
+    }
+}
+
+export const autoAssignGates = async (req, res) => {
+    const t = await db.sequelize.transaction()
+    try {
+        // get Gates unassigned AirportSchedules of arrived FlightInstances
+        const airportSchedules = await AirportSchedule.findAll({
+            where: {gateId: { [Op.eq]: null }},
+            include: [{model: FlightInstance, where: {status: 'arriving'}}]
+        })
+
+        if(airportSchedules.length == 0)
+            return res.status(200).json({message: 'There are no arriving flights with unassigned gates at the moment.'})
+
+        let gates = await Gate.findAll({ where: {status: 'active'} })
+
+        for (const airportSchedule of airportSchedules) {
+            // filter gates for terminal same as terminal in AirportSchedule
+            const terminalGates = gates.filter(bc => bc.terminalId == airportSchedule.terminalId)
+            // check has gates left to assign
+            if(terminalGates.length <= 0) {
+                return res.status(400).json({message: 'There are not enough gates available at the moment.'})
+            }
+            // get random gate
+            const random = Math.floor(Math.random() * (terminalGates.length));
+
+            // update AirportSchedule with assigned Gate
+            await AirportSchedule.update({
+                gateId: terminalGates[random].id
+            }, { where: { id: airportSchedule.id },
+                transaction: t
+            })
+
+            // update Gate status as assigned
+            await Gate.update({
+                status: 'assigned'
+            }, { where: { id: terminalGates[random].id },
+                transaction: t
+            })
+
+            // remove assigned Gate from gates
+            gates = gates.filter( item => item.id != terminalGates[random].id)
+            // remove assigned Gate from terminalGates
+            terminalGates.splice(random, 1)
+        }
+        await t.commit()
+        res.status(200).json({message: 'Successfully assigned gates.'})
+    } catch (err) {
+        console.log(err)
+        await t.rollback()
+        res.status(400).json({message: 'Failed to assign gates.'})
     }
 }
 

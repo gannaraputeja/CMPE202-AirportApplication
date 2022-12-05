@@ -1,13 +1,14 @@
-import {AirportSchedule, BaggageCarousel, Flight, FlightInstance, Gate, Terminal} from '../Models/index.js'
+import {Airline, AirportSchedule, BaggageCarousel, Flight, FlightInstance, Gate, Terminal} from '../Models/index.js'
 import { Op } from 'sequelize'
 
 export const getSchedulesByHour = async (req, res) => {
     try{
-        if(req.params?.id && (req.params.id.trim() === '' || isNaN(req.params.id)))
+        //console.log(typeof req.params.hour)
+        if(typeof req.params.hour == "string" && (req.params.hour.trim() === '' || isNaN(req.params.hour)))
             res.status(400).json({message: 'Invalid number'});
 
         var startDate = new Date();
-        var endDate = new Date(new Date().getTime() + req.params.id*60*60*1000);
+        var endDate = new Date(new Date().getTime() + req.params.hour*60*60*1000);
 
         const response = await AirportSchedule.findAll({
             attributes:[],
@@ -26,6 +27,9 @@ export const getSchedulesByHour = async (req, res) => {
                     include: [
                         {model: Flight,
                             attributes:['id', 'number'],
+                            include: [
+                                {model: Airline, attributes: ['id', 'name']}
+                            ]
                         }
                     ]
                     },
@@ -58,6 +62,7 @@ export const getSchedules = async (req, res) => {
                     include: [
                         {model: Flight,
                             attributes:['id', 'number'],
+                            include: [{model: Airline, attributes: ['id', 'name']}]
                         }
                     ]
                 },
@@ -85,7 +90,8 @@ export const getBaggageCarouselInfo = async(req, res) => {
             include:[
                 {
                     model: FlightInstance,
-                    where: {status: 'arrived'}
+                    where: {status: 'arrived'},
+                    include: [{model: Flight, include: [{model: Airline}]}]
                 }
             ]
         });
