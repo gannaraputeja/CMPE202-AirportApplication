@@ -94,7 +94,6 @@ const SchedulePage = () => {
     const postGates = () =>{
         Axios.post(`/airport/assign/gate`)
             .then((response) =>{
-                console.log("Success:",response);
                 alert(response.data.message);
                 getAirportSchedule();
             })
@@ -121,7 +120,6 @@ const SchedulePage = () => {
     }
 
     const selectHour= event =>{
-        console.log("Hour VAL:::",event.target.value);
         setHours(event.target.value);
         getFlights();
     }

@@ -44,7 +44,6 @@ const Gateway = () => {
     const getGateMaintainData = () =>{
         Axios.get(`/airport/get/gates`,)
         .then((response)=>{
-            console.log("RES:::",response.data);
             setGatewayList(response.data);
         })
         .catch(err =>{
@@ -55,7 +54,6 @@ const Gateway = () => {
     const updateGateStatus = (e) =>{
         Axios.put(`/airport/update/gate/${e}`)
         .then((response)=>{
-            console.log("RES:::",response.data);
             setGatewayList(response.data);
             getGateMaintainData();
         })

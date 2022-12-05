@@ -11,7 +11,6 @@ const HomePage2 = () =>{
 
 
     const bfun=()=>{
-        console.log("heyyy");
         var count;
         count=count+1
         setflightname(count);

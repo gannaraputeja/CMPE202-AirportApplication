@@ -9,8 +9,6 @@ const AddFlight = () =>{
 
     const Axios = axios.create({baseURL: `${backendurl}`})
 
-
-
     const history = useNavigate();
     const [deptDate, setDeptDate] = useState('');
     const [arrDate, setArrDate] = useState('');
@@ -19,25 +17,15 @@ const AddFlight = () =>{
     const [status, setStatus] = useState('');
     const [flightInstanceId, setFlightInstanceId] = useState('');
     const [flightId, setFlightId] = useState('')
-    const [flightNumber, setFlightNumber] = useState('')
-
-
-
+    const [flightNumber, setFlightNumber] = useState('');
     const [a,b] =useState('');
     const [c,d] =useState('');
     const navigate = useNavigate();
-    const [FlightDBId,setFlightDBId] = useState('');
-    const [updatedata, setUpdatedata] = useState([]);
-
 
     const submitfun = () =>{
 
-        console.log("clickedd submitfun");
-        // console.log(origin,status,destination,deptDate,arrDate,flightId);
         converDeptDate();
         converArrDate();
-        console.log("deptDate::",deptDate);
-        console.log("arrDate::",arrDate);
         postData();
     }
 
@@ -49,7 +37,6 @@ const AddFlight = () =>{
     }
 
         const converDeptDate = (date) =>{
-        console.log("🔥 1:",a);
         var ss=JSON.stringify(a);
         ss=ss.toString();
         var date1 = ss.substring(1,11)+" "+a.toTimeString().split(" ")[0];
@@ -78,18 +65,10 @@ const AddFlight = () =>{
         //     "terminalId": 1
         // }
 
-
-          console.log("ID:",FlightDBId);
-          console.log("payload❌", payload);
-
       try {
-          console.log(sessionStorage.getItem("FlightDBId"))
           const response = await Axios.post(`/airline/add/flight-schedule`, payload)
-          console.log("YYYYYYYYY");
-          console.log(response);
           navigate('/UpdateFlight');
       } catch(err) {
-            console.log("XXXXXXX");
             console.log(err);
      }
 
