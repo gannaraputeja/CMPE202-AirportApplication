@@ -18,7 +18,7 @@ Team 4
 - Frontend - ReactJS
 - Backend - Java
 - Database – MySQL
-- UI Icons – Material UI and CSS
+- UI Icons – Bootstrap and CSS
 - Postman - REST API client to test the developed APIs
 - Deployment - Amazon Web Services (AWS)
 
