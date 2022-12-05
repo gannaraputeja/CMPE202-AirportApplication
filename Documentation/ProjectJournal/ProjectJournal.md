@@ -1,6 +1,6 @@
 # Project Journal
 
-## Sprint 1:
+## Week 1:
 
 #### Raviteja Gannarapu
 
@@ -22,12 +22,39 @@
 
 #### Venkata Narasimha Sai Prudhvi
 
-<li>What tasks did I work on / complete? - Understanding the Project Scope and requirements. Setting up google task sheet.</li>
+<li>What tasks did I work on / complete? - Requirement Analysis. </li>
 <li>What am I planning to work on next? – Exploring tech stack, project architecture and components best suited for the application</li>
 <li>What tasks are blocked waiting on another team member? - No Blockers</li>
 
 
-## Sprint 2:
+## Week 2:
+
+#### Raviteja Gannarapu
+
+<li> What tasks did I work on / complete? - Deciding on the technologies to be implemented and architecture design for database</li>
+<li> What am I planning to work on next? -  Explored React and NodeJs and Java Spring Boot, created a sample react application to understand its working. Created first version of database design for the airport application </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers</li>
+
+#### Jaya Prakash Reddy Pachika
+
+<li>What tasks did I work on / complete? - Deciding on the technologies to be implemented,architecture design and possible backend APIs Request/Response document</li>
+<li>What am I planning to work on next? -  Explored React and NodeJs. Created first version of Request and Response of Backend APIs.</li>
+<li> What tasks are blocked waiting on another team member? - No Blockers</li>
+
+#### Dasaradh Gutta
+
+<li>What tasks did I work on / complete? - Deciding on the technologies to be implemented and exploring the possible components that we would use  in our application architecture</li>
+<li>What am I planning to work on next? - Set up the frontend working environment using ReactJS and pushed the changes to the github main branch. Also setup the NodeJS backend working environment and pushed the changes to github.</li>
+<li>What tasks are blocked waiting on another team member? - No Blockers</li>
+
+#### Venkata Narasimha Sai Prudhvi
+
+<li>What tasks did I work on / complete? - Exploring tech stack, project architecture and components best suited for the application</li>
+<li>What am I planning to work on next? – Working on the first draft of UI wireframes, setting up sprintsheet.</li>
+<li>What tasks are blocked waiting on another team member? - No Blockers</li>
+
+
+## Week 3:
 
 #### Raviteja Gannarapu
 
@@ -53,8 +80,34 @@
 <li>What am I planning to work on next? - Explore UI libraries best suited for our app and design UI wireframes</li>
 <li>What tasks are blocked waiting on another team member? - No Blockers</li>
 
+## Week 4:
 
-## Sprint 3:
+#### Raviteja Gannarapu
+
+<li> What tasks did I work on / complete? - Entity-Relationship diagram for the application </li>
+<li> What am I planning to work on next? - Created the Entity-Relationship diagram for the application. The Er diagram has been reviewed by the team.  </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Jaya Prakash Reddy Pachika
+
+<li>What tasks did I work on / complete? - Class Diagram for the application</li>
+<li>What am I planning to work on next? -  Created the first version of the architecture diagram and was reviewed by the team mates. Made some changes based on their suggestions and created the final version.</li>
+<li> What tasks are blocked waiting on another team member? - No Blockers</li>
+
+#### Dasaradh Gutta
+
+<li>What tasks did I work on / complete? - Design the architecture diagram of our application</li>
+<li>What am I planning to work on next? - Start working on my assigned tasks - I will be creating the backend for login and signup backend APIs </li>
+<li>What tasks are blocked waiting on another team member? - No Blockers</li>
+
+#### Venkata Narasimha Sai Prudhvi
+
+<li>What tasks did I work on / complete? - Explore UI libraries best suited for our app and design UI wireframes</li>
+<li>What am I planning to work on next? - UI wireframe design and component division</li>
+<li>What tasks are blocked waiting on another team member? - No Blockers</li>
+
+
+## Week 5:
 
 #### Raviteja Gannarapu
 
@@ -65,7 +118,7 @@
 #### Jaya Prakash Reddy Pachika
 
 <li>What tasks did I work on / complete? - Created the first version of the architecture diagram and was reviewed by the team mates. Made some changes based on their suggestions and created the final version.</li>
-<li>What am I planning to work on next? - We have discussed all the available components in the scrum call and divided the the components among ourselves. I am planning to start working on my assigned component from next week</li>
+<li>What am I planning to work on next? - We have discussed all the available components in the scrum call and divided the components among ourselves. I am planning to start working on my assigned component from next week</li>
 <li>What tasks are blocked waiting on another team member? - No Blockers </li>
 
 #### Dasaradh Gutta
@@ -80,7 +133,35 @@
 <li> What am I planning to work on next? - Backend project setup and to start working on my component - Airline Flight Schedules Feature </li>
 <li> What tasks are blocked waiting on another team member? - No Blockers </li>
 
-## Sprint 4:
+
+## Week 6:
+
+#### Raviteja Gannarapu
+
+<li> What tasks did I work on / complete? - Start working on my assigned tasks - I will be creating the backend API for retrieving Flight Arrivals and Departures and Gate Assignments. </li>
+<li> What am I planning to work on next? - Created the backend API for retrieving Flight Arrivals and Departures and Gate Assignments.  </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Jaya Prakash Reddy Pachika
+
+<li>What tasks did I work on / complete? - We have discussed all the available components in the scrum call and divided the components among ourselves. I am planning to start working on my assigned component from next week</li>
+<li>What am I planning to work on next? - Created the backend APIs for Enable or Disable one or more Gates for maintenance.</li>
+<li>What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Dasaradh Gutta
+
+<li> What tasks did I work on / complete? - Start working on my assigned tasks - I will be creating the backend for login and signup backend APIs </li>
+<li> What am I planning to work on next? - Developed Backend APIs for Login and Signup with error handling edge cases </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Venkata Narasimha Sai Prudhvi
+
+<li> What tasks did I work on / complete? - Backend project setup and to start working on my component - Airline Flight Schedules Feature </li>
+<li> What am I planning to work on next? - Backend Project and Assign Baggage Carousel number for Arriving Flights, and API for Assigning Baggage Carousel number. </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+
+## Week 7:
 
 #### Raviteja Gannarapu
 
@@ -106,11 +187,39 @@
 <li> What am I planning to work on next? - Start with UI components and APIs to Baggage Claim Assignment.</li>
 <li> What tasks are blocked waiting on another team member? - No Blockers </li>
 
-## Sprint 5:
+
+## Week 8:
 
 #### Raviteja Gannarapu
 
-<li> What tasks did I work on / complete? - Created the frontend componnent to Add or Update the Schedule of Flights of the relevant Airline to that Airport. </li>
+<li> What tasks did I work on / complete? - I will be creating the frontend for retrieving Flight Arrivals and Departures and Gate Assignments this week. </li>
+<li> What am I planning to work on next? - Created the frontend component to Add or Update the Schedule of Flights of the relevant Airline to that Airport. </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Jaya Prakash Reddy Pachika
+
+<li>What tasks did I work on / complete? - I will be working on the frontend part of the Enable or Disable one or more Gates for maintenance.</li>
+<li>What am I planning to work on next? - Created the frontend component of the Enable or Disable one or more Gates for maintenance. </li>
+<li>What tasks are blocked waiting on another team member? - No blockers</li>
+
+#### Dasaradh Gutta
+
+<li> What tasks did I work on / complete? - Start working on my assigned tasks - I will be creating the frontend screens for login, signup and integrate with the backend APIs </li>
+<li> What am I planning to work on next? - Created the frontend screens for login,signup and integrated the backend APIs.  </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Venkata Narasimha Sai Prudhvi
+
+<li> What tasks did I work on / complete? - Start with UI components and APIs to Baggage Claim Assignment.</li>
+<li> What am I planning to work on next? - Integration, deployment and documentation. </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+
+## Week 9:
+
+#### Raviteja Gannarapu
+
+<li> What tasks did I work on / complete? - Created the frontend component to Add or Update the Schedule of Flights of the relevant Airline to that Airport. </li>
 <li> What am I planning to work on next? - I will be creating the backend for searching flight arrivals and departures this week. </li>
 <li> What tasks are blocked waiting on another team member? - No Blockers </li>
 
@@ -132,28 +241,84 @@
 <li> What am I planning to work on next? - Integration, deployment and documentation. </li>
 <li> What tasks are blocked waiting on another team member? - No Blockers </li>
 
-## Sprint 6:
+
+## Week 10:
 
 #### Raviteja Gannarapu
 
-<li> What tasks did I work on / complete? - Created the backend for searching flight arrivals and departures, And worked on Component's look and feel, and feature validations. </li>
-<li> What am I planning to work on next? - End of sprint. </li>
+<li> What tasks did I work on / complete? - I will be creating the backend for searching flight arrivals and departures this week. </li>
+<li> What am I planning to work on next? - Created the backend for searching flight arrivals and departures, And worked on Component's look and feel, and feature validations. </li>
 <li> What tasks are blocked waiting on another team member? - No Blockers </li>
 
 #### Jaya Prakash Reddy Pachika
 
-<li> What tasks did I work on / complete? - Integration and documentation for the project.  </li>
-<li> What am I planning to work on next? - End of sprint. </li>
+<li> What tasks did I work on / complete? - Integration and documentation for the project.</li>
+<li> What am I planning to work on next? - Deployment of the project.  </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Dasaradh Gutta
+
+<li> What tasks did I work on / complete? - Integration and documentation for the project. </li>
+<li> What am I planning to work on next? - Worked on Integration and documentation for the project.</li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Venkata Narasimha Sai Prudhvi
+
+<li> What tasks did I work on / complete? - Integration, deployment and documentation. </li>
+<li> What am I planning to work on next? - Worked on Integration, deployment and documentation.</li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+
+## Week 11:
+
+#### Raviteja Gannarapu
+
+<li> What tasks did I work on / complete? - Created the backend for searching flight arrivals and departures, And worked on Component's look and feel, and feature validations. </li>
+<li> What am I planning to work on next? - Testing of the application. </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Jaya Prakash Reddy Pachika
+
+<li> What tasks did I work on / complete? - Deployment of the project.  </li>
+<li> What am I planning to work on next? - Testing of the application. </li>
 <li> What tasks are blocked waiting on another team member? - No Blockers </li>
 
 #### Dasaradh Gutta
 
 <li> What tasks did I work on / complete? - Worked on Integration and documentation for the project.</li>
-<li> What am I planning to work on next? - End of sprint.</li>
+<li> What am I planning to work on next? - Testing of the application.</li>
 <li> What tasks are blocked waiting on another team member? - No Blockers </li>
 
 #### Venkata Narasimha Sai Prudhvi
 
 <li> What tasks did I work on / complete? - Worked on Integration, deployment and documentation.</li>
+<li> What am I planning to work on next? - Testing of the application.</li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+
+## Week 12:
+
+#### Raviteja Gannarapu
+
+<li> What tasks did I work on / complete? - Testing of the application.</li>
+<li> What am I planning to work on next? - End of sprint. </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Jaya Prakash Reddy Pachika
+
+<li> What tasks did I work on / complete? - Testing of the application. </li>
+<li> What am I planning to work on next? - End of sprint. </li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Dasaradh Gutta
+
+<li> What tasks did I work on / complete? - Testing of the application.</li>
 <li> What am I planning to work on next? - End of sprint.</li>
 <li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
+#### Venkata Narasimha Sai Prudhvi
+
+<li> What tasks did I work on / complete? - Testing of the application.</li>
+<li> What am I planning to work on next? - End of sprint.</li>
+<li> What tasks are blocked waiting on another team member? - No Blockers </li>
+
