@@ -76,9 +76,19 @@ https://docs.google.com/spreadsheets/d/1Nh1BdyOhCOOXxJthjkFU8YmAl2eKb8Kg
 
 
 ### Steps to Run Application
-- Clone the entire repository on work machine and run below cmds.
-- Backend npm start
-- Frontend npm start
+- Clone the entire repository on work machine.
+- Navigate to Code/backend directory run below cmd.
+```$ npm install```
+- Navigate to Code/backend directory run below cmd.
+```npm start```
+- Application should be up and running on port 3001.
+```http:{hostname}:3001```
+- Navigate to Code/frontend/src/Pages and update backend server url.
+- Navigate to Code/frontend directory run below cmd.
+```$ npm install```
+- Navigate to Code/frontend directory run below cmd.
+```$ npm start``` 
+
 
 
 
