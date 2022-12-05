@@ -156,7 +156,7 @@
 
 - Build Baggage Gate assignment page using React JS.
 - Fetched aal the data from Gate table in My SQL. Applied CSS to present it in a attractive way.
-- Disscussed about changes with team and TOOK feedback and worked on it.
+- Disscussed about changes with team and took feedback and worked on it.
 
 ## Week 8
 
@@ -177,7 +177,8 @@
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- Worked on Assigning Baggage Carousel functionality in frontend pages.
+- Disscussed about changes with team and took feedback and worked on it.
 
 ## Week 9
 
@@ -198,8 +199,8 @@
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
--
-
+- Worked on Assigning Baggage Carousel functionality for arriving flight in  airport employee pages in frontend pages.
+- Disscussed about changes with team and took feedback and worked on it.
 
 ## Week 10
 
@@ -220,7 +221,9 @@
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- Worked on linking up backend schedule api to frontend pages
+- Worked on Assigning Baggage Carousel functionality for arriving flight in  airport employee pages in frontend pages.
+- Disscussed about changes with team and took feedback and worked on it.
 
 ## Week 11
 
@@ -241,7 +244,9 @@
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- Learned how to perform load balance on an application.
+- Worked on load balance for airport application.
+- Disscussed about changes with team and took feedback and worked on it.
 
 ## Week 12
 
@@ -261,5 +266,7 @@
 
 ### Prudhvi M.V.N.S - Communication, Feedback, Respect, Simplicity, Courage
 
--
+- Dry run on our airport application.
+- worked on last minute changes from frontend.
+- Worked on XP values documentation in Read.me
 
