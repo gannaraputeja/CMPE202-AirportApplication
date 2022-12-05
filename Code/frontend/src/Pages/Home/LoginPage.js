@@ -128,7 +128,7 @@ function LoginPage (){
                                     <div style={{marginTop:'25px'}}>
                                     <label>Select Role</label>
                                     <select class="form-select selectWidth" aria-label="Default select example" onChange={handleRole}>
-                                        <option selected>Select Role 👨‍🏭</option>
+                                        <option selected>Select Role</option>
                                         <option value="1">Airport Employee</option>
                                         <option value="2">Airline Employee</option>
                                     </select>

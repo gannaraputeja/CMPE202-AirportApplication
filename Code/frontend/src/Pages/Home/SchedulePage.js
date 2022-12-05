@@ -95,7 +95,7 @@ const SchedulePage = () => {
         .then((response) =>{
             console.log("Success:",response);
             alert("Successfully Assigned Baggage 👍");
-            getAirportScheduleByHour();
+            getAirportSchedule();
         })
         .catch(err => {
             console.log(err.response);
