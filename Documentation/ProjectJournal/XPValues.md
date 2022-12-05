@@ -3,6 +3,7 @@
 ## Week 1
 
 ### Raviteja Gannarapu - Communication
+<<<<<<< HEAD
 
 - Understanding the requirements and setting up GitHub project
 
@@ -14,6 +15,19 @@
 
 -
 
+=======
+
+-
+
+### Jaya Prakash Reddy Pachika - Communication
+
+-
+
+### Dasaradh Gutta - Communication
+
+-
+
+>>>>>>> a9c3b8e095609e798519f081a7a39f898f0bfcdf
 ### Prudhvi M.V.N.S - Communication
 
 -
